@@ -60,7 +60,7 @@
   }
 
   function faClass(icon) {
-    const brands = ['github', 'linkedin', 'twitter', 'instagram', 'telegram'];
+    const brands = ['github', 'linkedin', 'twitter', 'instagram', 'telegram', 'whatsapp'];
     const prefix = brands.includes(icon) ? 'fa-brands' : 'fa-solid';
     const name = icon === 'envelope' ? 'envelope' : icon === 'phone' ? 'phone' : icon;
     return `${prefix} fa-${name}`;
