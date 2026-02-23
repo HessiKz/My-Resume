@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Hesam Kazemi – Full Stack Developer. Backend & frontend development, Node.js, React, TypeScript." />
+  <title>Hesam Kazemi | Full Stack Developer</title>
+  <!-- Google Fonts: Inter, JetBrains Mono, Vazirmatn (Persian) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Vazirmatn:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            dark: { primary: '#0f1419', secondary: '#1a2332', card: '#1e2a3a' },
+            accent: { DEFAULT: '#2dd4bf', hover: '#5eead4', muted: 'rgba(45, 212, 191, 0.15)' }
+          },
+          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] }
+        }
+      }
+    };
+  </script>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="bg-dark-primary text-gray-100 font-sans antialiased relative">
+  <!-- Interactive wave grid background (canvas) -->
+  <div id="wave-grid-wrap" class="fixed inset-0 z-0 overflow-hidden pointer-events-none" aria-hidden="true">
+    <canvas id="wave-grid-canvas"></canvas>
+  </div>
+  <div id="app-content" class="relative z-10 transition-opacity duration-300 ease-out">
+  <!-- Sticky header -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-dark-primary/90 backdrop-blur border-b border-gray-800">
+    <nav class="max-w-5xl mx-auto px-4 sm:px-6 flex items-center justify-between h-14 sm:h-16">
+      <a href="#hero" class="text-lg font-semibold text-accent hover:text-accent-hover transition">HK</a>
+      <ul class="hidden md:flex items-center gap-6 text-sm text-gray-400">
+        <li><a href="#about" class="nav-link hover:text-white transition" data-i18n="nav.about">درباره من</a></li>
+        <li><a href="#skills" class="nav-link hover:text-white transition" data-i18n="nav.skills">مهارت‌ها</a></li>
+        <li><a href="#experience" class="nav-link hover:text-white transition" data-i18n="nav.experience">سوابق کاری</a></li>
+        <li><a href="#projects" class="nav-link hover:text-white transition" data-i18n="nav.projects">پروژه‌ها</a></li>
+        <li><a href="#education" class="nav-link hover:text-white transition" data-i18n="nav.education">تحصیلات</a></li>
+        <li><a href="#contact" class="nav-link hover:text-white transition" data-i18n="nav.contact">تماس</a></li>
+        <li class="flex items-center gap-1">
+          <a href="#" id="lang-switch-fa" class="lang-link px-2 py-1 rounded text-accent font-medium" aria-label="فارسی">FA</a>
+          <span class="text-gray-600">|</span>
+          <a href="#" id="lang-switch-en" class="lang-link px-2 py-1 rounded text-gray-400 hover:text-white transition" aria-label="English">EN</a>
+        </li>
+      </ul>
+      <button type="button" id="mobile-menu-btn" class="md:hidden p-2 text-gray-400 hover:text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-accent" aria-label="Toggle menu">
+        <i class="fas fa-bars text-xl" aria-hidden="true"></i>
+      </button>
+    </nav>
+    <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 right-0 bg-dark-secondary border-b border-gray-800 py-4 px-4">
+      <ul class="flex flex-col gap-2">
+        <li><a href="#about" class="mobile-nav-link block py-2 text-gray-400 hover:text-white" data-i18n="nav.about">درباره من</a></li>
+        <li><a href="#skills" class="mobile-nav-link block py-2 text-gray-400 hover:text-white" data-i18n="nav.skills">مهارت‌ها</a></li>
+        <li><a href="#experience" class="mobile-nav-link block py-2 text-gray-400 hover:text-white" data-i18n="nav.experience">سوابق کاری</a></li>
+        <li><a href="#projects" class="mobile-nav-link block py-2 text-gray-400 hover:text-white" data-i18n="nav.projects">پروژه‌ها</a></li>
+        <li><a href="#education" class="mobile-nav-link block py-2 text-gray-400 hover:text-white" data-i18n="nav.education">تحصیلات</a></li>
+        <li><a href="#contact" class="mobile-nav-link block py-2 text-gray-400 hover:text-white" data-i18n="nav.contact">تماس</a></li>
+        <li class="flex gap-2 pt-2 border-t border-gray-700 mt-2">
+          <a href="#" id="lang-switch-fa-mobile" class="lang-link text-accent font-medium">FA</a>
+          <a href="#" id="lang-switch-en-mobile" class="lang-link text-gray-400 hover:text-white">EN</a>
+        </li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section id="hero" class="min-h-screen flex flex-col justify-center pt-16 pb-20 px-4 sm:px-6 max-w-5xl mx-auto">
+      <div class="flex flex-col md:flex-row md:items-center md:gap-12 gap-8">
+        <div class="flex-shrink-0">
+          <img src="assets/images/image.jpeg" alt="" class="profile-avatar w-44 h-44 sm:w-56 sm:h-56 rounded-full object-cover object-center text-accent" width="224" height="224" />
+        </div>
+        <div>
+          <p id="hero-status" class="mb-3"></p>
+          <h1 id="hero-name" class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-2">Mohammad Hesam Kazemi</h1>
+          <p id="hero-title" class="text-xl text-gray-400 mb-2">توسعه‌دهنده فول‌استک</p>
+          <p class="text-gray-400 mb-4">
+            <span id="hero-tagline">وب‌اپلیکیشن می‌سازم</span><span class="typing-cursor" aria-hidden="true"></span>
+          </p>
+          <div id="hero-socials" class="flex flex-wrap gap-4 mb-6"></div>
+          <div class="flex flex-wrap gap-3">
+            <a href="#projects" id="hero-view-work" class="btn-primary inline-flex items-center gap-2 px-5 py-2.5 rounded-lg font-medium text-sm">مشاهده کارها</a>
+            <a href="#contact" id="hero-contact-me" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg font-medium text-sm border border-gray-600 text-gray-300 hover:border-accent hover:text-accent transition">تماس با من</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="py-16 sm:py-20 px-4 sm:px-6 max-w-5xl mx-auto">
+      <h2 class="text-2xl sm:text-3xl font-bold text-white mb-6 animate-on-scroll" data-i18n="sections.about">درباره من</h2>
+      <p id="about-text" class="text-gray-400 leading-relaxed max-w-3xl animate-on-scroll"></p>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="py-16 sm:py-20 px-4 sm:px-6 max-w-5xl mx-auto">
+      <h2 class="text-2xl sm:text-3xl font-bold text-white mb-8 animate-on-scroll" data-i18n="sections.skills">مهارت‌ها</h2>
+      <div id="skills-container" class="space-y-8 animate-on-scroll"></div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience" class="py-16 sm:py-20 px-4 sm:px-6 max-w-5xl mx-auto">
+      <h2 class="text-2xl sm:text-3xl font-bold text-white mb-8 animate-on-scroll" data-i18n="sections.experience">سوابق کاری</h2>
+      <div id="experience-container" class="relative pl-6 sm:pl-8 space-y-10 animate-on-scroll">
+        <div class="timeline-line" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <!-- Featured Projects -->
+    <section id="projects" class="py-16 sm:py-20 px-4 sm:px-6 max-w-5xl mx-auto">
+      <h2 class="text-2xl sm:text-3xl font-bold text-white mb-8 animate-on-scroll" data-i18n="sections.projects">پروژه‌های برجسته</h2>
+      <div id="projects-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 animate-on-scroll"></div>
+      <div id="projects-other-container" class="mt-12 animate-on-scroll hidden">
+        <h3 class="text-lg font-semibold text-gray-300 mb-4" data-i18n="sections.otherProjects">سایر پروژه‌ها</h3>
+        <div id="projects-other" class="flex flex-wrap gap-x-4 gap-y-2 text-sm text-gray-400"></div>
+      </div>
+    </section>
+
+    <!-- Education & Certifications -->
+    <section id="education" class="py-16 sm:py-20 px-4 sm:px-6 max-w-5xl mx-auto">
+      <h2 class="text-2xl sm:text-3xl font-bold text-white mb-8 animate-on-scroll" data-i18n="sections.education">تحصیلات و گواهینامه‌ها</h2>
+      <div class="space-y-8 animate-on-scroll">
+        <div id="education-list"></div>
+        <div>
+          <h3 class="text-lg font-semibold text-white mb-4" data-i18n="sections.certificationsTitle">گواهینامه‌ها</h3>
+          <ul id="certifications-list" class="space-y-3"></ul>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold text-white mb-4" data-i18n="sections.languagesTitle">زبان‌ها</h3>
+          <ul id="languages-list" class="space-y-2 text-gray-400"></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-16 sm:py-20 px-4 sm:px-6 max-w-5xl mx-auto">
+      <h2 class="text-2xl sm:text-3xl font-bold text-white mb-8 animate-on-scroll" data-i18n="sections.contact">تماس</h2>
+      <div class="grid md:grid-cols-2 gap-10 animate-on-scroll">
+        <div>
+          <p class="text-gray-400 mb-4" data-i18n="contact.getInTouch">با من در ارتباط باشید یا رزومه را دریافت کنید.</p>
+          <div id="contact-links" class="flex flex-col gap-3 mb-6"></div>
+          <a id="resume-download" href="resume.html" class="btn-primary inline-flex items-center gap-2 px-5 py-2.5 rounded-lg font-medium text-sm" data-i18n="contact.downloadResume">دانلود رزومه</a>
+        </div>
+        <!-- Replace YOUR_FORM_ID with your Formspree form ID (see README) -->
+        <form id="contact-form" class="space-y-4" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <input type="hidden" name="_subject" value="Portfolio contact from Hesam Kazemi" />
+          <div>
+            <label for="contact-name" class="block text-sm font-medium text-gray-300 mb-1" data-i18n="contact.name">نام</label>
+            <input type="text" id="contact-name" name="name" required class="w-full px-4 py-2 rounded-lg" data-i18n-placeholder="contact.namePlaceholder" />
+          </div>
+          <div>
+            <label for="contact-email" class="block text-sm font-medium text-gray-300 mb-1" data-i18n="contact.email">ایمیل</label>
+            <input type="email" id="contact-email" name="email" required class="w-full px-4 py-2 rounded-lg" data-i18n-placeholder="contact.emailPlaceholder" />
+          </div>
+          <div>
+            <label for="contact-message" class="block text-sm font-medium text-gray-300 mb-1" data-i18n="contact.message">پیام</label>
+            <textarea id="contact-message" name="message" rows="4" required class="w-full px-4 py-2 rounded-lg resize-y" data-i18n-placeholder="contact.messagePlaceholder"></textarea>
+          </div>
+          <button type="submit" class="btn-primary px-5 py-2.5 rounded-lg font-medium text-sm" data-i18n="contact.send">ارسال پیام</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-gray-800 py-6 px-4 text-center text-gray-500 text-sm">
+    <p id="footer-text">© <span id="footer-year"></span> Hesam Kazemi. Built with HTML, CSS & JavaScript.</p>
+  </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

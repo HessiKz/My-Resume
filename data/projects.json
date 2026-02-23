@@ -1,0 +1,63 @@
+{
+  "featured": [
+    {
+      "title": "BitniTex Architecture Viewer",
+      "title_fa": "نمایشگر معماری BitniTex",
+      "description": "Interactive React-based architecture diagram viewer for ArnitEx backend: zoom, pan, node details, multiple views (controllers, services, DB schema). Mermaid, Vite.",
+      "description_fa": "نمایشگر تعاملی نمودار معماری بک‌اند ArnitEx با زوم، پن، جزئیات نود و چند نمای مختلف. Mermaid، Vite.",
+      "technologies": ["React", "Mermaid", "Vite", "NestJS", "TypeORM"],
+      "links": {
+        "github": "https://github.com/HessiKz/bitnitex-architecture-viewer",
+        "demo": "https://hessi3700.github.io/bitnitex-architecture-viewer/"
+      },
+      "image": "../assets/images/Bitnitex.png"
+    },
+    {
+      "title": "GIG-find",
+      "title_fa": "GIG-find",
+      "description": "Full-stack gig board: post gigs, apply, search & filter, messages between owners and applicants. Express, React, TypeScript, SQLite / Cloudflare D1.",
+      "description_fa": "پلتفرم گیگ: ثبت گیگ، درخواست، جستجو و پیام بین صاحبان و متقاضیان. Express، React، TypeScript، SQLite/D1.",
+      "technologies": ["Node.js", "Express", "React", "TypeScript", "SQLite", "D1"],
+      "links": {
+        "github": "https://github.com/HessiKz/GIG-find",
+        "demo": "https://hessi3700.github.io/GIG-find/"
+      },
+      "image": "../assets/images/GIG-Find.png"
+    },
+    {
+      "title": "Web Scraper + Data Dashboard",
+      "title_fa": "وب‌اسکریپر و داشبورد داده",
+      "description": "Full-stack ETL: scrape listing data (robots.txt compliant), PostgreSQL, Celery, sync to Cloudflare Worker API. React dashboard with Chart.js and D3.js on GitHub Pages.",
+      "description_fa": "پایپلاین ETL کامل: اسکرپ لیستینگ، PostgreSQL، Celery، API روی Cloudflare Worker. داشبورد React با Chart.js و D3.js.",
+      "technologies": ["Python", "React", "TypeScript", "Cloudflare Workers", "D1", "PostgreSQL"],
+      "links": {
+        "github": "https://github.com/HessiKz/Web-Scrapper",
+        "demo": "https://hessi3700.github.io/Web-Scrap/"
+      },
+      "image": "../assets/images/Web-scrap.png"
+    },
+    {
+      "title": "The Beautiful ART",
+      "title_fa": "The Beautiful ART",
+      "description": "Responsive single-page narrative experience with full-screen intro, particle-style fairy trail animation, progressive text reveal, dual letter flows, and ambient audio. Vanilla HTML, CSS, JavaScript.",
+      "description_fa": "تجربه روایی تک‌صفحه‌ای ریسپانسیو با انیمیشن، افشای متن و دو جریان نامه. HTML، CSS و جاوااسکریپت خالص.",
+      "technologies": ["HTML5", "CSS3", "JavaScript", "Google Fonts"],
+      "links": {
+        "github": "https://github.com/HessiKz/the-beautiful-ART",
+        "demo": "https://hessi3700.github.io/the-beautiful-ART/"
+      },
+      "image": "../assets/images/TBART.png"
+    }
+  ],
+  "other": [
+    { "title": "Maznet Config Scraper", "title_fa": "اسکریپر کانفیگ Maznet", "description": "Telegram VLESS scraper → Cloudflare KV + Worker", "links": { "github": "https://github.com/HessiKz/maznet" } },
+    { "title": "SRP-tunnel", "title_fa": "SRP-tunnel", "description": "SSH ranged port tunnel", "links": { "github": "https://github.com/HessiKz/SRP-tunnel" } },
+    { "title": "Corius-Bot", "title_fa": "Corius-Bot", "description": "Discord.js bot", "links": { "github": "https://github.com/HessiKz/Corius-Bot" } },
+    { "title": "hessi-discord-bot", "title_fa": "دیسکورد بات (discord.py)", "description": "Discord bot with discord.py", "links": { "github": "https://github.com/HessiKz/hessi-discord-bot" } },
+    { "title": "nitro-sniper", "title_fa": "nitro-sniper", "description": "Discord nitro/giveaway sniper", "links": { "github": "https://github.com/HessiKz/nitro-sniper" } },
+    { "title": "discord-bot-advanced-warning-system", "title_fa": "سیستم اخطار پیشرفته بات دیسکورد", "description": "Warning system with JSON DB", "links": { "github": "https://github.com/HessiKz/discord-bot-advanced-warning-system" } },
+    { "title": "discord-token-grabber-maker", "title_fa": "discord-token-grabber-maker", "description": "Tool (educational)", "links": { "github": "https://github.com/HessiKz/discord-token-grabber-maker" } },
+    { "title": "Discord-MusicBot", "title_fa": "دیسکورد موزیک بات", "description": "Music bot, Spotify/YouTube, web dashboard", "links": { "github": "https://github.com/HessiKz/Discord-MusicBot" } },
+    { "title": "BetterDiscordStuff", "title_fa": "BetterDiscordStuff", "description": "BD plugins & themes", "links": { "github": "https://github.com/HessiKz/BetterDiscordStuff" } }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "nav": {
+    "about": "درباره من",
+    "skills": "مهارت‌ها",
+    "experience": "سوابق کاری",
+    "projects": "پروژه‌ها",
+    "education": "تحصیلات",
+    "contact": "تماس"
+  },
+  "hero": {
+    "viewWork": "مشاهده پروژه‌ها",
+    "contactMe": "تماس با من"
+  },
+  "sections": {
+    "about": "درباره من",
+    "skills": "مهارت‌ها",
+    "experience": "سوابق کاری",
+    "projects": "پروژه‌های منتخب",
+    "otherProjects": "سایر پروژه‌ها",
+    "education": "تحصیلات و گواهینامه‌ها",
+    "contact": "تماس",
+    "educationTitle": "تحصیلات",
+    "certificationsTitle": "گواهینامه‌ها",
+    "languagesTitle": "زبان‌ها"
+  },
+  "contact": {
+    "getInTouch": "برای ارتباط یا دریافت رزومه از راه‌های زیر استفاده کنید.",
+    "downloadResume": "دانلود رزومه",
+    "name": "نام",
+    "email": "ایمیل",
+    "message": "پیام",
+    "namePlaceholder": "نام شما",
+    "emailPlaceholder": "آدرس ایمیل",
+    "messagePlaceholder": "متن پیام",
+    "send": "ارسال پیام"
+  },
+  "footer": "© {year} حسام کاظمی. طراحی با HTML، CSS و JavaScript.",
+  "project": {
+    "github": "گیت‌هاب",
+    "demo": "دمو",
+    "linksPlaceholder": "لینک‌ها در فایل data/projects.json قرار دارد."
+  },
+  "typingPhrases": [
+    "طراحی وب و اپلیکیشن",
+    "توسعه بک‌اند و API",
+    "کار با React و TypeScript"
+  ]
+}

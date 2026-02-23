@@ -1,0 +1,201 @@
+{
+  "personal": {
+    "name": "Mohammad Hesam Kazemi",
+    "name_fa": "محمد حسام کاظمی",
+    "shortName": "Hesam Kazemi",
+    "shortName_fa": "حسام کاظمی",
+    "title": "Full Stack Developer",
+    "title_fa": "توسعه‌دهنده فول‌استک",
+    "email": "hessi.kz@gmail.com",
+    "phone": "+98 999 138 5438",
+    "phoneRaw": "09991385438",
+    "location": "Tehran, Iran",
+    "location_fa": "تهران",
+    "availability": "Open to freelance",
+    "availability_fa": "آماده همکاری در پروژه‌های فریلنس"
+  },
+  "about": "Full Stack Developer with over two years of experience designing, implementing, and delivering user-centric software solutions. Specialized in backend development with Node.js, NestJS, and Python (Django/Flask), and frontend with React and TypeScript. Experienced in managing projects for international clients through freelance platforms and currently leading backend development for a cryptocurrency exchange (ArnitEx). Passionate about clean code, best practices, and modern web technologies. Also experienced in network security (Xray, Starlink setup) and teaching Node.js/Express.",
+  "about_fa": "توسعه‌دهنده فول‌استک با بیش از دو سال تجربه در طراحی و پیاده‌سازی راه‌حل‌های نرم‌افزاری کاربرمحور. تخصص در بک‌اند با Node.js، NestJS و پایتون (Django/Flask) و فرانت‌اند با React و TypeScript. تجربه مدیریت پروژه برای مشتریان بین‌المللی از طریق پلتفرم‌های فریلنس و در حال حاضر سرپرستی توسعه بک‌اند صرافی ارز دیجیتال (ArnitEx). علاقه‌مند به کد تمیز، بهترین روش‌ها و فناوری‌های وب. تجربه در امنیت شبکه (Xray، راه‌اندازی Starlink) و تدریس Node.js/Express.",
+  "skills": {
+    "Backend": [
+      {"name": "Node.js/Express", "level": "Advanced"},
+      {"name": "NestJS", "level": "Advanced"},
+      {"name": "Python/Django", "level": "Advanced"},
+      {"name": "Flask", "level": "Intermediate"},
+      {"name": "REST API", "level": "Advanced"},
+      {"name": "TypeORM", "level": "Intermediate"}
+    ],
+    "Frontend": [
+      {"name": "React", "level": "Advanced"},
+      {"name": "Vue.js", "level": "Intermediate"},
+      {"name": "TypeScript", "level": "Advanced"},
+      {"name": "JavaScript", "level": "Advanced"},
+      {"name": "HTML5", "level": "Advanced"},
+      {"name": "CSS3", "level": "Advanced"},
+      {"name": "Tailwind", "level": "Advanced"}
+    ],
+    "Database": [
+      {"name": "PostgreSQL", "level": "Intermediate"},
+      {"name": "SQLite", "level": "Intermediate"}
+    ],
+    "DevOps & Tools": [
+      {"name": "Git", "level": "Advanced"},
+      {"name": "Jira", "level": "Intermediate"},
+      {"name": "Agile (Scrum)", "level": "Intermediate"},
+      {"name": "Project Management", "level": "Intermediate"},
+      {"name": "Linux", "level": "Intermediate"},
+      {"name": "Cloudflare Workers", "level": "Intermediate"},
+      {"name": "Railway", "level": "Intermediate"}
+    ],
+    "Network & Security": [
+      {"name": "Starlink setup", "level": "Advanced"},
+      {"name": "Xray", "level": "Advanced"},
+      {"name": "Private Networks", "level": "Intermediate"},
+      {"name": "VPN protocols", "level": "Intermediate"}
+    ],
+    "Other": [
+      {"name": "Mobile dev (Kivy, Kotlin basics)", "level": "Beginner"},
+      {"name": "Technical Writing", "level": "Intermediate"},
+      {"name": "Teaching", "level": "Intermediate"}
+    ]
+  },
+  "skills_fa": {
+    "بک‌اند": [
+      {"name": "Node.js/Express", "level": "پیشرفته"},
+      {"name": "NestJS", "level": "پیشرفته"},
+      {"name": "Python/Django", "level": "پیشرفته"},
+      {"name": "Flask", "level": "متوسط"},
+      {"name": "REST API", "level": "پیشرفته"},
+      {"name": "TypeORM", "level": "متوسط"}
+    ],
+    "فرانت‌اند": [
+      {"name": "React", "level": "پیشرفته"},
+      {"name": "Vue.js", "level": "متوسط"},
+      {"name": "TypeScript", "level": "پیشرفته"},
+      {"name": "JavaScript", "level": "پیشرفته"},
+      {"name": "HTML5", "level": "پیشرفته"},
+      {"name": "CSS3", "level": "پیشرفته"},
+      {"name": "Tailwind", "level": "پیشرفته"}
+    ],
+    "پایگاه داده": [
+      {"name": "PostgreSQL", "level": "متوسط"},
+      {"name": "SQLite", "level": "متوسط"}
+    ],
+    "دواپس و ابزار": [
+      {"name": "Git", "level": "پیشرفته"},
+      {"name": "Jira", "level": "متوسط"},
+      {"name": "Agile (Scrum)", "level": "متوسط"},
+      {"name": "مدیریت پروژه", "level": "متوسط"},
+      {"name": "Linux", "level": "متوسط"},
+      {"name": "Cloudflare Workers", "level": "متوسط"},
+      {"name": "Railway", "level": "متوسط"}
+    ],
+    "شبکه و امنیت": [
+      {"name": "راه‌اندازی Starlink", "level": "پیشرفته"},
+      {"name": "Xray", "level": "پیشرفته"},
+      {"name": "شبکه‌های خصوصی", "level": "متوسط"},
+      {"name": "پروتکل‌های VPN", "level": "متوسط"}
+    ],
+    "سایر": [
+      {"name": "توسعه موبایل (Kivy، مقدمات Kotlin)", "level": "مبتدی"},
+      {"name": "نویسندگی فنی", "level": "متوسط"},
+      {"name": "تدریس", "level": "متوسط"}
+    ]
+  },
+  "experience": [
+    {
+      "role": "Backend Developer & Project Manager",
+      "role_fa": "توسعه‌دهنده بک‌اند و مدیر پروژه",
+      "company": "ArnitEx (Online Crypto Exchange)",
+      "company_fa": "ArnitEx (صرافی آنلاین ارز دیجیتال)",
+      "period": "Nov 2024 – Present",
+      "period_fa": "آبان ۱۴۰۴ – اکنون",
+      "points": [
+        "Developing backend with Node.js and NestJS for a new exchange platform.",
+        "Managing project planning, task distribution, and team coordination.",
+        "Designing and implementing RESTful APIs, optimizing performance and security."
+      ],
+      "points_fa": [
+        "توسعه بک‌اند پلتفرم صرافی با Node.js و NestJS.",
+        "برنامه‌ریزی پروژه، توزیع وظایف و هماهنگی تیم.",
+        "طراحی و پیاده‌سازی RESTful API با توجه به عملکرد و امنیت."
+      ]
+    },
+    {
+      "role": "Backend Developer",
+      "role_fa": "توسعه‌دهنده بک‌اند",
+      "company": "Iziran Company",
+      "company_fa": "شرکت ایزیران",
+      "period": "Feb 2024 – Oct 2024",
+      "period_fa": "بهمن ۱۴۰۳ – مهر ۱۴۰۴",
+      "points": [
+        "Developed backend services with NestJS, Node.js/Express; also worked with Django and Flask.",
+        "Built frontend components with React.js.",
+        "Collaborated in Agile teams using Jira and Git."
+      ],
+      "points_fa": [
+        "توسعه سرویس‌های بک‌اند با NestJS، Node.js/Express، Django و Flask.",
+        "ساخت کامپوننت‌های فرانت‌اند با React.js.",
+        "همکاری در تیم‌های چابک با Jira و Git."
+      ]
+    },
+    {
+      "role": "Freelance Full Stack Developer",
+      "role_fa": "توسعه‌دهنده فول‌استک فریلنس",
+      "company": "Fiverr & other platforms",
+      "company_fa": "Fiverr و سایر پلتفرم‌ها",
+      "period": "Sep 2022 – Sep 2023",
+      "period_fa": "شهریور ۱۴۰۱ – شهریور ۱۴۰۲",
+      "points": [
+        "Delivered web applications for international clients.",
+        "Optimized server performance, installed custom OS on Android/routers.",
+        "Set up Starlink networks with private networking and Xray security."
+      ],
+      "points_fa": [
+        "تحویل اپلیکیشن‌های وب برای مشتریان بین‌المللی.",
+        "بهینه‌سازی عملکرد سرور و نصب OS سفارشی روی اندروید و روتر.",
+        "راه‌اندازی شبکه‌های Starlink با شبکه خصوصی و امنیت Xray."
+      ]
+    },
+    {
+      "role": "Instructor – Node.js/Express",
+      "role_fa": "مدرس Node.js و Express",
+      "company": "Private & Online",
+      "company_fa": "خصوصی و آنلاین",
+      "period": "Oct 2024 – Present",
+      "period_fa": "مهر ۱۴۰۴ – اکنون",
+      "points": [
+        "Teaching backend development, REST APIs, and software architecture to beginners and juniors."
+      ],
+      "points_fa": [
+        "تدریس توسعه بک‌اند، REST API و معماری نرم‌افزار به مبتدی‌ها و جونیورها."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "degree": "B.Sc. in Computer Science (Software Engineering)",
+      "degree_fa": "کارشناسی علوم کامپیوتر (مهندسی نرم‌افزار)",
+      "institution": "Islamic Azad University, Tehran Central Branch",
+      "institution_fa": "دانشگاه آزاد اسلامی، واحد تهران مرکز",
+      "period": "2024 – present",
+      "period_fa": "۱۴۰۳ – اکنون"
+    }
+  ],
+  "languages": [
+    { "name": "English", "name_fa": "انگلیسی", "level": "C1 (Overall)", "level_fa": "C1", "details": "Reading C2, Writing B2, Speaking C1, Listening C2", "details_fa": "خواندن C2، نوشتن B2، صحبت C1، شنیدار C2" },
+    { "name": "Persian", "name_fa": "فارسی", "level": "Native", "level_fa": "زبان مادری" }
+  ],
+  "certifications": [
+    {
+      "name": "Flask Programming Certificate",
+      "name_fa": "گواهینامه برنامه‌نویسی Flask",
+      "issuer": "Programming Hero",
+      "issuer_fa": "Programming Hero",
+      "date": "Apr 2022",
+      "date_fa": "فروردین ۱۴۰۱",
+      "url": "https://www.programming-hero.com/"
+    }
+  ],
+  "resumeUrl": "assets/resume.pdf"
+}

@@ -1,0 +1,48 @@
+{
+  "nav": {
+    "about": "About",
+    "skills": "Skills",
+    "experience": "Experience",
+    "projects": "Projects",
+    "education": "Education",
+    "contact": "Contact"
+  },
+  "hero": {
+    "viewWork": "View my work",
+    "contactMe": "Contact me"
+  },
+  "sections": {
+    "about": "About",
+    "skills": "Skills",
+    "experience": "Experience",
+    "projects": "Featured Projects",
+    "otherProjects": "Other projects",
+    "education": "Education & Certifications",
+    "contact": "Contact",
+    "educationTitle": "Education",
+    "certificationsTitle": "Certifications",
+    "languagesTitle": "Languages"
+  },
+  "contact": {
+    "getInTouch": "Get in touch or download my resume.",
+    "downloadResume": "Download Resume",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "namePlaceholder": "Your name",
+    "emailPlaceholder": "your@email.com",
+    "messagePlaceholder": "Your message",
+    "send": "Send message"
+  },
+  "footer": "© {year} Hesam Kazemi. Built with HTML, CSS & JavaScript.",
+  "project": {
+    "github": "GitHub",
+    "demo": "Live Demo",
+    "linksPlaceholder": "Links in data/projects.json"
+  },
+  "typingPhrases": [
+    "I build web applications",
+    "I ship backend APIs",
+    "I design with React & TypeScript"
+  ]
+}
