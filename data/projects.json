@@ -10,7 +10,7 @@
         "github": "https://github.com/HessiKz/bitnitex-architecture-viewer",
         "demo": "https://hessi3700.github.io/bitnitex-architecture-viewer/"
       },
-      "image": "../assets/images/Bitnitex.png"
+      "image": "assets/images/Bitnitex.png"
     },
     {
       "title": "GIG-find",
@@ -22,7 +22,7 @@
         "github": "https://github.com/HessiKz/GIG-find",
         "demo": "https://hessi3700.github.io/GIG-find/"
       },
-      "image": "../assets/images/GIG-Find.png"
+      "image": "assets/images/GIG-Find.png"
     },
     {
       "title": "Web Scraper + Data Dashboard",
@@ -34,7 +34,7 @@
         "github": "https://github.com/HessiKz/Web-Scrapper",
         "demo": "https://hessi3700.github.io/Web-Scrap/"
       },
-      "image": "../assets/images/Web-scrap.png"
+      "image": "assets/images/Web-scrap.png"
     },
     {
       "title": "The Beautiful ART",
@@ -46,7 +46,7 @@
         "github": "https://github.com/HessiKz/the-beautiful-ART",
         "demo": "https://hessi3700.github.io/the-beautiful-ART/"
       },
-      "image": "../assets/images/TBART.png"
+      "image": "assets/images/TBART.png"
     }
   ],
   "other": [
