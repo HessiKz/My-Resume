@@ -80,8 +80,9 @@
       if (withUrl.length) {
         html += '<p class="contact-line contact-socials">';
         withUrl.forEach(function (s, i) {
+          var label = s.icon === 'bale' ? (isFa ? 'بله @HessiKz' : 'Bale @HessiKz') : s.label;
           if (i) html += ' · ';
-          html += '<a href="' + esc(s.url) + '" target="_blank" rel="noopener">' + esc(s.label) + '</a>';
+          html += '<a href="' + esc(s.url) + '" target="_blank" rel="noopener">' + esc(label) + '</a>';
         });
         html += '</p>';
       }

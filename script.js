@@ -90,6 +90,21 @@
     return `${prefix} fa-${name}`;
   }
 
+  function socialIconMarkup(icon, sizeClass) {
+    if (icon === 'bale') {
+      return `<span class="social-icon-bale ${escapeAttr(sizeClass || 'fa-lg')}" aria-hidden="true"></span>`;
+    }
+    const cls = sizeClass === 'w-5' ? `${faClass(icon)} fa-fw w-5` : `${faClass(icon)} fa-lg`;
+    return `<i class="${cls}" aria-hidden="true"></i>`;
+  }
+
+  function socialLabel(social) {
+    if (social.icon === 'bale') {
+      return currentLang === 'fa' ? 'بله @HessiKz' : 'Bale @HessiKz';
+    }
+    return social.label || '';
+  }
+
   function renderHero(profile) {
     if (!profile?.personal) return;
     const p = profile.personal;
@@ -120,8 +135,8 @@
     if (!container || !Array.isArray(socials)) return;
     const items = socials.filter(s => s.showInHero && s.url && s.url.trim() !== '');
     container.innerHTML = items.map(s => `
-      <a href="${escapeAttr(s.url)}" target="_blank" rel="noopener noreferrer" aria-label="${escapeAttr(s.label)}">
-        <i class="${faClass(s.icon)} fa-lg" aria-hidden="true"></i>
+      <a href="${escapeAttr(s.url)}" target="_blank" rel="noopener noreferrer" aria-label="${escapeAttr(socialLabel(s))}">
+        ${socialIconMarkup(s.icon, 'fa-lg')}
       </a>
     `).join('');
   }
@@ -564,8 +579,8 @@
       const items = socials.filter(s => s.showInContact && s.url && s.url.trim() !== '');
       container.innerHTML = items.map(s => `
         <a href="${escapeAttr(s.url)}" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-gray-400 hover:text-accent transition">
-          <i class="${faClass(s.icon)} w-5" aria-hidden="true"></i>
-          <span>${escapeHtml(s.label)}</span>
+          ${socialIconMarkup(s.icon, 'w-5')}
+          <span>${escapeHtml(socialLabel(s))}</span>
         </a>
       `).join('');
     }
