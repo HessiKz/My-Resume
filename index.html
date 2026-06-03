@@ -31,7 +31,7 @@
 <body class="bg-dark-primary text-gray-100 font-sans antialiased relative overflow-x-hidden">
   <a href="#hero" class="skip-link" data-i18n="a11y.skipToContent">Skip to content</a>
   <div id="grain-overlay" class="grain-overlay" aria-hidden="true"></div>
-  <div id="wave-grid-wrap" class="fixed inset-0 z-0 overflow-hidden pointer-events-none" aria-hidden="true">
+  <div id="wave-grid-wrap" class="wave-grid-wrap" aria-hidden="true">
     <canvas id="wave-grid-canvas"></canvas>
   </div>
 
@@ -77,7 +77,16 @@
 
     <main class="overflow-x-hidden w-full max-w-full">
       <section id="hero">
-        <div class="hero-mesh" aria-hidden="true"></div>
+        <div id="hero-smoke" class="hero-smoke" aria-hidden="true">
+          <div class="smoke-css-layer">
+            <span class="smoke-puff smoke-puff-1"></span>
+            <span class="smoke-puff smoke-puff-2"></span>
+            <span class="smoke-puff smoke-puff-3"></span>
+            <span class="smoke-puff smoke-puff-4"></span>
+            <span class="smoke-puff smoke-puff-5"></span>
+          </div>
+          <canvas id="smoke-canvas"></canvas>
+        </div>
         <div class="hero-inner">
           <div class="hero-grid">
             <div class="flex-shrink-0 mx-auto md:mx-0">

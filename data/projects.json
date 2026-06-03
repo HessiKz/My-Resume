@@ -72,15 +72,21 @@
         "demo": "https://hessi3700.github.io/Web-Scrap/"
       },
       "image": "assets/images/Web-scrap.png"
-    }
-  ],
-  "other": [
+    },
     {
       "title": "The Beautiful ART",
       "title_fa": "The Beautiful ART",
-      "description": "Interactive narrative single-page experience",
-      "links": { "github": "https://github.com/HessiKz/the-beautiful-ART", "demo": "https://hessi3700.github.io/the-beautiful-ART/" }
-    },
+      "description": "Interactive narrative single-page experience with scroll-driven storytelling, custom typography, and motion. Built as a creative front-end showcase.",
+      "description_fa": "تجربه تک‌صفحه‌ای روایی تعاملی با روایت وابسته به اسکرول، تایپوگرافی اختصاصی و موشن. نمونه کار خلاقانه فرانت‌اند.",
+      "technologies": ["HTML5", "CSS3", "JavaScript", "Scroll UX"],
+      "links": {
+        "github": "https://github.com/HessiKz/the-beautiful-ART",
+        "demo": "https://hessi3700.github.io/the-beautiful-ART/"
+      },
+      "image": "assets/images/TBART.png"
+    }
+  ],
+  "other": [
     { "title": "Maznet Config Scraper", "title_fa": "اسکریپر کانفیگ Maznet", "description": "Telegram VLESS scraper to Cloudflare KV + Worker", "links": { "github": "https://github.com/HessiKz/maznet" } },
     { "title": "SRP-tunnel", "title_fa": "SRP-tunnel", "description": "SSH ranged port tunnel", "links": { "github": "https://github.com/HessiKz/SRP-tunnel" } },
     { "title": "Corius-Bot", "title_fa": "Corius-Bot", "description": "Discord.js bot", "links": { "github": "https://github.com/HessiKz/Corius-Bot" } },

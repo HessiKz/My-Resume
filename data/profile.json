@@ -4,8 +4,8 @@
     "name_fa": "محمد حسام کاظمی",
     "shortName": "Hesam Kazemi",
     "shortName_fa": "حسام کاظمی",
-    "title": "Full Stack Developer | Python, TypeScript, AI Platforms",
-    "title_fa": "توسعه‌دهنده فول‌استک | پایتون، TypeScript، پلتفرم‌های AI",
+    "title": "Full Stack Developer (End-to-End) | Python, TypeScript, AI, DevOps",
+    "title_fa": "توسعه‌دهنده فول‌استک (End-to-End) | پایتون، TypeScript، AI، DevOps",
     "email": "hessi.kz@gmail.com",
     "phone": "+98 905 596 1896",
     "phoneRaw": "09055961896",
@@ -17,8 +17,8 @@
     "portfolioLabel": "Portfolio",
     "portfolioLabel_fa": "نمونه‌کار"
   },
-  "about": "Full Stack Developer with 2+ years shipping production systems across fintech, legal-tech, and enterprise AI. I own backend architecture (Python FastAPI, NestJS, Go), modern frontends (React, Next.js, Nuxt), and AI layers (LangChain, LangSmith, workflow orchestration, API gateways). Currently at Ayeh Group building multi-agent platforms and API management; previously helped ArnitEx migrate from Java Spring Boot to NestJS and Go. I deliver end-to-end: from database and workers to RTL dashboards and observability. Strong in clean APIs, performance, security, and mentoring juniors.",
-  "about_fa": "توسعه‌دهنده فول‌استک با بیش از دو سال تجربه در محصولات واقعی فین‌تک، حقوقی و AI سازمانی. مالکیت معماری بک‌اند (FastAPI، NestJS، Go)، فرانت مدرن (React، Next.js، Nuxt) و لایه هوش مصنوعی (LangChain، LangSmith، ارکستراسیون workflow و API gateway). اکنون در گروه آیه روی پلتفرم چند ایجنت و مدیریت API؛ پیش‌تر در ArnitEx در مهاجرت Spring Boot به NestJS و Go. تحویل end-to-end از دیتابیس و worker تا داشبورد RTL و observability. تسلط در API تمیز، عملکرد، امنیت و منتورینگ.",
+  "about": "Full Stack Developer with 2+ years shipping production systems across fintech, legal-tech, and enterprise AI. I own backend architecture (Python FastAPI, NestJS, Go), modern frontends (React, Next.js, Nuxt), AI layers (LangChain, LangSmith, workflows, API gateways), and deployment (CI/CD, Docker, Linux/VPS, Cloudflare, Railway, GitHub Pages). Currently at Ayeh Group building multi-agent platforms and API management; previously helped ArnitEx migrate from Java Spring Boot to NestJS and Go. I deliver end-to-end: schema design, APIs, workers, RTL UIs, observability, and production releases. Strong in clean APIs, performance, security, and mentoring juniors.",
+  "about_fa": "توسعه‌دهنده فول‌استک با بیش از دو سال تجربه در محصولات واقعی فین‌تک، حقوقی و AI سازمانی. مالکیت بک‌اند (FastAPI، NestJS، Go)، فرانت (React، Next.js، Nuxt)، AI (LangChain، LangSmith، workflow، API gateway) و استقرار (CI/CD، Docker، Linux/VPS، Cloudflare، Railway، GitHub Pages). اکنون در گروه آیه؛ پیش‌تر مهاجرت ArnitEx از Spring Boot به NestJS و Go. تحویل end-to-end از دیتابیس و worker تا UI دوزبانه، مانیتورینگ و ریلیز production. تسلط در API، عملکرد، امنیت و منتورینگ.",
   "skills": {
     "AI & LLM": [
       {"name": "LangChain", "level": "Advanced"},
@@ -34,7 +34,10 @@
       {"name": "Go (Golang)", "level": "Intermediate"},
       {"name": "Django / Flask", "level": "Advanced"},
       {"name": "REST & API gateway design", "level": "Advanced"},
+      {"name": "WebSockets / real-time APIs", "level": "Intermediate"},
+      {"name": "Auth (JWT, sessions, API keys)", "level": "Advanced"},
       {"name": "Celery / async workers", "level": "Intermediate"},
+      {"name": "TypeORM / ORM patterns", "level": "Intermediate"},
       {"name": "Spring Boot (migration)", "level": "Intermediate"}
     ],
     "Frontend": [
@@ -44,16 +47,27 @@
       {"name": "TypeScript", "level": "Advanced"},
       {"name": "Vue.js", "level": "Intermediate"},
       {"name": "Tailwind CSS", "level": "Advanced"},
+      {"name": "Vite / modern bundlers", "level": "Intermediate"},
       {"name": "RTL / bilingual UI", "level": "Advanced"}
     ],
-    "Database & Infra": [
+    "Database & Caching": [
       {"name": "PostgreSQL", "level": "Intermediate"},
-      {"name": "SQLite / D1", "level": "Intermediate"},
+      {"name": "SQLite / Cloudflare D1", "level": "Intermediate"},
       {"name": "Redis", "level": "Intermediate"},
-      {"name": "Git", "level": "Advanced"},
-      {"name": "Linux", "level": "Intermediate"},
-      {"name": "Cloudflare Workers", "level": "Intermediate"},
-      {"name": "Railway", "level": "Intermediate"}
+      {"name": "Schema design & migrations", "level": "Intermediate"}
+    ],
+    "DevOps, CI/CD & Deployment": [
+      {"name": "Git / GitHub workflows", "level": "Advanced"},
+      {"name": "GitHub Actions (CI/CD)", "level": "Intermediate"},
+      {"name": "Docker & containerization", "level": "Intermediate"},
+      {"name": "Linux / VPS deployment", "level": "Intermediate"},
+      {"name": "Nginx / reverse proxy", "level": "Intermediate"},
+      {"name": "GitHub Pages & static hosting", "level": "Advanced"},
+      {"name": "Cloudflare Workers / KV", "level": "Intermediate"},
+      {"name": "Railway & PaaS deploys", "level": "Intermediate"},
+      {"name": "Env config & secrets", "level": "Intermediate"},
+      {"name": "Production monitoring & logging", "level": "Intermediate"},
+      {"name": "Zero-downtime releases", "level": "Intermediate"}
     ],
     "Practices": [
       {"name": "Agile (Scrum)", "level": "Intermediate"},
@@ -83,7 +97,10 @@
       {"name": "Go (Golang)", "level": "متوسط"},
       {"name": "Django / Flask", "level": "پیشرفته"},
       {"name": "REST و طراحی API gateway", "level": "پیشرفته"},
+      {"name": "WebSocket / API بلادرنگ", "level": "متوسط"},
+      {"name": "احراز هویت (JWT، session، API key)", "level": "پیشرفته"},
       {"name": "Celery / workerهای ناهمزمان", "level": "متوسط"},
+      {"name": "TypeORM / الگوهای ORM", "level": "متوسط"},
       {"name": "Spring Boot (مهاجرت)", "level": "متوسط"}
     ],
     "فرانت‌اند": [
@@ -93,16 +110,27 @@
       {"name": "TypeScript", "level": "پیشرفته"},
       {"name": "Vue.js", "level": "متوسط"},
       {"name": "Tailwind CSS", "level": "پیشرفته"},
+      {"name": "Vite / bundlerهای مدرن", "level": "متوسط"},
       {"name": "رابط RTL / دو زبانه", "level": "پیشرفته"}
     ],
-    "دیتابیس و زیرساخت": [
+    "دیتابیس و کش": [
       {"name": "PostgreSQL", "level": "متوسط"},
-      {"name": "SQLite / D1", "level": "متوسط"},
+      {"name": "SQLite / Cloudflare D1", "level": "متوسط"},
       {"name": "Redis", "level": "متوسط"},
-      {"name": "Git", "level": "پیشرفته"},
-      {"name": "Linux", "level": "متوسط"},
-      {"name": "Cloudflare Workers", "level": "متوسط"},
-      {"name": "Railway", "level": "متوسط"}
+      {"name": "طراحی schema و migration", "level": "متوسط"}
+    ],
+    "DevOps، CI/CD و استقرار": [
+      {"name": "Git / گردش‌کار GitHub", "level": "پیشرفته"},
+      {"name": "GitHub Actions (CI/CD)", "level": "متوسط"},
+      {"name": "Docker و کانتینر", "level": "متوسط"},
+      {"name": "استقرار Linux / VPS", "level": "متوسط"},
+      {"name": "Nginx / reverse proxy", "level": "متوسط"},
+      {"name": "GitHub Pages و هاست استاتیک", "level": "پیشرفته"},
+      {"name": "Cloudflare Workers / KV", "level": "متوسط"},
+      {"name": "Railway و PaaS", "level": "متوسط"},
+      {"name": "متغیر محیطی و secrets", "level": "متوسط"},
+      {"name": "مانیتورینگ و لاگ production", "level": "متوسط"},
+      {"name": "ریلیز بدون downtime", "level": "متوسط"}
     ],
     "روش‌ها": [
       {"name": "Agile (Scrum)", "level": "متوسط"},
@@ -129,12 +157,14 @@
       "points": [
         "Build and maintain enterprise AI assistant platform (multi-agent workspace, admin, department routing) with React/Next and FastAPI.",
         "Own API management layer: gateway patterns, auth, rate limits, and integration with LangChain/LangSmith for tracing and workflows.",
-        "Ship production features solo end-to-end: RTL dashboards, agent registry, metrics, and backend orchestration."
+        "Ship production features solo end-to-end: RTL dashboards, agent registry, metrics, backend orchestration, and deployments (Docker/Linux, CI/CD, env config).",
+        "Operate releases across VPS and cloud targets with monitoring, logging, and rollback-friendly deploys."
       ],
       "points_fa": [
         "توسعه و نگهداری پلتفرم دستیار هوشمند سازمانی (فضای چند ایجنت، ادمین، مسیریابی دپارتمان) با React/Next و FastAPI.",
         "مسئولیت لایه مدیریت API: gateway، احراز هویت، محدودیت نرخ و یکپارچه‌سازی LangChain/LangSmith برای trace و workflow.",
-        "تحویل فیچرهای production به صورت end-to-end: داشبورد RTL، ثبت ایجنت، متریک‌ها و ارکستراسیون بک‌اند."
+        "تحویل فیچرهای production به صورت end-to-end: داشبورد RTL، ثبت ایجنت، متریک‌ها، ارکستراسیون بک‌اند و استقرار (Docker/Linux، CI/CD، env).",
+        "اجرای ریلیز روی VPS و کلود با مانیتورینگ، لاگ و استقرار قابل rollback."
       ]
     },
     {

@@ -64,8 +64,13 @@ html[data-theme="industrial"] .site-nav-pill {
   border: 2px solid var(--border);
 }
 
-html[data-theme="industrial"] .hero-mesh {
-  background: var(--bg-primary);
+html[data-theme="industrial"] .smoke-puff {
+  background-color: rgba(55, 28, 28, 0.22);
+  filter: blur(52px);
+}
+
+html[data-theme="industrial"] .hero-smoke::before {
+  background-color: var(--bg-primary);
 }
 
 html[data-theme="industrial"] #wave-grid-wrap {

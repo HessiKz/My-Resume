@@ -17,11 +17,15 @@
     'bento-span-2',
     'bento-span-3',
     'bento-span-4',
-    'bento-span-5'
+    'bento-span-5',
+    'bento-span-6'
   ];
   const FEATURED_PROJECT_STORAGE_KEY = 'portfolio-featured-project-index';
+  const PROJECT_ROTATE_MS = 4000;
   let featuredProjectIndex = 0;
   let featuredProjectsList = [];
+  let projectRotateTimerId = null;
+  let projectRotatePaused = false;
 
   let currentLang = 'fa';
   let translations = { en: null, fa: null };
@@ -31,6 +35,8 @@
   let typingTimeout = null;
   let waveRunning = false;
   let waveRafId = null;
+  let smokeRunning = false;
+  let smokeRafId = null;
   let gsapContext = null;
 
   function prefersReducedMotion() {
@@ -280,20 +286,165 @@
     });
   }
 
-  function swapFeaturedProject(clickedIndex) {
+  function stopProjectAutoRotate() {
+    if (projectRotateTimerId != null) {
+      clearInterval(projectRotateTimerId);
+      projectRotateTimerId = null;
+    }
+  }
+
+  function rotateFeaturedProjectNext() {
+    const count = featuredProjectsList.length;
+    if (count < 2) return;
+    swapFeaturedProject((featuredProjectIndex + 1) % count, { persist: false, smooth: true });
+  }
+
+  function captureProjectCardRects(grid) {
+    const rects = new Map();
+    if (!grid) return rects;
+    grid.querySelectorAll('.project-card[data-project-index]').forEach((card) => {
+      rects.set(card.dataset.projectIndex, card.getBoundingClientRect());
+    });
+    return rects;
+  }
+
+  function playProjectFlipAnimation(grid, firstRects) {
+    if (!grid || !firstRects || !firstRects.size || prefersReducedMotion()) return;
+
+    const cards = Array.from(grid.querySelectorAll('.project-card[data-project-index]'));
+    let flippingCount = 0;
+
+    cards.forEach((card) => {
+      const first = firstRects.get(card.dataset.projectIndex);
+      if (!first) return;
+
+      const last = card.getBoundingClientRect();
+      const dx = (first.left + first.width / 2) - (last.left + last.width / 2);
+      const dy = (first.top + first.height / 2) - (last.top + last.height / 2);
+      const sx = first.width / (last.width || 1);
+      const sy = first.height / (last.height || 1);
+
+      if (Math.abs(dx) < 0.5 && Math.abs(dy) < 0.5 && Math.abs(sx - 1) < 0.008 && Math.abs(sy - 1) < 0.008) {
+        return;
+      }
+
+      card.style.transformOrigin = 'center center';
+      card.style.willChange = 'transform';
+      card.style.transform = `translate(${dx}px, ${dy}px) scale(${sx}, ${sy})`;
+      card.classList.add('project-card--flipping');
+      flippingCount += 1;
+    });
+
+    if (!flippingCount) return;
+
+    grid.classList.add('is-auto-swapping');
+
+    const cleanup = () => {
+      grid.classList.remove('is-auto-swapping');
+      cards.forEach((card) => {
+        card.style.transform = '';
+        card.style.transformOrigin = '';
+        card.style.willChange = '';
+        card.classList.remove('project-card--flipping');
+      });
+    };
+
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        cards.forEach((card) => {
+          if (card.classList.contains('project-card--flipping')) {
+            card.style.transform = 'translate(0, 0) scale(1, 1)';
+          }
+        });
+      });
+    });
+
+    let done = 0;
+    const finishOne = () => {
+      done += 1;
+      if (done >= flippingCount) cleanup();
+    };
+
+    window.setTimeout(cleanup, 650);
+
+    cards.forEach((card) => {
+      if (!card.classList.contains('project-card--flipping')) return;
+      card.addEventListener('transitionend', function onEnd(e) {
+        if (e.propertyName !== 'transform') return;
+        card.removeEventListener('transitionend', onEnd);
+        finishOne();
+      });
+    });
+  }
+
+  function startProjectAutoRotate() {
+    stopProjectAutoRotate();
+    if (prefersReducedMotion() || featuredProjectsList.length < 2 || projectRotatePaused) return;
+    projectRotateTimerId = window.setInterval(() => {
+      if (projectRotatePaused || document.hidden) return;
+      rotateFeaturedProjectNext();
+    }, PROJECT_ROTATE_MS);
+  }
+
+  function restartProjectAutoRotate() {
+    stopProjectAutoRotate();
+    startProjectAutoRotate();
+  }
+
+  function initProjectAutoRotate() {
+    const grid = document.getElementById('projects-grid');
+    if (!grid) return;
+
+    if (grid.dataset.rotateBound !== '1') {
+      grid.dataset.rotateBound = '1';
+      grid.addEventListener('mouseenter', () => { projectRotatePaused = true; });
+      grid.addEventListener('mouseleave', () => {
+        projectRotatePaused = false;
+        restartProjectAutoRotate();
+      });
+      grid.addEventListener('focusin', () => { projectRotatePaused = true; });
+      grid.addEventListener('focusout', (e) => {
+        if (!grid.contains(e.relatedTarget)) {
+          projectRotatePaused = false;
+          restartProjectAutoRotate();
+        }
+      });
+      document.addEventListener('visibilitychange', () => {
+        if (!document.hidden) restartProjectAutoRotate();
+      });
+    }
+
+    restartProjectAutoRotate();
+  }
+
+  function swapFeaturedProject(clickedIndex, options) {
+    const opts = options || {};
+    const persist = opts.persist !== false;
+    const smooth = opts.smooth === true;
     if (!featuredProjectsList.length) return;
     if (clickedIndex === featuredProjectIndex) return;
     if (clickedIndex < 0 || clickedIndex >= featuredProjectsList.length) return;
     const grid = document.getElementById('projects-grid');
+    const useFlip = smooth && grid && !prefersReducedMotion();
+    const firstRects = useFlip ? captureProjectCardRects(grid) : null;
+
     featuredProjectIndex = clickedIndex;
-    try {
-      sessionStorage.setItem(FEATURED_PROJECT_STORAGE_KEY, String(featuredProjectIndex));
-    } catch (_) { /* ignore */ }
-    if (grid) {
+    if (persist) {
+      try {
+        sessionStorage.setItem(FEATURED_PROJECT_STORAGE_KEY, String(featuredProjectIndex));
+      } catch (_) { /* ignore */ }
+    }
+
+    renderProjects(featuredProjectsList);
+
+    if (useFlip && firstRects) {
+      playProjectFlipAnimation(grid, firstRects);
+    } else if (!smooth && grid) {
       grid.classList.add('is-swapping');
       window.setTimeout(() => grid.classList.remove('is-swapping'), 420);
     }
-    renderProjects(featuredProjectsList);
+
+    restartProjectAutoRotate();
   }
 
   function initProjectSwap() {
@@ -348,6 +499,7 @@
 
     syncFeaturedProjectVideos(grid);
     initProjectSwap();
+    initProjectAutoRotate();
     initProjectMotion();
   }
 
@@ -754,6 +906,8 @@
     }
 
     const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
     let width = 0;
     let height = 0;
     let mouseX = -1e5;
@@ -872,6 +1026,148 @@
     startWave();
   }
 
+  function initWavySmoke() {
+    const canvas = document.getElementById('smoke-canvas');
+    const wrap = document.getElementById('hero-smoke');
+    if (!canvas || !wrap) return;
+
+    if (prefersReducedMotion()) {
+      wrap.classList.add('is-paused');
+      return;
+    }
+
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    let width = 0;
+    let height = 0;
+    let time = 0;
+    let mouseX = 0.5;
+    let mouseY = 0.5;
+
+    const SMOKE_SPEED = 0.008;
+    const BLUR_PX = 52;
+
+    const puffs = [
+      { nx: 0.18, ny: 0.28, rx: 0.22, ry: 0.18, phase: 0, speed: 0.9, color: 'rgba(42, 72, 78, 0.32)' },
+      { nx: 0.78, ny: 0.22, rx: 0.2, ry: 0.16, phase: 1.4, speed: 0.75, color: 'rgba(34, 52, 62, 0.36)' },
+      { nx: 0.55, ny: 0.62, rx: 0.26, ry: 0.14, phase: 2.1, speed: 0.65, color: 'rgba(48, 82, 86, 0.26)' },
+      { nx: 0.32, ny: 0.72, rx: 0.18, ry: 0.2, phase: 0.6, speed: 0.85, color: 'rgba(38, 58, 66, 0.3)' },
+      { nx: 0.88, ny: 0.58, rx: 0.16, ry: 0.17, phase: 3.2, speed: 0.7, color: 'rgba(52, 88, 90, 0.22)' },
+    ];
+
+    function resize() {
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      width = wrap.clientWidth;
+      height = wrap.clientHeight;
+      canvas.width = Math.floor(width * dpr);
+      canvas.height = Math.floor(height * dpr);
+      canvas.style.width = `${width}px`;
+      canvas.style.height = `${height}px`;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+
+    function drawWavySmokeBlob(cx, cy, rx, ry, wobble) {
+      const segments = 28;
+      ctx.beginPath();
+      for (let i = 0; i <= segments; i++) {
+        const t = (i / segments) * Math.PI * 2;
+        const waveR =
+          1 +
+          Math.sin(t * 3 + wobble) * 0.08 +
+          Math.sin(t * 5 - wobble * 1.3) * 0.05;
+        const px = cx + Math.cos(t) * rx * waveR;
+        const py = cy + Math.sin(t) * ry * waveR;
+        if (i === 0) ctx.moveTo(px, py);
+        else ctx.lineTo(px, py);
+      }
+      ctx.closePath();
+      ctx.fill();
+    }
+
+    function draw() {
+      time += SMOKE_SPEED;
+      ctx.clearRect(0, 0, width, height);
+      ctx.filter = `blur(${BLUR_PX}px)`;
+      ctx.globalCompositeOperation = 'lighter';
+
+      const parallaxX = (mouseX - 0.5) * width * 0.04;
+      const parallaxY = (mouseY - 0.5) * height * 0.04;
+
+      puffs.forEach((puff) => {
+        const wobble = time * puff.speed + puff.phase;
+        const cx =
+          puff.nx * width +
+          Math.sin(wobble) * width * 0.045 +
+          Math.cos(wobble * 0.6) * width * 0.02 +
+          parallaxX;
+        const cy =
+          puff.ny * height +
+          Math.cos(wobble * 0.85) * height * 0.04 +
+          Math.sin(wobble * 0.5) * height * 0.025 +
+          parallaxY;
+        const rx = puff.rx * Math.min(width, height) * (1 + Math.sin(wobble * 1.2) * 0.06);
+        const ry = puff.ry * Math.min(width, height) * (1 + Math.cos(wobble * 0.9) * 0.05);
+
+        ctx.fillStyle = puff.color;
+        drawWavySmokeBlob(cx, cy, rx, ry, wobble);
+      });
+
+      ctx.filter = 'none';
+      ctx.globalCompositeOperation = 'source-over';
+    }
+
+    function loop() {
+      if (!smokeRunning) return;
+      draw();
+      smokeRafId = requestAnimationFrame(loop);
+    }
+
+    function startSmoke() {
+      if (smokeRunning) return;
+      smokeRunning = true;
+      wrap.classList.remove('is-paused');
+      loop();
+    }
+
+    function stopSmoke() {
+      smokeRunning = false;
+      if (smokeRafId) cancelAnimationFrame(smokeRafId);
+      wrap.classList.add('is-paused');
+    }
+
+    function onMouseMove(e) {
+      const w = width || window.innerWidth || 1;
+      const h = height || window.innerHeight || 1;
+      mouseX = e.clientX / w;
+      mouseY = e.clientY / h;
+    }
+
+    const heroSection = document.getElementById('hero');
+
+    resize();
+    window.addEventListener('resize', resize);
+    if (typeof ResizeObserver !== 'undefined') {
+      const ro = new ResizeObserver(resize);
+      ro.observe(wrap);
+      if (heroSection) ro.observe(heroSection);
+    }
+    if (heroSection) {
+      heroSection.addEventListener('mousemove', onMouseMove);
+      heroSection.addEventListener('mouseleave', () => {
+        mouseX = 0.5;
+        mouseY = 0.5;
+      });
+    }
+
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) stopSmoke();
+      else if (!prefersReducedMotion()) startSmoke();
+    });
+
+    startSmoke();
+  }
+
   function renderAll() {
     if (profileData) {
       renderHero(profileData);
@@ -923,6 +1219,7 @@
     initLangSwitcher();
     initThemeToggle();
     initWaveGrid();
+    initWavySmoke();
 
     const lang = currentLang;
     [['lang-switch-fa', 'fa'], ['lang-switch-en', 'en'], ['lang-switch-fa-mobile', 'fa'], ['lang-switch-en-mobile', 'en']].forEach(([id, code]) => {
