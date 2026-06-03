@@ -1,10 +1,47 @@
 {
   "featured": [
     {
+      "title": "Daadno Legal AI Platform",
+      "title_fa": "پلتفرم حقوقی هوشمند دادنو",
+      "description": "Production legal-tech product at daadno.ir: led full backend migration from Go to Python (FastAPI), built centralized API management, AI workflow orchestration, and integration layers for case analysis, document flows, and agent routing.",
+      "description_fa": "محصول حقوقی daadno.ir: مهاجرت کامل بک‌اند از Go به پایتون (FastAPI)، سرویس مدیریت API، ارکستراسیون workflowهای هوش مصنوعی و یکپارچه‌سازی تحلیل پرونده و مسیریابی ایجنت.",
+      "technologies": ["Python", "FastAPI", "Go", "LangChain", "REST APIs", "AI Workflows"],
+      "links": {
+        "github": "",
+        "demo": "https://daadno.ir/"
+      },
+      "image": "assets/images/daadno.png"
+    },
+    {
+      "title": "Aye Intelligent Assistant Platform",
+      "title_fa": "پلتفرم دستیار هوشمند آیه",
+      "description": "End-to-end enterprise AI workspace (Ayeh Group): multi-agent dashboard, department routing, LangChain/LangSmith observability, admin panel, and API gateway. Designed and built solo from UI to backend.",
+      "description_fa": "فضای کاری سازمانی AI در گروه آیه: داشبورد چند ایجنت، مسیریابی دپارتمان‌ها، LangChain/LangSmith، پنل ادمین و API gateway. طراحی و پیاده‌سازی کامل توسط من.",
+      "technologies": ["Next.js", "React", "TypeScript", "FastAPI", "Python", "LangChain", "LangSmith"],
+      "links": {
+        "github": "",
+        "demo": "http://45.138.135.253/"
+      },
+      "image": "assets/images/aye-assistant.png"
+    },
+    {
+      "title": "ArnitEx Crypto Exchange Platform",
+      "title_fa": "پلتفرم صرافی ArnitEx",
+      "description": "Core contributor on exchange rebuild: migrated legacy Java Spring Boot services to NestJS (web APIs, trading flows) and Go (crypto wallets, chain operations). Performance, security, and modular service design.",
+      "description_fa": "همکاری در بازسازی صرافی: مهاجرت سرویس‌های Java Spring Boot به NestJS (API وب و جریان معاملات) و Go (کیف پول و عملیات بلاکچین). تمرکز بر امنیت، عملکرد و معماری ماژولار.",
+      "technologies": ["NestJS", "Go", "TypeScript", "Spring Boot", "Crypto", "REST APIs"],
+      "links": {
+        "github": "",
+        "demo": "https://cdn.dribbble.com/userupload/45012649/file/12aa80f21bbed073fb4cdf79cd4c7dfd.mp4"
+      },
+      "image": "assets/images/arnitex-poster.jpg",
+      "video": "https://cdn.dribbble.com/userupload/45012649/file/12aa80f21bbed073fb4cdf79cd4c7dfd.mp4"
+    },
+    {
       "title": "BitniTex Architecture Viewer",
       "title_fa": "نمایشگر معماری BitniTex",
-      "description": "Interactive React-based architecture diagram viewer for ArnitEx backend: zoom, pan, node details, multiple views (controllers, services, DB schema). Mermaid, Vite.",
-      "description_fa": "نمایشگر تعاملی نمودار معماری بک‌اند ArnitEx با زوم، پن، جزئیات نود و چند نمای مختلف. Mermaid، Vite.",
+      "description": "Interactive React architecture explorer for ArnitEx backend: zoom, pan, node drill-down, multiple views (controllers, services, DB schema). Mermaid, Vite.",
+      "description_fa": "نمایشگر تعاملی معماری بک‌اند ArnitEx با زوم، پن، جزئیات نود و چند نمای مختلف. Mermaid، Vite.",
       "technologies": ["React", "Mermaid", "Vite", "NestJS", "TypeORM"],
       "links": {
         "github": "https://github.com/HessiKz/bitnitex-architecture-viewer",
@@ -15,8 +52,8 @@
     {
       "title": "GIG-find",
       "title_fa": "GIG-find",
-      "description": "Full-stack gig board: post gigs, apply, search & filter, messages between owners and applicants. Express, React, TypeScript, SQLite / Cloudflare D1.",
-      "description_fa": "پلتفرم گیگ: ثبت گیگ، درخواست، جستجو و پیام بین صاحبان و متقاضیان. Express، React، TypeScript، SQLite/D1.",
+      "description": "Full-stack gig marketplace: listings, applications, search and filters, messaging. Express, React, TypeScript, SQLite and Cloudflare D1.",
+      "description_fa": "مارکت‌پلیس گیگ: ثبت آگهی، درخواست، جستجو و پیام‌رسانی. Express، React، TypeScript، SQLite/D1.",
       "technologies": ["Node.js", "Express", "React", "TypeScript", "SQLite", "D1"],
       "links": {
         "github": "https://github.com/HessiKz/GIG-find",
@@ -27,30 +64,24 @@
     {
       "title": "Web Scraper + Data Dashboard",
       "title_fa": "وب‌اسکریپر و داشبورد داده",
-      "description": "Full-stack ETL: scrape listing data (robots.txt compliant), PostgreSQL, Celery, sync to Cloudflare Worker API. React dashboard with Chart.js and D3.js on GitHub Pages.",
-      "description_fa": "پایپلاین ETL کامل: اسکرپ لیستینگ، PostgreSQL، Celery، API روی Cloudflare Worker. داشبورد React با Chart.js و D3.js.",
-      "technologies": ["Python", "React", "TypeScript", "Cloudflare Workers", "D1", "PostgreSQL"],
+      "description": "Full-stack ETL: robots.txt-aware scraping, PostgreSQL, Celery workers, sync to Cloudflare Worker API. React dashboard with Chart.js and D3.js.",
+      "description_fa": "پایپلاین ETL: اسکرپ رعایت robots.txt، PostgreSQL، Celery، API روی Cloudflare Worker. داشبورد React با Chart.js و D3.js.",
+      "technologies": ["Python", "React", "TypeScript", "Celery", "PostgreSQL", "Cloudflare Workers"],
       "links": {
         "github": "https://github.com/HessiKz/Web-Scrapper",
         "demo": "https://hessi3700.github.io/Web-Scrap/"
       },
       "image": "assets/images/Web-scrap.png"
-    },
-    {
-      "title": "The Beautiful ART",
-      "title_fa": "The Beautiful ART",
-      "description": "Responsive single-page narrative experience with full-screen intro, particle-style fairy trail animation, progressive text reveal, dual letter flows, and ambient audio. Vanilla HTML, CSS, JavaScript.",
-      "description_fa": "تجربه روایی تک‌صفحه‌ای ریسپانسیو با انیمیشن، افشای متن و دو جریان نامه. HTML، CSS و جاوااسکریپت خالص.",
-      "technologies": ["HTML5", "CSS3", "JavaScript", "Google Fonts"],
-      "links": {
-        "github": "https://github.com/HessiKz/the-beautiful-ART",
-        "demo": "https://hessi3700.github.io/the-beautiful-ART/"
-      },
-      "image": "assets/images/TBART.png"
     }
   ],
   "other": [
-    { "title": "Maznet Config Scraper", "title_fa": "اسکریپر کانفیگ Maznet", "description": "Telegram VLESS scraper → Cloudflare KV + Worker", "links": { "github": "https://github.com/HessiKz/maznet" } },
+    {
+      "title": "The Beautiful ART",
+      "title_fa": "The Beautiful ART",
+      "description": "Interactive narrative single-page experience",
+      "links": { "github": "https://github.com/HessiKz/the-beautiful-ART", "demo": "https://hessi3700.github.io/the-beautiful-ART/" }
+    },
+    { "title": "Maznet Config Scraper", "title_fa": "اسکریپر کانفیگ Maznet", "description": "Telegram VLESS scraper to Cloudflare KV + Worker", "links": { "github": "https://github.com/HessiKz/maznet" } },
     { "title": "SRP-tunnel", "title_fa": "SRP-tunnel", "description": "SSH ranged port tunnel", "links": { "github": "https://github.com/HessiKz/SRP-tunnel" } },
     { "title": "Corius-Bot", "title_fa": "Corius-Bot", "description": "Discord.js bot", "links": { "github": "https://github.com/HessiKz/Corius-Bot" } },
     { "title": "hessi-discord-bot", "title_fa": "دیسکورد بات (discord.py)", "description": "Discord bot with discord.py", "links": { "github": "https://github.com/HessiKz/hessi-discord-bot" } },
@@ -58,6 +89,6 @@
     { "title": "discord-bot-advanced-warning-system", "title_fa": "سیستم اخطار پیشرفته بات دیسکورد", "description": "Warning system with JSON DB", "links": { "github": "https://github.com/HessiKz/discord-bot-advanced-warning-system" } },
     { "title": "discord-token-grabber-maker", "title_fa": "discord-token-grabber-maker", "description": "Tool (educational)", "links": { "github": "https://github.com/HessiKz/discord-token-grabber-maker" } },
     { "title": "Discord-MusicBot", "title_fa": "دیسکورد موزیک بات", "description": "Music bot, Spotify/YouTube, web dashboard", "links": { "github": "https://github.com/HessiKz/Discord-MusicBot" } },
-    { "title": "BetterDiscordStuff", "title_fa": "BetterDiscordStuff", "description": "BD plugins & themes", "links": { "github": "https://github.com/HessiKz/BetterDiscordStuff" } }
+    { "title": "BetterDiscordStuff", "title_fa": "BetterDiscordStuff", "description": "BD plugins and themes", "links": { "github": "https://github.com/HessiKz/BetterDiscordStuff" } }
   ]
 }

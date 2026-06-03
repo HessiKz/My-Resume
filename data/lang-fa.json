@@ -10,13 +10,22 @@
   },
   "hero": {
     "viewWork": "مشاهده پروژه‌ها",
-    "contactMe": "تماس با من"
+    "downloadResume": "دانلود رزومه"
+  },
+  "a11y": {
+    "skipToContent": "رفتن به محتوا",
+    "langChanged": "زبان به فارسی تغییر کرد"
+  },
+  "theme": {
+    "toggle": "پوسته ترمینال",
+    "toggleOff": "پوسته پیش‌فرض"
   },
   "sections": {
     "about": "درباره من",
     "skills": "مهارت‌ها",
     "experience": "سوابق کاری",
     "projects": "پروژه‌های منتخب",
+    "projectsLead": "نمونه کارهای منتخب با دمو و کد منبع.",
     "otherProjects": "سایر پروژه‌ها",
     "education": "تحصیلات و گواهینامه‌ها",
     "contact": "تماس",
@@ -33,13 +42,18 @@
     "namePlaceholder": "نام شما",
     "emailPlaceholder": "آدرس ایمیل",
     "messagePlaceholder": "متن پیام",
-    "send": "ارسال پیام"
+    "send": "ارسال پیام",
+    "formError": "لطفاً همه فیلدها را پر کنید.",
+    "formSuccess": "برنامه ایمیل برای ارسال پیام باز می‌شود.",
+    "formMailtoHint": "تا زمان تنظیم Formspree، ارسال از طریق ایمیل انجام می‌شود."
   },
   "footer": "© {year} حسام کاظمی. طراحی با HTML، CSS و JavaScript.",
   "project": {
     "github": "گیت‌هاب",
     "demo": "دمو",
-    "linksPlaceholder": "لینک‌ها در فایل data/projects.json قرار دارد."
+    "linksPlaceholder": "لینک‌ها در فایل data/projects.json قرار دارد.",
+    "swapHint": "برای نمایش بزرگ کلیک کنید",
+    "featuredLabel": "پروژهٔ منتخب"
   },
   "typingPhrases": [
     "طراحی وب و اپلیکیشن",

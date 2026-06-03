@@ -4,121 +4,155 @@
     "name_fa": "محمد حسام کاظمی",
     "shortName": "Hesam Kazemi",
     "shortName_fa": "حسام کاظمی",
-    "title": "Full Stack Developer",
-    "title_fa": "توسعه‌دهنده فول‌استک",
+    "title": "Full Stack Developer | Python, TypeScript, AI Platforms",
+    "title_fa": "توسعه‌دهنده فول‌استک | پایتون، TypeScript، پلتفرم‌های AI",
     "email": "hessi.kz@gmail.com",
     "phone": "+98 999 138 5438",
     "phoneRaw": "09991385438",
     "location": "Tehran, Iran",
     "location_fa": "تهران",
-    "availability": "Open to freelance",
-    "availability_fa": "آماده همکاری در پروژه‌های فریلنس"
+    "availability": "Open to full-time, contract, and freelance",
+    "availability_fa": "آماده همکاری تمام‌وقت، قراردادی و فریلنس",
+    "portfolioUrl": "https://hessi3700.github.io/My-Resume/",
+    "portfolioLabel": "Portfolio",
+    "portfolioLabel_fa": "نمونه‌کار"
   },
-  "about": "Full Stack Developer with over two years of experience designing, implementing, and delivering user-centric software solutions. Specialized in backend development with Node.js, NestJS, and Python (Django/Flask), and frontend with React and TypeScript. Experienced in managing projects for international clients through freelance platforms and currently leading backend development for a cryptocurrency exchange (ArnitEx). Passionate about clean code, best practices, and modern web technologies. Also experienced in network security (Xray, Starlink setup) and teaching Node.js/Express.",
-  "about_fa": "توسعه‌دهنده فول‌استک با بیش از دو سال تجربه در طراحی و پیاده‌سازی راه‌حل‌های نرم‌افزاری کاربرمحور. تخصص در بک‌اند با Node.js، NestJS و پایتون (Django/Flask) و فرانت‌اند با React و TypeScript. تجربه مدیریت پروژه برای مشتریان بین‌المللی از طریق پلتفرم‌های فریلنس و در حال حاضر سرپرستی توسعه بک‌اند صرافی ارز دیجیتال (ArnitEx). علاقه‌مند به کد تمیز، بهترین روش‌ها و فناوری‌های وب. تجربه در امنیت شبکه (Xray، راه‌اندازی Starlink) و تدریس Node.js/Express.",
+  "about": "Full Stack Developer with 2+ years shipping production systems across fintech, legal-tech, and enterprise AI. I own backend architecture (Python FastAPI, NestJS, Go), modern frontends (React, Next.js, Nuxt), and AI layers (LangChain, LangSmith, workflow orchestration, API gateways). Currently at Ayeh Group building multi-agent platforms and API management; previously helped ArnitEx migrate from Java Spring Boot to NestJS and Go. I deliver end-to-end: from database and workers to RTL dashboards and observability. Strong in clean APIs, performance, security, and mentoring juniors.",
+  "about_fa": "توسعه‌دهنده فول‌استک با بیش از دو سال تجربه در محصولات واقعی فین‌تک، حقوقی و AI سازمانی. مالکیت معماری بک‌اند (FastAPI، NestJS، Go)، فرانت مدرن (React، Next.js، Nuxt) و لایه هوش مصنوعی (LangChain، LangSmith، ارکستراسیون workflow و API gateway). اکنون در گروه آیه روی پلتفرم چند ایجنت و مدیریت API؛ پیش‌تر در ArnitEx در مهاجرت Spring Boot به NestJS و Go. تحویل end-to-end از دیتابیس و worker تا داشبورد RTL و observability. تسلط در API تمیز، عملکرد، امنیت و منتورینگ.",
   "skills": {
+    "AI & LLM": [
+      {"name": "LangChain", "level": "Advanced"},
+      {"name": "LangSmith", "level": "Advanced"},
+      {"name": "AI workflow orchestration", "level": "Advanced"},
+      {"name": "RAG / agent routing", "level": "Intermediate"},
+      {"name": "OpenAI-compatible APIs", "level": "Advanced"}
+    ],
     "Backend": [
-      {"name": "Node.js/Express", "level": "Advanced"},
+      {"name": "Python / FastAPI", "level": "Advanced"},
+      {"name": "Node.js / Express", "level": "Advanced"},
       {"name": "NestJS", "level": "Advanced"},
-      {"name": "Python/Django", "level": "Advanced"},
-      {"name": "Flask", "level": "Intermediate"},
-      {"name": "REST API", "level": "Advanced"},
-      {"name": "TypeORM", "level": "Intermediate"}
+      {"name": "Go (Golang)", "level": "Intermediate"},
+      {"name": "Django / Flask", "level": "Advanced"},
+      {"name": "REST & API gateway design", "level": "Advanced"},
+      {"name": "Celery / async workers", "level": "Intermediate"},
+      {"name": "Spring Boot (migration)", "level": "Intermediate"}
     ],
     "Frontend": [
       {"name": "React", "level": "Advanced"},
-      {"name": "Vue.js", "level": "Intermediate"},
+      {"name": "Next.js", "level": "Advanced"},
+      {"name": "Nuxt.js", "level": "Intermediate"},
       {"name": "TypeScript", "level": "Advanced"},
-      {"name": "JavaScript", "level": "Advanced"},
-      {"name": "HTML5", "level": "Advanced"},
-      {"name": "CSS3", "level": "Advanced"},
-      {"name": "Tailwind", "level": "Advanced"}
+      {"name": "Vue.js", "level": "Intermediate"},
+      {"name": "Tailwind CSS", "level": "Advanced"},
+      {"name": "RTL / bilingual UI", "level": "Advanced"}
     ],
-    "Database": [
+    "Database & Infra": [
       {"name": "PostgreSQL", "level": "Intermediate"},
-      {"name": "SQLite", "level": "Intermediate"}
-    ],
-    "DevOps & Tools": [
+      {"name": "SQLite / D1", "level": "Intermediate"},
+      {"name": "Redis", "level": "Intermediate"},
       {"name": "Git", "level": "Advanced"},
-      {"name": "Jira", "level": "Intermediate"},
-      {"name": "Agile (Scrum)", "level": "Intermediate"},
-      {"name": "Project Management", "level": "Intermediate"},
       {"name": "Linux", "level": "Intermediate"},
       {"name": "Cloudflare Workers", "level": "Intermediate"},
       {"name": "Railway", "level": "Intermediate"}
     ],
+    "Practices": [
+      {"name": "Agile (Scrum)", "level": "Intermediate"},
+      {"name": "Jira", "level": "Intermediate"},
+      {"name": "Project / team coordination", "level": "Advanced"},
+      {"name": "Technical writing", "level": "Intermediate"},
+      {"name": "Teaching & mentoring", "level": "Intermediate"}
+    ],
     "Network & Security": [
       {"name": "Starlink setup", "level": "Advanced"},
       {"name": "Xray", "level": "Advanced"},
-      {"name": "Private Networks", "level": "Intermediate"},
-      {"name": "VPN protocols", "level": "Intermediate"}
-    ],
-    "Other": [
-      {"name": "Mobile dev (Kivy, Kotlin basics)", "level": "Beginner"},
-      {"name": "Technical Writing", "level": "Intermediate"},
-      {"name": "Teaching", "level": "Intermediate"}
+      {"name": "Private networks / VPN", "level": "Intermediate"}
     ]
   },
   "skills_fa": {
+    "هوش مصنوعی و LLM": [
+      {"name": "LangChain", "level": "پیشرفته"},
+      {"name": "LangSmith", "level": "پیشرفته"},
+      {"name": "ارکستراسیون workflow AI", "level": "پیشرفته"},
+      {"name": "RAG / مسیریابی ایجنت", "level": "متوسط"},
+      {"name": "APIهای سازگار با OpenAI", "level": "پیشرفته"}
+    ],
     "بک‌اند": [
-      {"name": "Node.js/Express", "level": "پیشرفته"},
+      {"name": "Python / FastAPI", "level": "پیشرفته"},
+      {"name": "Node.js / Express", "level": "پیشرفته"},
       {"name": "NestJS", "level": "پیشرفته"},
-      {"name": "Python/Django", "level": "پیشرفته"},
-      {"name": "Flask", "level": "متوسط"},
-      {"name": "REST API", "level": "پیشرفته"},
-      {"name": "TypeORM", "level": "متوسط"}
+      {"name": "Go (Golang)", "level": "متوسط"},
+      {"name": "Django / Flask", "level": "پیشرفته"},
+      {"name": "REST و طراحی API gateway", "level": "پیشرفته"},
+      {"name": "Celery / workerهای ناهمزمان", "level": "متوسط"},
+      {"name": "Spring Boot (مهاجرت)", "level": "متوسط"}
     ],
     "فرانت‌اند": [
       {"name": "React", "level": "پیشرفته"},
-      {"name": "Vue.js", "level": "متوسط"},
+      {"name": "Next.js", "level": "پیشرفته"},
+      {"name": "Nuxt.js", "level": "متوسط"},
       {"name": "TypeScript", "level": "پیشرفته"},
-      {"name": "JavaScript", "level": "پیشرفته"},
-      {"name": "HTML5", "level": "پیشرفته"},
-      {"name": "CSS3", "level": "پیشرفته"},
-      {"name": "Tailwind", "level": "پیشرفته"}
+      {"name": "Vue.js", "level": "متوسط"},
+      {"name": "Tailwind CSS", "level": "پیشرفته"},
+      {"name": "رابط RTL / دو زبانه", "level": "پیشرفته"}
     ],
-    "پایگاه داده": [
+    "دیتابیس و زیرساخت": [
       {"name": "PostgreSQL", "level": "متوسط"},
-      {"name": "SQLite", "level": "متوسط"}
-    ],
-    "دواپس و ابزار": [
+      {"name": "SQLite / D1", "level": "متوسط"},
+      {"name": "Redis", "level": "متوسط"},
       {"name": "Git", "level": "پیشرفته"},
-      {"name": "Jira", "level": "متوسط"},
-      {"name": "Agile (Scrum)", "level": "متوسط"},
-      {"name": "مدیریت پروژه", "level": "متوسط"},
       {"name": "Linux", "level": "متوسط"},
       {"name": "Cloudflare Workers", "level": "متوسط"},
       {"name": "Railway", "level": "متوسط"}
     ],
+    "روش‌ها": [
+      {"name": "Agile (Scrum)", "level": "متوسط"},
+      {"name": "Jira", "level": "متوسط"},
+      {"name": "هماهنگی تیم و پروژه", "level": "پیشرفته"},
+      {"name": "نویسندگی فنی", "level": "متوسط"},
+      {"name": "تدریس و منتورینگ", "level": "متوسط"}
+    ],
     "شبکه و امنیت": [
       {"name": "راه‌اندازی Starlink", "level": "پیشرفته"},
       {"name": "Xray", "level": "پیشرفته"},
-      {"name": "شبکه‌های خصوصی", "level": "متوسط"},
-      {"name": "پروتکل‌های VPN", "level": "متوسط"}
-    ],
-    "سایر": [
-      {"name": "توسعه موبایل (Kivy، مقدمات Kotlin)", "level": "مبتدی"},
-      {"name": "نویسندگی فنی", "level": "متوسط"},
-      {"name": "تدریس", "level": "متوسط"}
+      {"name": "شبکه خصوصی / VPN", "level": "متوسط"}
     ]
   },
   "experience": [
     {
-      "role": "Backend Developer & Project Manager",
-      "role_fa": "توسعه‌دهنده بک‌اند و مدیر پروژه",
-      "company": "ArnitEx (Online Crypto Exchange)",
-      "company_fa": "ArnitEx (صرافی آنلاین ارز دیجیتال)",
-      "period": "Nov 2024 – Present",
-      "period_fa": "آبان ۱۴۰۴ – اکنون",
+      "role": "Full Stack Developer & API Platform Lead",
+      "role_fa": "توسعه‌دهنده فول‌استک و مسئول پلتفرم API",
+      "company": "Ayeh Group (Aye)",
+      "company_fa": "گروه آیه",
+      "companyUrl": "https://ayehgroup.com/",
+      "period": "31 Farvardin 1405 – Present",
+      "period_fa": "۳۱ فروردین ۱۴۰۵ – اکنون",
       "points": [
-        "Developing backend with Node.js and NestJS for a new exchange platform.",
-        "Managing project planning, task distribution, and team coordination.",
-        "Designing and implementing RESTful APIs, optimizing performance and security."
+        "Build and maintain enterprise AI assistant platform (multi-agent workspace, admin, department routing) with React/Next and FastAPI.",
+        "Own API management layer: gateway patterns, auth, rate limits, and integration with LangChain/LangSmith for tracing and workflows.",
+        "Ship production features solo end-to-end: RTL dashboards, agent registry, metrics, and backend orchestration."
       ],
       "points_fa": [
-        "توسعه بک‌اند پلتفرم صرافی با Node.js و NestJS.",
-        "برنامه‌ریزی پروژه، توزیع وظایف و هماهنگی تیم.",
-        "طراحی و پیاده‌سازی RESTful API با توجه به عملکرد و امنیت."
+        "توسعه و نگهداری پلتفرم دستیار هوشمند سازمانی (فضای چند ایجنت، ادمین، مسیریابی دپارتمان) با React/Next و FastAPI.",
+        "مسئولیت لایه مدیریت API: gateway، احراز هویت، محدودیت نرخ و یکپارچه‌سازی LangChain/LangSmith برای trace و workflow.",
+        "تحویل فیچرهای production به صورت end-to-end: داشبورد RTL، ثبت ایجنت، متریک‌ها و ارکستراسیون بک‌اند."
+      ]
+    },
+    {
+      "role": "Backend Developer & Project Manager",
+      "role_fa": "توسعه‌دهنده بک‌اند و مدیر پروژه",
+      "company": "ArnitEx (Crypto Exchange)",
+      "company_fa": "ArnitEx (صرافی ارز دیجیتال)",
+      "period": "Nov 2024 – 31 Farvardin 1405",
+      "period_fa": "آبان ۱۴۰۴ – ۳۱ فروردین ۱۴۰۵",
+      "points": [
+        "Helped migrate legacy Java Spring Boot backend to NestJS (web APIs, trading flows) and Go (crypto wallets, chain operations).",
+        "Designed REST APIs, coordinated sprints, and improved performance and security on the new exchange stack.",
+        "Built internal tooling including interactive architecture viewer for onboarding and system design."
+      ],
+      "points_fa": [
+        "همکاری در مهاجرت بک‌اند Java Spring Boot به NestJS (API وب و معاملات) و Go (کیف پول و بلاکچین).",
+        "طراحی REST API، هماهنگی اسپرینت و بهبود عملکرد و امنیت در استک جدید صرافی.",
+        "ساخت ابزار داخلی از جمله نمایشگر تعاملی معماری برای onboarding و طراحی سیستم."
       ]
     },
     {
@@ -142,19 +176,17 @@
     {
       "role": "Freelance Full Stack Developer",
       "role_fa": "توسعه‌دهنده فول‌استک فریلنس",
-      "company": "Fiverr & other platforms",
-      "company_fa": "Fiverr و سایر پلتفرم‌ها",
+      "company": "Fiverr & international clients",
+      "company_fa": "Fiverr و مشتریان بین‌المللی",
       "period": "Sep 2022 – Sep 2023",
       "period_fa": "شهریور ۱۴۰۱ – شهریور ۱۴۰۲",
       "points": [
-        "Delivered web applications for international clients.",
-        "Optimized server performance, installed custom OS on Android/routers.",
-        "Set up Starlink networks with private networking and Xray security."
+        "Delivered web applications for international clients on tight deadlines.",
+        "Optimized server performance; custom OS on Android/routers; Starlink + private networking (Xray)."
       ],
       "points_fa": [
-        "تحویل اپلیکیشن‌های وب برای مشتریان بین‌المللی.",
-        "بهینه‌سازی عملکرد سرور و نصب OS سفارشی روی اندروید و روتر.",
-        "راه‌اندازی شبکه‌های Starlink با شبکه خصوصی و امنیت Xray."
+        "تحویل اپلیکیشن‌های وب برای مشتریان بین‌المللی با زمان‌بندی فشرده.",
+        "بهینه‌سازی سرور؛ OS سفارشی روی اندروید/روتر؛ Starlink و شبکه خصوصی (Xray)."
       ]
     },
     {

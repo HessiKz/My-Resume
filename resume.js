@@ -68,6 +68,10 @@
     html += '<a href="mailto:' + esc(p.email) + '">' + esc(p.email) + '</a> · ';
     html += '<a href="tel:' + (p.phoneRaw || p.phone || '').replace(/\s/g, '') + '">' + esc(p.phone) + '</a> · ';
     html += esc(location);
+    if (p.portfolioUrl && p.portfolioUrl.trim()) {
+      const portfolioLabel = isFa && p.portfolioLabel_fa ? p.portfolioLabel_fa : (p.portfolioLabel || 'Portfolio');
+      html += ' · <a href="' + esc(p.portfolioUrl.trim()) + '" target="_blank" rel="noopener">' + esc(portfolioLabel) + '</a>';
+    }
     html += '</p>';
     if (socials && Array.isArray(socials) && socials.length) {
       const withUrl = socials.filter(function (s) {
@@ -187,7 +191,7 @@
         const issuer = isFa && c.issuer_fa ? c.issuer_fa : c.issuer;
         const date = isFa && c.date_fa ? c.date_fa : c.date;
         const link = c.url ? '<a href="' + esc(c.url) + '" target="_blank" rel="noopener">' + esc(name) + '</a>' : esc(name);
-        html += '<li>' + link + ' – ' + esc(issuer) + ' (' + esc(date) + ')</li>';
+        html += '<li>' + link + ' - ' + esc(issuer) + ' (' + esc(date) + ')</li>';
       });
       html += '</ul></section>';
     }
@@ -199,7 +203,7 @@
         const name = isFa && l.name_fa ? l.name_fa : l.name;
         const level = isFa && l.level_fa ? l.level_fa : l.level;
         const details = isFa && l.details_fa ? l.details_fa : l.details;
-        html += '<li><strong>' + esc(name) + '</strong>: ' + esc(level) + (details ? ' – ' + esc(details) : '') + '</li>';
+        html += '<li><strong>' + esc(name) + '</strong>: ' + esc(level) + (details ? ' - ' + esc(details) : '') + '</li>';
       });
       html += '</ul></section>';
     }

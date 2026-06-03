@@ -61,17 +61,19 @@ Edit personal info, about text, skills (grouped), experience, education, certifi
 
 ### Contact form (Formspree)
 
-The contact form is set up for [Formspree](https://formspree.io/).
+The contact form is set up for [Formspree](https://formspree.io/). Until you replace `YOUR_FORM_ID`, submitting the form opens your email client with a pre-filled message (using the address in `data/profile.json`).
 
 1. Sign up at Formspree and create a form.
 2. Copy your form ID (e.g. `xyzabcde`).
-3. In `index.html`, find the contact form and set the `action` to your endpoint:
+3. In `index.html`, set the form `action` to `https://formspree.io/f/YOUR_FORM_ID` (replace the placeholder).
 
-   ```html
-   action="https://formspree.io/f/YOUR_FORM_ID"
-   ```
+### Theme
 
-   Replace `YOUR_FORM_ID` with your actual form ID.
+Use the **Terminal theme** button in the footer, or open the site with `?theme=industrial`. Preference is saved in `localStorage`.
+
+### Project images
+
+Place PNGs in `assets/images/` matching paths in `data/projects.json`. A hero layout reference is in `assets/design/`.
 
 ## Resume page
 

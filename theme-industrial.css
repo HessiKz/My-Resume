@@ -1,0 +1,90 @@
+/* Tactical telemetry theme (optional) */
+html[data-theme="industrial"] {
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #121212;
+  --bg-card: #141414;
+  --surface: #0a0a0a;
+  --surface-elevated: #141414;
+  --text-primary: #eaeaea;
+  --text-muted: #9a9a9a;
+  --accent: #e61919;
+  --accent-hover: #ff2a2a;
+  --accent-muted: rgba(230, 25, 25, 0.12);
+  --border: #2a2a2a;
+  --gradient-accent: linear-gradient(135deg, #b91c1c 0%, #e61919 100%);
+  --shadow-glow: none;
+  --font-sans: "IBM Plex Mono", "JetBrains Mono", ui-monospace, monospace;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --radius-card: 0;
+  --radius-bezel: 0;
+}
+
+html[data-theme="industrial"] body {
+  font-family: var(--font-sans);
+  letter-spacing: 0.02em;
+}
+
+html[data-theme="industrial"] .grain-overlay {
+  opacity: 0.06;
+}
+
+html[data-theme="industrial"]::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 39;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.12) 2px,
+    rgba(0, 0, 0, 0.12) 4px
+  );
+}
+
+html[data-theme="industrial"] .site-nav-pill,
+html[data-theme="industrial"] .card-bezel-outer,
+html[data-theme="industrial"] .card-bezel-inner,
+html[data-theme="industrial"] .btn-primary,
+html[data-theme="industrial"] .btn-secondary,
+html[data-theme="industrial"] .profile-avatar,
+html[data-theme="industrial"] input,
+html[data-theme="industrial"] textarea,
+html[data-theme="industrial"] .status-badge,
+html[data-theme="industrial"] .skill-tag,
+html[data-theme="industrial"] .experience-card {
+  border-radius: 0 !important;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+html[data-theme="industrial"] .site-nav-pill {
+  background: var(--bg-secondary);
+  border: 2px solid var(--border);
+}
+
+html[data-theme="industrial"] .hero-mesh {
+  background: var(--bg-primary);
+}
+
+html[data-theme="industrial"] #wave-grid-wrap {
+  opacity: 0.25;
+}
+
+html[data-theme="industrial"] .section-title,
+html[data-theme="industrial"] .hero-name {
+  text-transform: uppercase;
+  letter-spacing: -0.04em;
+}
+
+html[data-theme="industrial"] .hero-title,
+html[data-theme="industrial"] .hero-tagline-wrap {
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+html[data-theme="industrial"] .status-dot {
+  background: #4af626;
+}

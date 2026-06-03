@@ -7,9 +7,21 @@
   const SOCIALS_URL = `${DATA_BASE}/socials.json`;
   const LANG_EN_URL = `${DATA_BASE}/lang-en.json`;
   const LANG_FA_URL = `${DATA_BASE}/lang-fa.json`;
+  const FORMSPREE_PLACEHOLDER = 'YOUR_FORM_ID';
 
   const TYPING_SPEED_MS = 80;
   const TYPING_PAUSE_MS = 2000;
+  const BENTO_SPANS = [
+    'bento-span-0',
+    'bento-span-1',
+    'bento-span-2',
+    'bento-span-3',
+    'bento-span-4',
+    'bento-span-5'
+  ];
+  const FEATURED_PROJECT_STORAGE_KEY = 'portfolio-featured-project-index';
+  let featuredProjectIndex = 0;
+  let featuredProjectsList = [];
 
   let currentLang = 'fa';
   let translations = { en: null, fa: null };
@@ -17,6 +29,13 @@
   let projectsData = null;
   let socialsData = null;
   let typingTimeout = null;
+  let waveRunning = false;
+  let waveRafId = null;
+  let gsapContext = null;
+
+  function prefersReducedMotion() {
+    return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  }
 
   function getLangFromUrl() {
     const params = new URLSearchParams(window.location.search);
@@ -47,7 +66,6 @@
     return Array.isArray(v) ? v : [];
   }
 
-  // --- Data fetching with fallbacks ---
   async function fetchJSON(url) {
     try {
       const res = await fetch(url);
@@ -66,7 +84,6 @@
     return `${prefix} fa-${name}`;
   }
 
-  // --- Render hero from profile ---
   function renderHero(profile) {
     if (!profile?.personal) return;
     const p = profile.personal;
@@ -77,46 +94,50 @@
     const title = currentLang === 'fa' && p.title_fa ? p.title_fa : p.title;
     if (availability && statusEl) {
       statusEl.innerHTML = `<span class="status-badge"><span class="status-dot" aria-hidden="true"></span>${escapeHtml(availability)}</span>`;
-      statusEl.classList.remove('hidden');
     }
     if (nameEl) nameEl.textContent = (currentLang === 'fa' && p.name_fa) ? p.name_fa : (p.name || p.shortName);
     if (titleEl) titleEl.textContent = title || 'Full Stack Developer';
     const viewWork = document.getElementById('hero-view-work');
-    const contactMe = document.getElementById('hero-contact-me');
-    if (viewWork) viewWork.textContent = t('hero.viewWork');
-    if (contactMe) contactMe.textContent = t('hero.contactMe');
+    const resumeBtn = document.getElementById('hero-resume');
+    if (viewWork) {
+      const label = viewWork.querySelector('[data-i18n="hero.viewWork"]') || viewWork.querySelector('span');
+      if (label) label.textContent = t('hero.viewWork');
+    }
+    if (resumeBtn) {
+      const label = resumeBtn.querySelector('[data-i18n="hero.downloadResume"]') || resumeBtn.querySelector('span');
+      if (label) label.textContent = t('hero.downloadResume');
+    }
   }
 
-  // --- Render hero socials from socials.json ---
   function renderHeroSocials(socials) {
     const container = document.getElementById('hero-socials');
     if (!container || !Array.isArray(socials)) return;
     const items = socials.filter(s => s.showInHero && s.url && s.url.trim() !== '');
     container.innerHTML = items.map(s => `
-      <a href="${escapeAttr(s.url)}" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-accent transition" aria-label="${escapeAttr(s.label)}">
+      <a href="${escapeAttr(s.url)}" target="_blank" rel="noopener noreferrer" aria-label="${escapeAttr(s.label)}">
         <i class="${faClass(s.icon)} fa-lg" aria-hidden="true"></i>
       </a>
     `).join('');
   }
 
-  // --- About ---
   function renderAbout(profile) {
     const el = document.getElementById('about-text');
     if (!el) return;
     const text = currentLang === 'fa' && profile?.about_fa ? profile.about_fa : profile?.about;
-    el.textContent = text || 'Full Stack Developer. Backend & frontend development.';
+    el.textContent = text || 'Full Stack Developer. Backend and frontend development.';
   }
 
-  // --- Skills (grouped, with level) ---
   function skillDisplayName(skill) {
     if (skill == null) return '';
     if (typeof skill === 'string') return skill;
     return skill.name || '';
   }
+
   function skillLevel(skill) {
     if (skill == null || typeof skill !== 'object') return '';
     return skill.level || '';
   }
+
   function renderSkills(profile) {
     const container = document.getElementById('skills-container');
     const skills = (currentLang === 'fa' && profile?.skills_fa) ? profile.skills_fa : profile?.skills;
@@ -128,15 +149,14 @@
           ${(Array.isArray(list) ? list : []).map(skill => {
             const name = skillDisplayName(skill);
             const level = skillLevel(skill);
-            const levelHtml = level ? `<span class="skill-level text-accent/80 text-xs font-medium ml-1">(${escapeHtml(level)})</span>` : '';
-            return `<span class="skill-tag px-3 py-1 rounded-full bg-dark-card border border-gray-700 text-gray-300 text-sm inline-flex items-center">${escapeHtml(name)}${levelHtml}</span>`;
+            const levelHtml = level ? `<span class="skill-level text-accent/80 text-xs font-medium ms-1">(${escapeHtml(level)})</span>` : '';
+            return `<span class="skill-tag px-3 py-1 rounded-full bg-dark-card border border-gray-700 text-gray-300 inline-flex items-center">${escapeHtml(name)}${levelHtml}</span>`;
           }).join('')}
         </div>
       </div>
     `).join('');
   }
 
-  // --- Experience timeline ---
   function renderExperience(profile) {
     const container = document.getElementById('experience-container');
     if (!container || !Array.isArray(profile?.experience)) return;
@@ -150,9 +170,9 @@
       return `
       <div class="relative pl-6 sm:pl-8 rtl:pl-0 rtl:pr-6 rtl:sm:pr-8">
         <div class="absolute left-0 rtl:left-auto rtl:right-0 w-3 h-3 rounded-full bg-accent -translate-x-[7px] rtl:translate-x-[7px] top-1.5" aria-hidden="true"></div>
-        <div class="bg-dark-card border border-gray-700 rounded-lg p-4 sm:p-5 card-hover">
+        <div class="experience-card bg-dark-card border border-gray-700 rounded-lg p-4 sm:p-5 card-hover">
           <p class="text-white font-semibold">${escapeHtml(role)}</p>
-          <p class="text-accent text-sm">${escapeHtml(company)} · ${escapeHtml(period)}</p>
+          <p class="text-accent text-sm font-mono">${escapeHtml(company)} · ${escapeHtml(period)}</p>
           <ul class="mt-3 space-y-1 text-gray-400 text-sm list-disc list-inside">
             ${points.map(pt => `<li>${escapeHtml(pt)}</li>`).join('')}
           </ul>
@@ -163,64 +183,194 @@
     container.innerHTML = '<div class="timeline-line" aria-hidden="true"></div>' + itemsHtml;
   }
 
-  // --- Projects grid (featured) ---
+  function getStoredFeaturedIndex(max) {
+    try {
+      const raw = sessionStorage.getItem(FEATURED_PROJECT_STORAGE_KEY);
+      const n = parseInt(raw, 10);
+      if (Number.isFinite(n) && n >= 0 && n < max) return n;
+    } catch (_) { /* ignore */ }
+    return 0;
+  }
+
+  function assignBentoSpans(projectCount, featuredIdx) {
+    const assignments = new Array(projectCount);
+    assignments[featuredIdx] = BENTO_SPANS[0];
+    let slot = 1;
+    for (let i = 0; i < projectCount; i++) {
+      if (i === featuredIdx) continue;
+      assignments[i] = BENTO_SPANS[Math.min(slot, BENTO_SPANS.length - 1)];
+      slot += 1;
+    }
+    return assignments;
+  }
+
+  function buildProjectCard(proj, bentoClass, options) {
+    const opts = options || {};
+    const isFeatured = !!opts.isFeatured;
+    const projectIndex = opts.projectIndex;
+    const placeholderImg = 'assets/images/project-placeholder.svg';
+    const img = (proj.image && proj.image.trim()) ? proj.image : placeholderImg;
+    const video = (proj.video || '').trim();
+    const links = proj.links || {};
+    const github = (links.github || '').trim();
+    const demo = (links.demo || '').trim();
+    const techs = Array.isArray(proj.technologies) ? proj.technologies : [];
+    const isFa = currentLang === 'fa';
+    const title = isFa && proj.title_fa ? proj.title_fa : proj.title;
+    const desc = isFa && proj.description_fa ? proj.description_fa : (proj.description || '');
+    const githubLabel = t('project.github');
+    const demoLabel = t('project.demo');
+    const linksPlaceholder = t('project.linksPlaceholder');
+    const spanClass = bentoClass ? ` ${bentoClass}` : '';
+    const modeClass = isFeatured ? ' project-card--featured' : ' project-card--compact project-card--swap';
+    const swapHint = t('project.swapHint');
+    const featuredLabel = t('project.featuredLabel');
+    const reducedMotion = prefersReducedMotion();
+    const playFeaturedVideo = isFeatured && !reducedMotion;
+    const mediaHtml = video
+      ? `<video src="${escapeAttr(video)}" class="project-card-img" poster="${escapeAttr(img)}" muted loop playsinline${playFeaturedVideo ? ' autoplay' : ''} aria-label=""></video>`
+      : `<img src="${escapeAttr(img)}" alt="" class="project-card-img" width="640" height="400" loading="lazy" decoding="async" />`;
+    const indexAttr = projectIndex != null ? ` data-project-index="${projectIndex}"` : '';
+    const featuredAttr = isFeatured ? ' data-featured="true"' : '';
+    const swapAttrs = isFeatured
+      ? ` aria-label="${escapeAttr(featuredLabel)}"`
+      : ` role="button" tabindex="0" aria-label="${escapeAttr(title)}. ${escapeAttr(swapHint)}"`;
+    const visibleTechs = isFeatured ? techs : techs.slice(0, 4);
+    const extraTechCount = isFeatured ? 0 : Math.max(0, techs.length - visibleTechs.length);
+    const techHtml = visibleTechs.map(tech =>
+      `<span class="px-2 py-0.5 rounded bg-accent-muted text-accent text-xs font-mono">${escapeHtml(tech)}</span>`
+    ).join('') + (extraTechCount
+      ? `<span class="px-2 py-0.5 rounded bg-dark-card border border-gray-700 text-gray-500 text-xs font-mono">+${extraTechCount}</span>`
+      : '');
+    return `
+      <article class="project-card card-hover${spanClass}${modeClass}"${indexAttr}${featuredAttr}${swapAttrs}>
+        <div class="card-bezel-outer">
+          <div class="card-bezel-inner">
+            <div class="project-image-wrap">
+              ${mediaHtml}
+            </div>
+            <div class="p-4 flex-1 flex flex-col">
+              <h3 class="text-lg font-semibold text-white mb-2">${escapeHtml(title)}</h3>
+              <p class="project-card-desc text-gray-400 text-sm flex-1 mb-3 line-clamp-3">${escapeHtml(desc)}</p>
+              <div class="project-card-tech flex flex-wrap gap-2 mb-4">
+                ${techHtml}
+              </div>
+              <div class="flex flex-wrap gap-3">
+                ${github ? `<a href="${escapeAttr(github)}" target="_blank" rel="noopener noreferrer" class="project-link-btn inline-flex items-center gap-2 px-4 py-2 rounded-full border text-sm font-medium transition-colors">${escapeHtml(githubLabel)}</a>` : ''}
+                ${demo ? `<a href="${escapeAttr(demo)}" target="_blank" rel="noopener noreferrer" class="project-link-btn inline-flex items-center gap-2 px-4 py-2 rounded-full border text-sm font-medium transition-colors">${escapeHtml(demoLabel)}</a>` : ''}
+                ${!github && !demo ? `<span class="text-gray-500 text-sm">${escapeHtml(linksPlaceholder)}</span>` : ''}
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+    `;
+  }
+
+  function syncFeaturedProjectVideos(grid) {
+    if (!grid) return;
+    grid.querySelectorAll('video.project-card-img').forEach((video) => {
+      const isFeaturedCard = video.closest('[data-featured="true"]');
+      if (isFeaturedCard && !prefersReducedMotion()) {
+        video.play().catch(() => {});
+      } else {
+        video.pause();
+        video.currentTime = 0;
+      }
+    });
+  }
+
+  function swapFeaturedProject(clickedIndex) {
+    if (!featuredProjectsList.length) return;
+    if (clickedIndex === featuredProjectIndex) return;
+    if (clickedIndex < 0 || clickedIndex >= featuredProjectsList.length) return;
+    const grid = document.getElementById('projects-grid');
+    featuredProjectIndex = clickedIndex;
+    try {
+      sessionStorage.setItem(FEATURED_PROJECT_STORAGE_KEY, String(featuredProjectIndex));
+    } catch (_) { /* ignore */ }
+    if (grid) {
+      grid.classList.add('is-swapping');
+      window.setTimeout(() => grid.classList.remove('is-swapping'), 420);
+    }
+    renderProjects(featuredProjectsList);
+  }
+
+  function initProjectSwap() {
+    const grid = document.getElementById('projects-grid');
+    if (!grid || grid.dataset.swapBound === '1') return;
+    grid.dataset.swapBound = '1';
+
+    function handleSwapActivate(card) {
+      if (!card || card.dataset.featured === 'true') return;
+      const idx = parseInt(card.dataset.projectIndex, 10);
+      if (!Number.isFinite(idx)) return;
+      swapFeaturedProject(idx);
+    }
+
+    grid.addEventListener('click', (e) => {
+      if (e.target.closest('a, button')) return;
+      const card = e.target.closest('.project-card--swap');
+      if (!card) return;
+      e.preventDefault();
+      handleSwapActivate(card);
+    });
+
+    grid.addEventListener('keydown', (e) => {
+      if (e.key !== 'Enter' && e.key !== ' ') return;
+      const card = e.target.closest('.project-card--swap');
+      if (!card) return;
+      e.preventDefault();
+      handleSwapActivate(card);
+    });
+  }
+
   function renderProjects(projects) {
     const grid = document.getElementById('projects-grid');
     if (!grid || !Array.isArray(projects) || projects.length === 0) return;
-    const placeholderImg = 'assets/images/project-placeholder.svg';
-    const isFa = currentLang === 'fa';
-    grid.innerHTML = projects.map(proj => {
-      const img = (proj.image && proj.image.trim()) ? proj.image : placeholderImg;
-      const links = proj.links || {};
-      const github = (links.github || '').trim();
-      const demo = (links.demo || '').trim();
-      const techs = Array.isArray(proj.technologies) ? proj.technologies : [];
-      const title = isFa && proj.title_fa ? proj.title_fa : proj.title;
-      const desc = isFa && proj.description_fa ? proj.description_fa : (proj.description || '');
-      const githubLabel = t('project.github');
-      const demoLabel = t('project.demo');
-      const linksPlaceholder = t('project.linksPlaceholder');
-      return `
-        <article class="bg-dark-card border border-gray-700 rounded-xl overflow-hidden card-hover flex flex-col">
-          <div class="aspect-video bg-dark-secondary flex items-center justify-center text-accent/60">
-            <img src="${escapeAttr(img)}" alt="" class="w-full h-full object-cover" width="400" height="240" loading="lazy" />
-          </div>
-          <div class="p-4 flex-1 flex flex-col">
-            <h3 class="text-lg font-semibold text-white mb-2">${escapeHtml(title)}</h3>
-            <p class="text-gray-400 text-sm flex-1 mb-3">${escapeHtml(desc)}</p>
-            <div class="flex flex-wrap gap-2 mb-4">
-              ${techs.map(tech => `<span class="px-2 py-0.5 rounded bg-accent-muted text-accent text-xs font-mono">${escapeHtml(tech)}</span>`).join('')}
-            </div>
-            <div class="flex flex-wrap gap-3">
-              ${github ? `<a href="${escapeAttr(github)}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-accent text-accent text-sm font-medium hover:bg-accent hover:text-white transition-colors">${escapeHtml(githubLabel)}</a>` : ''}
-              ${demo ? `<a href="${escapeAttr(demo)}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-accent text-accent text-sm font-medium hover:bg-accent hover:text-white transition-colors">${escapeHtml(demoLabel)}</a>` : ''}
-              ${!github && !demo ? `<span class="text-gray-500 text-sm">${escapeHtml(linksPlaceholder)}</span>` : ''}
-            </div>
-          </div>
-        </article>
-      `;
+
+    featuredProjectsList = projects;
+    if (featuredProjectIndex >= projects.length) featuredProjectIndex = 0;
+
+    const assignments = assignBentoSpans(projects.length, featuredProjectIndex);
+    const renderOrder = [
+      featuredProjectIndex,
+      ...projects.map((_, i) => i).filter((i) => i !== featuredProjectIndex)
+    ];
+
+    grid.innerHTML = renderOrder.map((i) => {
+      const isFeatured = i === featuredProjectIndex;
+      return buildProjectCard(projects[i], assignments[i], {
+        isFeatured,
+        projectIndex: i
+      });
     }).join('');
+
+    syncFeaturedProjectVideos(grid);
+    initProjectSwap();
+    initProjectMotion();
   }
 
-  // --- Other projects (compact list) ---
   function renderOtherProjects(other) {
     const container = document.getElementById('projects-other-container');
-    const listEl = document.getElementById('projects-other');
-    if (!container || !listEl || !Array.isArray(other) || other.length === 0) {
+    const gridEl = document.getElementById('projects-other');
+    const scrollEl = document.getElementById('projects-other-scroll');
+    if (!container || !gridEl || !scrollEl || !Array.isArray(other) || other.length === 0) {
       if (container) container.classList.add('hidden');
       return;
     }
     container.classList.remove('hidden');
     const isFa = currentLang === 'fa';
-    listEl.innerHTML = other.map(proj => {
+    const links = other.map(proj => {
       const title = isFa && proj.title_fa ? proj.title_fa : proj.title;
       const github = (proj.links && proj.links.github) ? proj.links.github.trim() : '';
       if (!github) return `<span class="text-gray-500">${escapeHtml(title)}</span>`;
-      return `<a href="${escapeAttr(github)}" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">${escapeHtml(title)}</a>`;
-    }).join('');
+      return `<a href="${escapeAttr(github)}" target="_blank" rel="noopener noreferrer">${escapeHtml(title)}</a>`;
+    });
+    gridEl.innerHTML = links.join('');
+    scrollEl.innerHTML = links.map(html => html.replace('<a ', '<a class="text-accent" ')).join('');
   }
 
-  // --- Education, certifications, languages ---
   function renderEducation(profile) {
     const listEl = document.getElementById('education-list');
     const certEl = document.getElementById('certifications-list');
@@ -234,7 +384,7 @@
         const degree = isFa && ed.degree_fa ? ed.degree_fa : ed.degree;
         const institution = isFa && ed.institution_fa ? ed.institution_fa : ed.institution;
         const period = isFa && ed.period_fa ? ed.period_fa : ed.period;
-        ul.insertAdjacentHTML('beforeend', `<li><strong class="text-gray-300">${escapeHtml(degree)}</strong> – ${escapeHtml(institution)} (${escapeHtml(period)})</li>`);
+        ul.insertAdjacentHTML('beforeend', `<li><strong class="text-gray-300">${escapeHtml(degree)}</strong> - ${escapeHtml(institution)} (${escapeHtml(period)})</li>`);
       });
     }
     if (profile?.certifications?.length && certEl) {
@@ -243,7 +393,7 @@
         const issuer = isFa && c.issuer_fa ? c.issuer_fa : c.issuer;
         const date = isFa && c.date_fa ? c.date_fa : c.date;
         const link = c.url ? `<a href="${escapeAttr(c.url)}" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">${escapeHtml(name)}</a>` : escapeHtml(name);
-        return `<li>${link} – ${escapeHtml(issuer)} (${escapeHtml(date)})</li>`;
+        return `<li>${link} - ${escapeHtml(issuer)} (${escapeHtml(date)})</li>`;
       }).join('');
     }
     if (profile?.languages?.length && langEl) {
@@ -251,12 +401,11 @@
         const name = isFa && l.name_fa ? l.name_fa : l.name;
         const level = isFa && l.level_fa ? l.level_fa : l.level;
         const details = isFa && l.details_fa ? l.details_fa : l.details;
-        return `<li><strong class="text-gray-300">${escapeHtml(name)}</strong>: ${escapeHtml(level)}${details ? ` – ${escapeHtml(details)}` : ''}</li>`;
+        return `<li><strong class="text-gray-300">${escapeHtml(name)}</strong>: ${escapeHtml(level)}${details ? ` - ${escapeHtml(details)}` : ''}</li>`;
       }).join('');
     }
   }
 
-  // --- Contact links and resume ---
   function renderContact(socials, profile) {
     const container = document.getElementById('contact-links');
     if (container && Array.isArray(socials)) {
@@ -272,22 +421,51 @@
     if (resumeLink) resumeLink.href = currentLang === 'en' ? 'resume.html?lang=en' : 'resume.html';
   }
 
-  // --- Formspree: ensure form action is configurable via data or leave placeholder ---
+  function showFormFeedback(message, type) {
+    const el = document.getElementById('form-feedback');
+    if (!el) return;
+    el.textContent = message;
+    el.className = `form-feedback is-visible form-feedback--${type}`;
+  }
+
   function initContactForm() {
     const form = document.getElementById('contact-form');
     if (!form) return;
-    form.addEventListener('submit', function () {
-      // Formspree handles submit; optional: show thank-you message via Formspree redirect or JS
+    const usesPlaceholder = form.action.includes(FORMSPREE_PLACEHOLDER);
+
+    form.addEventListener('submit', async function (e) {
+      const name = form.querySelector('#contact-name')?.value?.trim();
+      const email = form.querySelector('#contact-email')?.value?.trim();
+      const message = form.querySelector('#contact-message')?.value?.trim();
+      if (!name || !email || !message) {
+        e.preventDefault();
+        showFormFeedback(t('contact.formError'), 'error');
+        return;
+      }
+
+      if (usesPlaceholder) {
+        e.preventDefault();
+        const to = profileData?.personal?.email || 'hessi.kz@gmail.com';
+        const subject = encodeURIComponent(`Portfolio: ${name}`);
+        const body = encodeURIComponent(`From: ${name} <${email}>\n\n${message}`);
+        showFormFeedback(t('contact.formSuccess'), 'success');
+        window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
+      }
     });
   }
 
-  // --- Typing effect for hero tagline ---
   function startTypingEffect() {
     if (typingTimeout) clearTimeout(typingTimeout);
     const el = document.getElementById('hero-tagline');
     if (!el) return;
     const phrases = tArray('typingPhrases');
     if (phrases.length === 0) return;
+
+    if (prefersReducedMotion()) {
+      el.textContent = phrases[0];
+      return;
+    }
+
     let phraseIndex = 0;
     function typeNext() {
       const phrase = phrases[phraseIndex % phrases.length];
@@ -316,31 +494,35 @@
     typeNext();
   }
 
-  // --- Mobile menu ---
+  function setMobileMenuOpen(open) {
+    const btn = document.getElementById('mobile-menu-btn');
+    const panel = document.getElementById('mobile-menu-panel');
+    const closeBtn = document.getElementById('mobile-menu-close');
+    if (!panel) return;
+    panel.classList.toggle('is-open', open);
+    panel.setAttribute('aria-hidden', open ? 'false' : 'true');
+    btn?.classList.toggle('is-open', open);
+    btn?.setAttribute('aria-expanded', open ? 'true' : 'false');
+    closeBtn?.classList.toggle('is-open', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  }
+
   function initMobileMenu() {
     const btn = document.getElementById('mobile-menu-btn');
-    const menu = document.getElementById('mobile-menu');
-    const icon = btn?.querySelector('i.fas');
-    if (!btn || !menu) return;
-    btn.addEventListener('click', function () {
-      menu.classList.toggle('hidden');
-      if (icon) {
-        icon.classList.toggle('fa-bars');
-        icon.classList.toggle('fa-times');
-      }
-    });
+    const closeBtn = document.getElementById('mobile-menu-close');
+    const panel = document.getElementById('mobile-menu-panel');
+    if (!btn || !panel) return;
+
+    btn.addEventListener('click', () => setMobileMenuOpen(true));
+    closeBtn?.addEventListener('click', () => setMobileMenuOpen(false));
     document.querySelectorAll('.mobile-nav-link').forEach(link => {
-      link.addEventListener('click', function () {
-        menu.classList.add('hidden');
-        if (icon) {
-          icon.classList.add('fa-bars');
-          icon.classList.remove('fa-times');
-        }
-      });
+      link.addEventListener('click', () => setMobileMenuOpen(false));
+    });
+    panel.addEventListener('click', (e) => {
+      if (e.target === panel) setMobileMenuOpen(false);
     });
   }
 
-  // --- Smooth scroll for nav links ---
   function initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(a => {
       const id = a.getAttribute('href');
@@ -349,13 +531,12 @@
         const target = document.querySelector(id);
         if (target) {
           e.preventDefault();
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          target.scrollIntoView({ behavior: prefersReducedMotion() ? 'auto' : 'smooth', block: 'start' });
         }
       });
     });
   }
 
-  // --- Active section highlighting ---
   function initSectionSpy() {
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-link');
@@ -375,7 +556,6 @@
     sections.forEach(s => observer.observe(s));
   }
 
-  // --- Fade-in on scroll ---
   function initScrollAnimations() {
     const els = document.querySelectorAll('.animate-on-scroll');
     const observer = new IntersectionObserver(
@@ -389,7 +569,42 @@
     els.forEach(el => observer.observe(el));
   }
 
-  // --- Update all UI strings from translations ---
+  function destroyProjectMotion() {
+    if (gsapContext) {
+      gsapContext.revert();
+      gsapContext = null;
+    }
+  }
+
+  function initProjectMotion() {
+    destroyProjectMotion();
+    if (prefersReducedMotion() || typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+
+    gsap.registerPlugin(ScrollTrigger);
+    const grid = document.getElementById('projects-grid');
+    if (!grid) return;
+
+    gsapContext = gsap.context(() => {
+      gsap.utils.toArray('.project-card-img').forEach((img) => {
+        gsap.fromTo(
+          img,
+          { scale: 0.92, opacity: 0.85 },
+          {
+            scale: 1,
+            opacity: 1,
+            ease: 'none',
+            scrollTrigger: {
+              trigger: img,
+              start: 'top 88%',
+              end: 'top 45%',
+              scrub: 0.6,
+            },
+          }
+        );
+      });
+    }, grid);
+  }
+
   function updateUIText() {
     document.querySelectorAll('[data-i18n]').forEach(el => {
       const key = el.getAttribute('data-i18n');
@@ -399,9 +614,9 @@
       const key = el.getAttribute('data-i18n-placeholder');
       if (key) el.placeholder = t(key);
     });
+    updateThemeToggleLabel();
   }
 
-  // --- Footer year (and full footer text for i18n) ---
   function setFooterYear() {
     const footerEl = document.getElementById('footer-text');
     if (footerEl) footerEl.textContent = t('footer').replace('{year}', new Date().getFullYear());
@@ -413,6 +628,7 @@
     div.textContent = s;
     return div.innerHTML;
   }
+
   function escapeAttr(s) {
     if (s == null) return '';
     return String(s)
@@ -423,22 +639,58 @@
       .replace(/>/g, '&gt;');
   }
 
-  // --- Language switcher (smooth transition) ---
+  function getStoredTheme() {
+    const params = new URLSearchParams(window.location.search);
+    return params.get('theme') || localStorage.getItem('portfolio-theme') || 'default';
+  }
+
+  function applyTheme(theme) {
+    const isIndustrial = theme === 'industrial';
+    if (isIndustrial) {
+      document.documentElement.setAttribute('data-theme', 'industrial');
+    } else {
+      document.documentElement.removeAttribute('data-theme');
+    }
+    localStorage.setItem('portfolio-theme', theme);
+    updateThemeToggleLabel();
+  }
+
+  function updateThemeToggleLabel() {
+    const btn = document.getElementById('theme-toggle');
+    if (!btn) return;
+    const isIndustrial = document.documentElement.getAttribute('data-theme') === 'industrial';
+    btn.textContent = isIndustrial ? t('theme.toggleOff') : t('theme.toggle');
+  }
+
+  function initThemeToggle() {
+    applyTheme(getStoredTheme());
+    const btn = document.getElementById('theme-toggle');
+    if (!btn) return;
+    btn.addEventListener('click', () => {
+      const next = document.documentElement.getAttribute('data-theme') === 'industrial' ? 'default' : 'industrial';
+      applyTheme(next);
+      const url = new URL(window.location.href);
+      if (next === 'industrial') url.searchParams.set('theme', 'industrial');
+      else url.searchParams.delete('theme');
+      window.history.replaceState({}, '', url.toString());
+    });
+  }
+
   const LANG_SWITCH_FADE_MS = 280;
 
   function initLangSwitcher() {
     const appContent = document.getElementById('app-content');
+    const langLive = document.getElementById('lang-live');
     let switching = false;
 
     function updateSwitcherActive(lang) {
-      const faLink = document.getElementById('lang-switch-fa');
-      const enLink = document.getElementById('lang-switch-en');
-      const faMobile = document.getElementById('lang-switch-fa-mobile');
-      const enMobile = document.getElementById('lang-switch-en-mobile');
-      if (faLink) { faLink.classList.toggle('text-accent', lang === 'fa'); faLink.classList.toggle('text-gray-400', lang !== 'fa'); }
-      if (enLink) { enLink.classList.toggle('text-accent', lang === 'en'); enLink.classList.toggle('text-gray-400', lang !== 'en'); }
-      if (faMobile) { faMobile.classList.toggle('text-accent', lang === 'fa'); faMobile.classList.toggle('text-gray-400', lang !== 'fa'); }
-      if (enMobile) { enMobile.classList.toggle('text-accent', lang === 'en'); enMobile.classList.toggle('text-gray-400', lang !== 'en'); }
+      [['lang-switch-fa', 'fa'], ['lang-switch-en', 'en'], ['lang-switch-fa-mobile', 'fa'], ['lang-switch-en-mobile', 'en']].forEach(([id, code]) => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        el.classList.toggle('text-accent', lang === code);
+        el.classList.toggle('font-medium', lang === code);
+        el.classList.toggle('text-gray-400', lang !== code);
+      });
     }
 
     function applyLangAndRender(lang) {
@@ -456,12 +708,16 @@
       if (projectsData) {
         const featured = Array.isArray(projectsData) ? projectsData : (projectsData.featured || []);
         const other = Array.isArray(projectsData) ? [] : (projectsData.other || []);
-        if (featured.length) renderProjects(featured);
+        if (featured.length) {
+          if (featuredProjectIndex >= featured.length) featuredProjectIndex = 0;
+          renderProjects(featured);
+        }
         if (other.length) renderOtherProjects(other);
       }
       setFooterYear();
       startTypingEffect();
       updateSwitcherActive(lang);
+      if (langLive) langLive.textContent = translations[lang]?.a11y?.langChanged || '';
     }
 
     function switchTo(lang) {
@@ -487,68 +743,15 @@
     });
   }
 
-  // --- Run all ---
-  async function init() {
-    const [profile, projects, socials, langEn, langFa] = await Promise.all([
-      fetchJSON(PROFILE_URL),
-      fetchJSON(PROJECTS_URL),
-      fetchJSON(SOCIALS_URL),
-      fetchJSON(LANG_EN_URL),
-      fetchJSON(LANG_FA_URL)
-    ]);
-
-    profileData = profile;
-    projectsData = projects;
-    socialsData = socials;
-    translations.en = langEn || {};
-    translations.fa = langFa || {};
-
-    currentLang = getLangFromUrl();
-    setLang(currentLang);
-
-    updateUIText();
-
-    if (profile) {
-      renderHero(profile);
-      renderAbout(profile);
-      renderSkills(profile);
-      renderExperience(profile);
-      renderEducation(profile);
-      renderContact(socials || [], profile);
-    }
-    renderHeroSocials(socials || []);
-    if (projects) {
-      const featured = Array.isArray(projects) ? projects : (projects.featured || []);
-      const other = Array.isArray(projects) ? [] : (projects.other || []);
-      if (featured.length) renderProjects(featured);
-      if (other.length) renderOtherProjects(other);
-    }
-
-    setFooterYear();
-    initMobileMenu();
-    initSmoothScroll();
-    initSectionSpy();
-    initScrollAnimations();
-    initContactForm();
-    initLangSwitcher();
-    startTypingEffect();
-    initWaveGrid();
-
-    const lang = currentLang;
-    const faLink = document.getElementById('lang-switch-fa');
-    const enLink = document.getElementById('lang-switch-en');
-    const faMobile = document.getElementById('lang-switch-fa-mobile');
-    const enMobile = document.getElementById('lang-switch-en-mobile');
-    if (faLink) { faLink.classList.toggle('text-accent', lang === 'fa'); faLink.classList.toggle('text-gray-400', lang !== 'fa'); }
-    if (enLink) { enLink.classList.toggle('text-accent', lang === 'en'); enLink.classList.toggle('text-gray-400', lang !== 'en'); }
-    if (faMobile) { faMobile.classList.toggle('text-accent', lang === 'fa'); faMobile.classList.toggle('text-gray-400', lang !== 'fa'); }
-    if (enMobile) { enMobile.classList.toggle('text-accent', lang === 'en'); enMobile.classList.toggle('text-gray-400', lang !== 'en'); }
-  }
-
-  // --- Interactive wave background: random lines (not a grid) ---
   function initWaveGrid() {
     const canvas = document.getElementById('wave-grid-canvas');
-    if (!canvas) return;
+    const wrap = document.getElementById('wave-grid-wrap');
+    if (!canvas || !wrap) return;
+
+    if (prefersReducedMotion()) {
+      wrap.classList.add('is-paused');
+      return;
+    }
 
     const ctx = canvas.getContext('2d');
     let width = 0;
@@ -564,7 +767,7 @@
     const MOUSE_RADIUS = 200;
     const MOUSE_STRENGTH = 14;
     const LINE_OPACITY = 0.08;
-    const NUM_LINES = 120;
+    const NUM_LINES = 100;
     const MIN_LENGTH = 80;
     const MAX_LENGTH = 280;
     const SEGMENTS_PER_LINE = 24;
@@ -576,9 +779,7 @@
       const dist = Math.sqrt(dx * dx + dy * dy);
       const influence = dist < MOUSE_RADIUS ? (1 - dist / MOUSE_RADIUS) * MOUSE_STRENGTH : 0;
       const angle = Math.atan2(dy, dx);
-      const mx = Math.cos(angle) * influence;
-      const my = Math.sin(angle) * influence;
-      return { x: mx, y: wave + my };
+      return { x: Math.cos(angle) * influence, y: wave + Math.sin(angle) * influence };
     }
 
     function randomBetween(a, b) {
@@ -592,9 +793,12 @@
         const y1 = randomBetween(-50, height + 50);
         const angle = Math.random() * Math.PI * 2;
         const length = randomBetween(MIN_LENGTH, MAX_LENGTH);
-        const x2 = x1 + Math.cos(angle) * length;
-        const y2 = y1 + Math.sin(angle) * length;
-        lines.push({ x1, y1, x2, y2 });
+        lines.push({
+          x1,
+          y1,
+          x2: x1 + Math.cos(angle) * length,
+          y2: y1 + Math.sin(angle) * length,
+        });
       }
     }
 
@@ -609,14 +813,13 @@
       ctx.clearRect(0, 0, width, height);
       ctx.strokeStyle = `rgba(45, 212, 191, ${LINE_OPACITY})`;
       ctx.lineWidth = 1;
-
       for (let i = 0; i < lines.length; i++) {
         const { x1, y1, x2, y2 } = lines[i];
         ctx.beginPath();
         for (let s = 0; s <= SEGMENTS_PER_LINE; s++) {
-          const t = s / SEGMENTS_PER_LINE;
-          const x = x1 + (x2 - x1) * t;
-          const y = y1 + (y2 - y1) * t;
+          const tSeg = s / SEGMENTS_PER_LINE;
+          const x = x1 + (x2 - x1) * tSeg;
+          const y = y1 + (y2 - y1) * tSeg;
           const o = getWaveOffset(x, y);
           const px = x + o.x;
           const py = y + o.y;
@@ -628,8 +831,22 @@
     }
 
     function loop() {
+      if (!waveRunning) return;
       draw();
-      requestAnimationFrame(loop);
+      waveRafId = requestAnimationFrame(loop);
+    }
+
+    function startWave() {
+      if (waveRunning) return;
+      waveRunning = true;
+      wrap.classList.remove('is-paused');
+      loop();
+    }
+
+    function stopWave() {
+      waveRunning = false;
+      if (waveRafId) cancelAnimationFrame(waveRafId);
+      wrap.classList.add('is-paused');
     }
 
     function onMouseMove(e) {
@@ -646,7 +863,75 @@
     window.addEventListener('resize', resize);
     document.addEventListener('mousemove', onMouseMove);
     document.addEventListener('mouseleave', onMouseLeave);
-    loop();
+
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) stopWave();
+      else if (!prefersReducedMotion()) startWave();
+    });
+
+    startWave();
+  }
+
+  function renderAll() {
+    if (profileData) {
+      renderHero(profileData);
+      renderAbout(profileData);
+      renderSkills(profileData);
+      renderExperience(profileData);
+      renderEducation(profileData);
+      renderContact(socialsData || [], profileData);
+    }
+    renderHeroSocials(socialsData || []);
+    if (projectsData) {
+      const featured = Array.isArray(projectsData) ? projectsData : (projectsData.featured || []);
+      const other = Array.isArray(projectsData) ? [] : (projectsData.other || []);
+      if (featured.length) {
+        featuredProjectIndex = getStoredFeaturedIndex(featured.length);
+        renderProjects(featured);
+      }
+      if (other.length) renderOtherProjects(other);
+    }
+    setFooterYear();
+    startTypingEffect();
+  }
+
+  async function init() {
+    const [profile, projects, socials, langEn, langFa] = await Promise.all([
+      fetchJSON(PROFILE_URL),
+      fetchJSON(PROJECTS_URL),
+      fetchJSON(SOCIALS_URL),
+      fetchJSON(LANG_EN_URL),
+      fetchJSON(LANG_FA_URL),
+    ]);
+
+    profileData = profile;
+    projectsData = projects;
+    socialsData = socials;
+    translations.en = langEn || {};
+    translations.fa = langFa || {};
+
+    currentLang = getLangFromUrl();
+    setLang(currentLang);
+    updateUIText();
+    renderAll();
+
+    initMobileMenu();
+    initSmoothScroll();
+    initSectionSpy();
+    initScrollAnimations();
+    initContactForm();
+    initLangSwitcher();
+    initThemeToggle();
+    initWaveGrid();
+
+    const lang = currentLang;
+    [['lang-switch-fa', 'fa'], ['lang-switch-en', 'en'], ['lang-switch-fa-mobile', 'fa'], ['lang-switch-en-mobile', 'en']].forEach(([id, code]) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.classList.toggle('text-accent', lang === code);
+      el.classList.toggle('font-medium', lang === code);
+      el.classList.toggle('text-gray-400', lang !== code);
+    });
   }
 
   init();

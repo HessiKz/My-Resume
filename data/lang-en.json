@@ -10,13 +10,22 @@
   },
   "hero": {
     "viewWork": "View my work",
-    "contactMe": "Contact me"
+    "downloadResume": "Download resume"
+  },
+  "a11y": {
+    "skipToContent": "Skip to content",
+    "langChanged": "Language changed to English"
+  },
+  "theme": {
+    "toggle": "Terminal theme",
+    "toggleOff": "Default theme"
   },
   "sections": {
     "about": "About",
     "skills": "Skills",
     "experience": "Experience",
-    "projects": "Featured Projects",
+    "projects": "Featured projects",
+    "projectsLead": "Selected builds with demos and source code.",
     "otherProjects": "Other projects",
     "education": "Education & Certifications",
     "contact": "Contact",
@@ -33,13 +42,18 @@
     "namePlaceholder": "Your name",
     "emailPlaceholder": "your@email.com",
     "messagePlaceholder": "Your message",
-    "send": "Send message"
+    "send": "Send message",
+    "formError": "Please fill in all fields.",
+    "formSuccess": "Opening your email client to send the message.",
+    "formMailtoHint": "Form uses email until Formspree is configured."
   },
   "footer": "© {year} Hesam Kazemi. Built with HTML, CSS & JavaScript.",
   "project": {
     "github": "GitHub",
     "demo": "Live Demo",
-    "linksPlaceholder": "Links in data/projects.json"
+    "linksPlaceholder": "Links in data/projects.json",
+    "swapHint": "Click to feature this project",
+    "featuredLabel": "Featured project"
   },
   "typingPhrases": [
     "I build web applications",
