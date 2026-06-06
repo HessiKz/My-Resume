@@ -238,12 +238,19 @@
     container.innerHTML = lang === 'fa' ? '<p class="text-center text-gray-500">در حال بارگذاری…</p>' : '<p class="text-center text-gray-500">Loading…</p>';
 
     try {
-      const [profileRes, projectsRes, socialsRes] = await Promise.all([fetch(PROFILE_URL), fetch(PROJECTS_URL), fetch(SOCIALS_URL)]);
+      const [profileRes, projectsRes, socialsRes] = await Promise.all([
+        fetch(PROFILE_URL, { cache: 'no-store' }),
+        fetch(PROJECTS_URL, { cache: 'no-store' }),
+        fetch(SOCIALS_URL, { cache: 'no-store' }),
+      ]);
       const profile = profileRes.ok ? await profileRes.json() : null;
       const projects = projectsRes.ok ? await projectsRes.json() : null;
       const socials = socialsRes.ok ? await socialsRes.json() : null;
       if (profile) {
         container.innerHTML = render(profile, projects, socials, lang);
+        if (new URLSearchParams(window.location.search).get('print') === '1') {
+          window.setTimeout(function () { window.print(); }, 400);
+        }
       } else {
         container.innerHTML = lang === 'fa' ? '<p class="text-center text-gray-500">امکان بارگذاری رزومه وجود نداشت.</p>' : '<p class="text-center text-gray-500">Could not load resume.</p>';
       }

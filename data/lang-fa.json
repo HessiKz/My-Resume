@@ -10,7 +10,7 @@
   },
   "hero": {
     "viewWork": "مشاهده پروژه‌ها",
-    "downloadResume": "دانلود رزومه"
+    "downloadResume": "مشاهده رزومه"
   },
   "a11y": {
     "skipToContent": "رفتن به محتوا",
@@ -35,7 +35,9 @@
   },
   "contact": {
     "getInTouch": "برای ارتباط یا دریافت رزومه از راه‌های زیر استفاده کنید.",
-    "downloadResume": "دانلود رزومه",
+    "viewResume": "مشاهده رزومه",
+    "saveAsPdf": "ذخیره PDF",
+    "downloadResume": "مشاهده رزومه",
     "name": "نام",
     "email": "ایمیل",
     "message": "پیام",

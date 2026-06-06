@@ -104,7 +104,7 @@
                   <span data-i18n="hero.viewWork">View my work</span>
                   <span class="btn-icon-wrap" aria-hidden="true"><i class="fas fa-arrow-down text-xs"></i></span>
                 </a>
-                <a href="#resume-download-section" id="hero-resume" class="btn-secondary group">
+                <a href="resume.html" id="hero-resume" class="btn-secondary group">
                   <span data-i18n="hero.downloadResume">Download resume</span>
                   <span class="btn-icon-wrap" aria-hidden="true"><i class="fas fa-file-pdf text-xs"></i></span>
                 </a>
@@ -168,7 +168,10 @@
           <div id="resume-download-section">
             <p class="text-gray-400 mb-4" data-i18n="contact.getInTouch">Get in touch or download my resume.</p>
             <div id="contact-links" class="flex flex-col gap-3 mb-6"></div>
-            <a id="resume-download" href="resume.html" class="btn-primary inline-flex" data-i18n="contact.downloadResume">Download resume</a>
+            <div class="flex flex-wrap gap-3">
+              <a id="resume-download" href="resume.html" class="btn-primary inline-flex" data-i18n="contact.viewResume">View resume</a>
+              <a id="resume-save-pdf" href="resume.html?print=1" class="btn-secondary inline-flex" data-i18n="contact.saveAsPdf">Save as PDF</a>
+            </div>
           </div>
           <form id="contact-form" class="space-y-4" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
             <input type="hidden" name="_subject" value="Portfolio contact from Hesam Kazemi" />

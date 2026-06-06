@@ -13,7 +13,7 @@
     "location_fa": "تهران",
     "availability": "Open to full-time, contract, and freelance",
     "availability_fa": "آماده همکاری تمام‌وقت، قراردادی و فریلنس",
-    "portfolioUrl": "https://hessi3700.github.io/My-Resume/",
+    "portfolioUrl": "https://hessikz.github.io/My-Resume/",
     "portfolioLabel": "Portfolio",
     "portfolioLabel_fa": "نمونه‌کار"
   },
@@ -259,5 +259,5 @@
       "url": "https://www.programming-hero.com/"
     }
   ],
-  "resumeUrl": "assets/resume.pdf"
+  "resumeUrl": "resume.html"
 }

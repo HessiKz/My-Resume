@@ -74,7 +74,7 @@
 
   async function fetchJSON(url) {
     try {
-      const res = await fetch(url);
+      const res = await fetch(url, { cache: 'no-store' });
       if (!res.ok) throw new Error(res.statusText);
       return await res.json();
     } catch (e) {
@@ -105,6 +105,27 @@
     return social.label || '';
   }
 
+  function buildResumeUrl(lang, print) {
+    const params = new URLSearchParams();
+    if (lang === 'en') params.set('lang', 'en');
+    if (print) params.set('print', '1');
+    const query = params.toString();
+    return query ? `resume.html?${query}` : 'resume.html';
+  }
+
+  function updateResumeLinks(lang) {
+    const viewEl = document.getElementById('resume-download');
+    const pdfEl = document.getElementById('resume-save-pdf');
+    if (viewEl) {
+      viewEl.href = buildResumeUrl(lang, false);
+      if (viewEl.hasAttribute('data-i18n')) viewEl.textContent = t('contact.viewResume');
+    }
+    if (pdfEl) {
+      pdfEl.href = buildResumeUrl(lang, true);
+      if (pdfEl.hasAttribute('data-i18n')) pdfEl.textContent = t('contact.saveAsPdf');
+    }
+  }
+
   function renderHero(profile) {
     if (!profile?.personal) return;
     const p = profile.personal;
@@ -127,7 +148,9 @@
     if (resumeBtn) {
       const label = resumeBtn.querySelector('[data-i18n="hero.downloadResume"]') || resumeBtn.querySelector('span');
       if (label) label.textContent = t('hero.downloadResume');
+      resumeBtn.href = buildResumeUrl(currentLang, false);
     }
+    updateResumeLinks(currentLang);
   }
 
   function renderHeroSocials(socials) {
@@ -584,8 +607,7 @@
         </a>
       `).join('');
     }
-    const resumeLink = document.getElementById('resume-download');
-    if (resumeLink) resumeLink.href = currentLang === 'en' ? 'resume.html?lang=en' : 'resume.html';
+    updateResumeLinks(currentLang);
   }
 
   function showFormFeedback(message, type) {

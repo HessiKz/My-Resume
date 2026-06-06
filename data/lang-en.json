@@ -10,7 +10,7 @@
   },
   "hero": {
     "viewWork": "View my work",
-    "downloadResume": "Download resume"
+    "downloadResume": "View resume"
   },
   "a11y": {
     "skipToContent": "Skip to content",
@@ -35,7 +35,9 @@
   },
   "contact": {
     "getInTouch": "Get in touch or download my resume.",
-    "downloadResume": "Download Resume",
+    "viewResume": "View resume",
+    "saveAsPdf": "Save as PDF",
+    "downloadResume": "View resume",
     "name": "Name",
     "email": "Email",
     "message": "Message",
