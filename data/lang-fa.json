@@ -37,6 +37,7 @@
     "getInTouch": "برای ارتباط یا دریافت رزومه از راه‌های زیر استفاده کنید.",
     "viewResume": "مشاهده رزومه",
     "saveAsPdf": "ذخیره PDF",
+    "resumeSyncNote": "رزومه و خروجی PDF همان دادهٔ زندهٔ سایت را نشان می‌دهند. پس از ویرایش data/profile.json مقدار contentVersion را زیاد کنید و push کنید.",
     "downloadResume": "مشاهده رزومه",
     "name": "نام",
     "email": "ایمیل",

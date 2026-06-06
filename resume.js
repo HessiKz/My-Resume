@@ -9,7 +9,7 @@
     fa: {
       back: 'بازگشت به سایت',
       print: 'ذخیره به صورت PDF',
-      printHint: 'برای حذف آدرس از PDF، در پنجرهٔ چاپ گزینه «Headers and footers» را غیرفعال کنید.',
+      printHint: 'محتوا همان دادهٔ زندهٔ سایت است. «ذخیره PDF» آخرین نسخه را export می‌کند. در چاپ، Headers and footers را خاموش کنید.',
       about: 'درباره من',
       skills: 'مهارت‌ها',
       experience: 'سوابق کاری',
@@ -22,7 +22,7 @@
     en: {
       back: 'Back to site',
       print: 'Save as PDF',
-      printHint: 'To remove the URL from the PDF, turn off "Headers and footers" in the print dialog.',
+      printHint: 'Content matches the live portfolio data. Save as PDF exports the latest version. Turn off headers and footers in the print dialog.',
       about: 'About',
       skills: 'Skills',
       experience: 'Experience',
@@ -64,6 +64,8 @@
     html += '<img src="assets/images/resume-img.jpeg" alt="" class="resume-photo" width="140" height="140" />';
     html += '<h1>' + esc(name) + '</h1>';
     html += '<p class="subtitle">' + esc(title) + '</p>';
+    const availability = isFa && p.availability_fa ? p.availability_fa : p.availability;
+    if (availability) html += '<p class="availability-line">' + esc(availability) + '</p>';
     html += '<p class="contact-line">';
     html += '<a href="mailto:' + esc(p.email) + '">' + esc(p.email) + '</a> · ';
     html += '<a href="tel:' + (p.phoneRaw || p.phone || '').replace(/\s/g, '') + '">' + esc(p.phone) + '</a> · ';
@@ -238,14 +240,24 @@
     container.innerHTML = lang === 'fa' ? '<p class="text-center text-gray-500">در حال بارگذاری…</p>' : '<p class="text-center text-gray-500">Loading…</p>';
 
     try {
-      const [profileRes, projectsRes, socialsRes] = await Promise.all([
-        fetch(PROFILE_URL, { cache: 'no-store' }),
-        fetch(PROJECTS_URL, { cache: 'no-store' }),
-        fetch(SOCIALS_URL, { cache: 'no-store' }),
-      ]);
-      const profile = profileRes.ok ? await profileRes.json() : null;
-      const projects = projectsRes.ok ? await projectsRes.json() : null;
-      const socials = socialsRes.ok ? await socialsRes.json() : null;
+      let profile;
+      let projects;
+      let socials;
+      if (typeof loadPortfolioData === 'function') {
+        const data = await loadPortfolioData();
+        profile = data.profile;
+        projects = data.projects;
+        socials = data.socials;
+      } else {
+        const [profileRes, projectsRes, socialsRes] = await Promise.all([
+          fetch(PROFILE_URL, { cache: 'no-store' }),
+          fetch(PROJECTS_URL, { cache: 'no-store' }),
+          fetch(SOCIALS_URL, { cache: 'no-store' }),
+        ]);
+        profile = profileRes.ok ? await profileRes.json() : null;
+        projects = projectsRes.ok ? await projectsRes.json() : null;
+        socials = socialsRes.ok ? await socialsRes.json() : null;
+      }
       if (profile) {
         container.innerHTML = render(profile, projects, socials, lang);
         if (new URLSearchParams(window.location.search).get('print') === '1') {

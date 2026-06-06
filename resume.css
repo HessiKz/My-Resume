@@ -113,7 +113,13 @@ body.resume-page {
 .resume-content .subtitle {
   color: var(--resume-muted);
   font-size: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.35rem;
+}
+
+.resume-content .availability-line {
+  color: var(--resume-accent);
+  font-size: 0.875rem;
+  margin-bottom: 0.75rem;
 }
 
 .resume-content .contact-line {

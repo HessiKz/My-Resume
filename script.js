@@ -1229,13 +1229,17 @@
   }
 
   async function init() {
-    const [profile, projects, socials, langEn, langFa] = await Promise.all([
-      fetchJSON(PROFILE_URL),
-      fetchJSON(PROJECTS_URL),
-      fetchJSON(SOCIALS_URL),
+    const [coreData, langEn, langFa] = await Promise.all([
+      typeof loadPortfolioData === 'function'
+        ? loadPortfolioData()
+        : Promise.all([fetchJSON(PROFILE_URL), fetchJSON(PROJECTS_URL), fetchJSON(SOCIALS_URL)]).then(
+            ([profile, projects, socials]) => ({ profile, projects, socials })
+          ),
       fetchJSON(LANG_EN_URL),
       fetchJSON(LANG_FA_URL),
     ]);
+
+    const { profile, projects, socials } = coreData || {};
 
     profileData = profile;
     projectsData = projects;

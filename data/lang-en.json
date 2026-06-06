@@ -37,6 +37,7 @@
     "getInTouch": "Get in touch or download my resume.",
     "viewResume": "View resume",
     "saveAsPdf": "Save as PDF",
+    "resumeSyncNote": "Resume and PDF export use the same live data as this site. Edit data/profile.json, bump contentVersion, then push.",
     "downloadResume": "View resume",
     "name": "Name",
     "email": "Email",
