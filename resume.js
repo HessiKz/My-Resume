@@ -15,6 +15,7 @@
       experience: 'سوابق کاری',
       projects: 'پروژه‌ها',
       otherProjects: 'سایر پروژه‌ها',
+      portfolio25: '۲۵ پروژه نمایش مهارت‌ها',
       education: 'تحصیلات',
       certifications: 'گواهینامه‌ها',
       languages: 'زبان‌ها'
@@ -28,6 +29,7 @@
       experience: 'Experience',
       projects: 'Projects',
       otherProjects: 'Other projects',
+      portfolio25: '25 skills showcase projects',
       education: 'Education',
       certifications: 'Certifications',
       languages: 'Languages'
@@ -169,6 +171,32 @@
         else html += esc(title);
       });
       html += '</p></section>';
+    }
+
+    const portfolio25 = projects && projects.portfolio25 && projects.portfolio25.length ? projects.portfolio25 : [];
+    if (portfolio25.length) {
+      html += '<section><h2>' + esc(L.portfolio25) + '</h2>';
+      portfolio25.forEach(function (proj) {
+        const title = isFa && proj.title_fa ? proj.title_fa : proj.title;
+        const desc = isFa && proj.description_fa ? proj.description_fa : (proj.description || '');
+        const techs = Array.isArray(proj.technologies) ? proj.technologies : [];
+        const links = proj.links || {};
+        const github = (links.github || '').trim();
+        const demo = (links.demo || '').trim();
+        html += '<div class="job">';
+        html += '<div class="job-title">' + esc(title) + '</div>';
+        if (desc) html += '<p class="job-meta">' + esc(desc) + '</p>';
+        if (techs.length) html += '<div class="skill-tags" style="margin-top:0.35rem">' + techs.map(function (t) { return '<span>' + esc(t) + '</span>'; }).join('') + '</div>';
+        if (github || demo) {
+          html += '<p class="job-meta" style="margin-top:0.35rem">';
+          if (github) html += '<a href="' + esc(github) + '" target="_blank" rel="noopener">' + (isFa ? 'گیت‌هاب' : 'GitHub') + '</a>';
+          if (github && demo) html += ' · ';
+          if (demo) html += '<a href="' + esc(demo) + '" target="_blank" rel="noopener">' + (isFa ? 'دمو' : 'Demo') + '</a>';
+          html += '</p>';
+        }
+        html += '</div>';
+      });
+      html += '</section>';
     }
 
     const edu = profile.education;

@@ -561,6 +561,43 @@
     scrollEl.innerHTML = links.map(html => html.replace('<a ', '<a class="text-accent" ')).join('');
   }
 
+  function renderPortfolio25(list) {
+    const container = document.getElementById('projects-portfolio25-container');
+    const listEl = document.getElementById('projects-portfolio25');
+    if (!container || !listEl || !Array.isArray(list) || list.length === 0) {
+      if (container) container.classList.add('hidden');
+      return;
+    }
+    container.classList.remove('hidden');
+    const isFa = currentLang === 'fa';
+    const ghLabel = isFa ? 'گیت‌هاب' : 'GitHub';
+    const demoLabel = isFa ? 'دمو' : 'Demo';
+    listEl.innerHTML = list.map((proj) => {
+      const title = isFa && proj.title_fa ? proj.title_fa : proj.title;
+      const desc = isFa && proj.description_fa ? proj.description_fa : (proj.description || '');
+      const category = proj.category || '';
+      const techs = Array.isArray(proj.technologies) ? proj.technologies : [];
+      const github = (proj.links && proj.links.github) ? proj.links.github.trim() : '';
+      const demo = (proj.links && proj.links.demo) ? proj.links.demo.trim() : '';
+      const techHtml = techs.length
+        ? `<div class="portfolio25-tech">${techs.map((t) => `<span>${escapeHtml(t)}</span>`).join('')}</div>`
+        : '';
+      const linksHtml = [
+        github ? `<a href="${escapeAttr(github)}" target="_blank" rel="noopener noreferrer">${escapeHtml(ghLabel)}</a>` : '',
+        demo ? `<a href="${escapeAttr(demo)}" target="_blank" rel="noopener noreferrer">${escapeHtml(demoLabel)}</a>` : '',
+      ].filter(Boolean).join(' · ');
+      return `<article class="portfolio25-card">
+        <div class="portfolio25-card-head">
+          <h4 class="portfolio25-title">${escapeHtml(title)}</h4>
+          ${category ? `<span class="portfolio25-cat">${escapeHtml(category)}</span>` : ''}
+        </div>
+        ${desc ? `<p class="portfolio25-desc">${escapeHtml(desc)}</p>` : ''}
+        ${techHtml}
+        ${linksHtml ? `<p class="portfolio25-links">${linksHtml}</p>` : ''}
+      </article>`;
+    }).join('');
+  }
+
   function renderEducation(profile) {
     const listEl = document.getElementById('education-list');
     const certEl = document.getElementById('certifications-list');
@@ -897,11 +934,13 @@
       if (projectsData) {
         const featured = Array.isArray(projectsData) ? projectsData : (projectsData.featured || []);
         const other = Array.isArray(projectsData) ? [] : (projectsData.other || []);
+        const portfolio25 = Array.isArray(projectsData) ? [] : (projectsData.portfolio25 || []);
         if (featured.length) {
           if (featuredProjectIndex >= featured.length) featuredProjectIndex = 0;
           renderProjects(featured);
         }
         if (other.length) renderOtherProjects(other);
+        if (portfolio25.length) renderPortfolio25(portfolio25);
       }
       setFooterYear();
       startTypingEffect();
@@ -1218,11 +1257,13 @@
     if (projectsData) {
       const featured = Array.isArray(projectsData) ? projectsData : (projectsData.featured || []);
       const other = Array.isArray(projectsData) ? [] : (projectsData.other || []);
+      const portfolio25 = Array.isArray(projectsData) ? [] : (projectsData.portfolio25 || []);
       if (featured.length) {
         featuredProjectIndex = getStoredFeaturedIndex(featured.length);
         renderProjects(featured);
       }
       if (other.length) renderOtherProjects(other);
+      if (portfolio25.length) renderPortfolio25(portfolio25);
     }
     setFooterYear();
     startTypingEffect();

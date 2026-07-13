@@ -27,6 +27,8 @@
     "projects": "Featured projects",
     "projectsLead": "Selected builds with demos and source code.",
     "otherProjects": "Other projects",
+    "portfolio25Title": "25 skills showcase projects",
+    "portfolio25Lead": "A per-project site exploring every technology on my resume, deployed live with CI to GitHub Pages.",
     "education": "Education & Certifications",
     "contact": "Contact",
     "educationTitle": "Education",

@@ -5,7 +5,16 @@
       "title_fa": "HESSI-GPT",
       "description": "Self-branded, streaming AI chat terminal deployed to GitHub Pages. Frontend calls an OpenAI-compatible inference API directly from the browser; the real model and endpoint are encrypted as AES-GCM ciphertext and decrypted at runtime, with the model instructed to present only as HESSI-GPT by HessiKz. Vanilla HTML/CSS/JS, SSE streaming, no backend.",
       "description_fa": "ترمینال چت هوش مصنوعی با استریمینگ، مستقر روی GitHub Pages. فرانت‌اند مستقیماً از مرورگر به یک API استنتاج سازگار با OpenAI وصل می‌شود؛ مدل و آدرس واقعی به‌صورت رمزنموده AES-GCM ذخیره و در زمان اجرا باز می‌شوند و مدل فقط با نام HESSI-GPT توسط HessiKz معرفی می‌شود. HTML/CSS/JS خالص، استریمینگ SSE، بدون بک‌اند.",
-      "technologies": ["JavaScript", "HTML5", "CSS3", "Web Crypto", "AES-GCM", "SSE", "GitHub Pages", "OpenAI-compatible API"],
+      "technologies": [
+        "JavaScript",
+        "HTML5",
+        "CSS3",
+        "Web Crypto",
+        "AES-GCM",
+        "SSE",
+        "GitHub Pages",
+        "OpenAI-compatible API"
+      ],
       "links": {
         "github": "https://github.com/HessiKz/Hessi-GPT",
         "demo": "https://hessikz.github.io/Hessi-GPT/"
@@ -17,7 +26,14 @@
       "title_fa": "پلتفرم حقوقی هوشمند دادنو",
       "description": "Production legal-tech product at daadno.ir: led full backend migration from Go to Python (FastAPI), built centralized API management, AI workflow orchestration, and integration layers for case analysis, document flows, and agent routing.",
       "description_fa": "محصول حقوقی daadno.ir: مهاجرت کامل بک‌اند از Go به پایتون (FastAPI)، سرویس مدیریت API، ارکستراسیون workflowهای هوش مصنوعی و یکپارچه‌سازی تحلیل پرونده و مسیریابی ایجنت.",
-      "technologies": ["Python", "FastAPI", "Go", "LangChain", "REST APIs", "AI Workflows"],
+      "technologies": [
+        "Python",
+        "FastAPI",
+        "Go",
+        "LangChain",
+        "REST APIs",
+        "AI Workflows"
+      ],
       "links": {
         "github": "",
         "demo": "https://daadno.ir/"
@@ -29,7 +45,15 @@
       "title_fa": "پلتفرم دستیار هوشمند آیه",
       "description": "End-to-end enterprise AI workspace (Ayeh Group): multi-agent dashboard, department routing, LangChain/LangSmith observability, admin panel, and API gateway. Designed and built solo from UI to backend.",
       "description_fa": "فضای کاری سازمانی AI در گروه آیه: داشبورد چند ایجنت، مسیریابی دپارتمان‌ها، LangChain/LangSmith، پنل ادمین و API gateway. طراحی و پیاده‌سازی کامل توسط من.",
-      "technologies": ["Next.js", "React", "TypeScript", "FastAPI", "Python", "LangChain", "LangSmith"],
+      "technologies": [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "FastAPI",
+        "Python",
+        "LangChain",
+        "LangSmith"
+      ],
       "links": {
         "github": "",
         "demo": "http://45.138.135.253/"
@@ -41,7 +65,14 @@
       "title_fa": "پلتفرم صرافی ArnitEx",
       "description": "Core contributor on exchange rebuild: migrated legacy Java Spring Boot services to NestJS (web APIs, trading flows) and Go (crypto wallets, chain operations). Performance, security, and modular service design.",
       "description_fa": "همکاری در بازسازی صرافی: مهاجرت سرویس‌های Java Spring Boot به NestJS (API وب و جریان معاملات) و Go (کیف پول و عملیات بلاکچین). تمرکز بر امنیت، عملکرد و معماری ماژولار.",
-      "technologies": ["NestJS", "Go", "TypeScript", "Spring Boot", "Crypto", "REST APIs"],
+      "technologies": [
+        "NestJS",
+        "Go",
+        "TypeScript",
+        "Spring Boot",
+        "Crypto",
+        "REST APIs"
+      ],
       "links": {
         "github": "",
         "demo": "https://arnitex.ir/"
@@ -54,7 +85,13 @@
       "title_fa": "نمایشگر معماری BitniTex",
       "description": "Interactive React architecture explorer for ArnitEx backend: zoom, pan, node drill-down, multiple views (controllers, services, DB schema). Mermaid, Vite.",
       "description_fa": "نمایشگر تعاملی معماری بک‌اند ArnitEx با زوم، پن، جزئیات نود و چند نمای مختلف. Mermaid، Vite.",
-      "technologies": ["React", "Mermaid", "Vite", "NestJS", "TypeORM"],
+      "technologies": [
+        "React",
+        "Mermaid",
+        "Vite",
+        "NestJS",
+        "TypeORM"
+      ],
       "links": {
         "github": "https://github.com/HessiKz/bitnitex-architecture-viewer",
         "demo": "https://hessi3700.github.io/bitnitex-architecture-viewer/"
@@ -66,7 +103,14 @@
       "title_fa": "GIG-find",
       "description": "Full-stack gig marketplace: listings, applications, search and filters, messaging. Express, React, TypeScript, SQLite and Cloudflare D1.",
       "description_fa": "مارکت‌پلیس گیگ: ثبت آگهی، درخواست، جستجو و پیام‌رسانی. Express، React، TypeScript، SQLite/D1.",
-      "technologies": ["Node.js", "Express", "React", "TypeScript", "SQLite", "D1"],
+      "technologies": [
+        "Node.js",
+        "Express",
+        "React",
+        "TypeScript",
+        "SQLite",
+        "D1"
+      ],
       "links": {
         "github": "https://github.com/HessiKz/GIG-find",
         "demo": "https://hessi3700.github.io/GIG-find/"
@@ -78,7 +122,14 @@
       "title_fa": "وب‌اسکریپر و داشبورد داده",
       "description": "Full-stack ETL: robots.txt-aware scraping, PostgreSQL, Celery workers, sync to Cloudflare Worker API. React dashboard with Chart.js and D3.js.",
       "description_fa": "پایپلاین ETL: اسکرپ رعایت robots.txt، PostgreSQL، Celery، API روی Cloudflare Worker. داشبورد React با Chart.js و D3.js.",
-      "technologies": ["Python", "React", "TypeScript", "Celery", "PostgreSQL", "Cloudflare Workers"],
+      "technologies": [
+        "Python",
+        "React",
+        "TypeScript",
+        "Celery",
+        "PostgreSQL",
+        "Cloudflare Workers"
+      ],
       "links": {
         "github": "https://github.com/HessiKz/Web-Scrapper",
         "demo": "https://hessi3700.github.io/Web-Scrap/"
@@ -90,7 +141,12 @@
       "title_fa": "The Beautiful ART",
       "description": "Interactive narrative single-page experience with scroll-driven storytelling, custom typography, and motion. Built as a creative front-end showcase.",
       "description_fa": "تجربه تک‌صفحه‌ای روایی تعاملی با روایت وابسته به اسکرول، تایپوگرافی اختصاصی و موشن. نمونه کار خلاقانه فرانت‌اند.",
-      "technologies": ["HTML5", "CSS3", "JavaScript", "Scroll UX"],
+      "technologies": [
+        "HTML5",
+        "CSS3",
+        "JavaScript",
+        "Scroll UX"
+      ],
       "links": {
         "github": "https://github.com/HessiKz/the-beautiful-ART",
         "demo": "https://hessi3700.github.io/the-beautiful-ART/"
@@ -99,14 +155,505 @@
     }
   ],
   "other": [
-    { "title": "Maznet Config Scraper", "title_fa": "اسکریپر کانفیگ Maznet", "description": "Telegram VLESS scraper to Cloudflare KV + Worker", "links": { "github": "https://github.com/HessiKz/maznet" } },
-    { "title": "SRP-tunnel", "title_fa": "SRP-tunnel", "description": "SSH ranged port tunnel", "links": { "github": "https://github.com/HessiKz/SRP-tunnel" } },
-    { "title": "Corius-Bot", "title_fa": "Corius-Bot", "description": "Discord.js bot", "links": { "github": "https://github.com/HessiKz/Corius-Bot" } },
-    { "title": "hessi-discord-bot", "title_fa": "دیسکورد بات (discord.py)", "description": "Discord bot with discord.py", "links": { "github": "https://github.com/HessiKz/hessi-discord-bot" } },
-    { "title": "nitro-sniper", "title_fa": "nitro-sniper", "description": "Discord nitro/giveaway sniper", "links": { "github": "https://github.com/HessiKz/nitro-sniper" } },
-    { "title": "discord-bot-advanced-warning-system", "title_fa": "سیستم اخطار پیشرفته بات دیسکورد", "description": "Warning system with JSON DB", "links": { "github": "https://github.com/HessiKz/discord-bot-advanced-warning-system" } },
-    { "title": "discord-token-grabber-maker", "title_fa": "discord-token-grabber-maker", "description": "Tool (educational)", "links": { "github": "https://github.com/HessiKz/discord-token-grabber-maker" } },
-    { "title": "Discord-MusicBot", "title_fa": "دیسکورد موزیک بات", "description": "Music bot, Spotify/YouTube, web dashboard", "links": { "github": "https://github.com/HessiKz/Discord-MusicBot" } },
-    { "title": "BetterDiscordStuff", "title_fa": "BetterDiscordStuff", "description": "BD plugins and themes", "links": { "github": "https://github.com/HessiKz/BetterDiscordStuff" } }
+    {
+      "title": "Maznet Config Scraper",
+      "title_fa": "اسکریپر کانفیگ Maznet",
+      "description": "Telegram VLESS scraper to Cloudflare KV + Worker",
+      "links": {
+        "github": "https://github.com/HessiKz/maznet"
+      }
+    },
+    {
+      "title": "SRP-tunnel",
+      "title_fa": "SRP-tunnel",
+      "description": "SSH ranged port tunnel",
+      "links": {
+        "github": "https://github.com/HessiKz/SRP-tunnel"
+      }
+    },
+    {
+      "title": "Corius-Bot",
+      "title_fa": "Corius-Bot",
+      "description": "Discord.js bot",
+      "links": {
+        "github": "https://github.com/HessiKz/Corius-Bot"
+      }
+    },
+    {
+      "title": "hessi-discord-bot",
+      "title_fa": "دیسکورد بات (discord.py)",
+      "description": "Discord bot with discord.py",
+      "links": {
+        "github": "https://github.com/HessiKz/hessi-discord-bot"
+      }
+    },
+    {
+      "title": "nitro-sniper",
+      "title_fa": "nitro-sniper",
+      "description": "Discord nitro/giveaway sniper",
+      "links": {
+        "github": "https://github.com/HessiKz/nitro-sniper"
+      }
+    },
+    {
+      "title": "discord-bot-advanced-warning-system",
+      "title_fa": "سیستم اخطار پیشرفته بات دیسکورد",
+      "description": "Warning system with JSON DB",
+      "links": {
+        "github": "https://github.com/HessiKz/discord-bot-advanced-warning-system"
+      }
+    },
+    {
+      "title": "discord-token-grabber-maker",
+      "title_fa": "discord-token-grabber-maker",
+      "description": "Tool (educational)",
+      "links": {
+        "github": "https://github.com/HessiKz/discord-token-grabber-maker"
+      }
+    },
+    {
+      "title": "Discord-MusicBot",
+      "title_fa": "دیسکورد موزیک بات",
+      "description": "Music bot, Spotify/YouTube, web dashboard",
+      "links": {
+        "github": "https://github.com/HessiKz/Discord-MusicBot"
+      }
+    },
+    {
+      "title": "BetterDiscordStuff",
+      "title_fa": "BetterDiscordStuff",
+      "description": "BD plugins and themes",
+      "links": {
+        "github": "https://github.com/HessiKz/BetterDiscordStuff"
+      }
+    }
+  ],
+  "portfolio25": [
+    {
+      "title": "AI Agent Playground",
+      "title_fa": "زمین بازی ایجنت‌های AI",
+      "description": "Multi-agent orchestration UI with LangSmith-style trace timelines, dependencies, and prompt chains - simulated client-side so it runs on a static host.",
+      "description_fa": "رابط ارکستراسیون چند ایجنت با تایم‌لاین سبک LangSmith، وابستگی‌ها و زنجیره پرامپت — دموی کلاینت‌ساید روی GitHub Pages.",
+      "technologies": [
+        "LangChain",
+        "TypeScript",
+        "Vite",
+        "SVG"
+      ],
+      "category": "AI / LangChain",
+      "links": {
+        "github": "https://github.com/HessiKz/ai-agent-playground",
+        "demo": "https://hessikz.github.io/ai-agent-playground/"
+      }
+    },
+    {
+      "title": "RAG Knowledge Base",
+      "title_fa": "پایگاه دانش RAG",
+      "description": "Retrieval-Augmented Generation pipeline demo: chunking, embedding, vector search visualization, and citation panel.",
+      "description_fa": "دموی پایپ‌لاین RAG: تکه‌بندی، امبدینگ، نمایش جستجوی برداری و پنل استناد.",
+      "technologies": [
+        "FastAPI",
+        "LangChain",
+        "pgvector",
+        "React",
+        "Vite"
+      ],
+      "category": "AI / LLM",
+      "links": {
+        "github": "https://github.com/HessiKz/rag-knowledge-base",
+        "demo": "https://hessikz.github.io/rag-knowledge-base/"
+      }
+    },
+    {
+      "title": "AI Workflow Builder",
+      "title_fa": "سازنده workflow هوش مصنوعی",
+      "description": "Drag-drop LangChain workflow editor: chain prompts, tools, retrievers, and inspect the resulting DAG.",
+      "description_fa": "ویرایشگر workflow سبک LangChain: اتصال پرامپت، ابزار و retriever و بررسی DAG.",
+      "technologies": [
+        "LangChain",
+        "LangSmith",
+        "Go",
+        "Vite",
+        "D3"
+      ],
+      "category": "AI / LangChain",
+      "links": {
+        "github": "https://github.com/HessiKz/ai-workflow-builder",
+        "demo": "https://hessikz.github.io/ai-workflow-builder/"
+      }
+    },
+    {
+      "title": "LLM API Gateway",
+      "title_fa": "گیت‌وی API مدل زبانی",
+      "description": "API gateway dashboard: rate-limiting, auth tiers, key rotation, route health - mirrors ArnitEx/ArnitEx gateway work.",
+      "description_fa": "داشبورد API gateway: محدودیت نرخ، سطوح احراز هویت، چرخش کلید و سلامت مسیرها.",
+      "technologies": [
+        "FastAPI",
+        "JWT",
+        "Redis",
+        "React",
+        "Docker"
+      ],
+      "category": "AI / Backend",
+      "links": {
+        "github": "https://github.com/HessiKz/llm-gateway-ui",
+        "demo": "https://hessikz.github.io/llm-gateway-ui/"
+      }
+    },
+    {
+      "title": "Prompt Trace Viewer",
+      "title_fa": "نمایشگر trace پرامپت",
+      "description": "LangSmith-style trace and span timeline with token usage, cost, and latency breakdowns per chain step.",
+      "description_fa": "تایم‌لاین span به سبک LangSmith با مصرف توکن، هزینه و تأخیر هر مرحله.",
+      "technologies": [
+        "LangSmith",
+        "FastAPI",
+        "Vite",
+        "Tailwind"
+      ],
+      "category": "AI / LangSmith",
+      "links": {
+        "github": "https://github.com/HessiKz/ai-summary",
+        "demo": "https://hessikz.github.io/ai-summary/"
+      }
+    },
+    {
+      "title": "AI Model Router",
+      "title_fa": "مسیریاب مدل AI",
+      "description": "Multi-model A/B router with weighted sampling, fallback, and live latency / cost dashboard.",
+      "description_fa": "مسیریاب A/B چندمدلی با نمونه‌برداری وزنی، fallback و داشبورد تأخیر/هزینه.",
+      "technologies": [
+        "NestJS",
+        "Redis",
+        "LangChain",
+        "React"
+      ],
+      "category": "AI / LLM",
+      "links": {
+        "github": "https://github.com/HessiKz/ai-chat-router",
+        "demo": "https://hessikz.github.io/ai-chat-router/"
+      }
+    },
+    {
+      "title": "FastAPI REST Explorer",
+      "title_fa": "کاوشگر REST FastAPI",
+      "description": "Modular FastAPI REST service with JWT auth, OpenAPI schema viewer, and a live in-browser request tester.",
+      "description_fa": "سرویس REST ماژولار FastAPI با JWT، OpenAPI و تستر درخواست در مرورگر.",
+      "technologies": [
+        "FastAPI",
+        "Python",
+        "Pydantic",
+        "Pytest"
+      ],
+      "category": "Backend",
+      "links": {
+        "github": "https://github.com/HessiKz/fastapi-rest-demo",
+        "demo": "https://hessikz.github.io/fastapi-rest-demo/"
+      }
+    },
+    {
+      "title": "NestJS Modular API",
+      "title_fa": "API ماژولار NestJS",
+      "description": "NestJS module-architecture explorer: DI graph, DTOs, guards, interceptors - visualized.",
+      "description_fa": "کاوشگر معماری NestJS: گراف DI، DTO، guard و interceptor.",
+      "technologies": [
+        "NestJS",
+        "TypeScript",
+        "TypeORM",
+        "Swagger"
+      ],
+      "category": "Backend",
+      "links": {
+        "github": "https://github.com/HessiKz/nestjs-modular-api",
+        "demo": "https://hessikz.github.io/nestjs-modular-api/"
+      }
+    },
+    {
+      "title": "Go Token-Bucket Limiter",
+      "title_fa": "محدودکننده نرخ Go",
+      "description": "Token-bucket + sliding-window rate limiter (Go) with live throughput chart.",
+      "description_fa": "محدودکننده token-bucket و sliding-window با نمودار throughput زنده.",
+      "technologies": [
+        "Go",
+        "Redis",
+        "gRPC",
+        "Vite"
+      ],
+      "category": "Backend",
+      "links": {
+        "github": "https://github.com/HessiKz/go-rate-limiter",
+        "demo": "https://hessikz.github.io/go-rate-limiter/"
+      }
+    },
+    {
+      "title": "API Gateway Dashboard",
+      "title_fa": "داشبورد API Gateway",
+      "description": "Unified gateway metrics: routes, latency p50/p95/p99, error rate, top consumers, key rotation.",
+      "description_fa": "متریک‌های یکپارچه: مسیرها، p50/p95/p99، نرخ خطا و مصرف‌کنندگان برتر.",
+      "technologies": [
+        "Express",
+        "JWT",
+        "Redis",
+        "React",
+        "Prometheus"
+      ],
+      "category": "Backend / DevOps",
+      "links": {
+        "github": "https://github.com/HessiKz/api-gateway-dashboard",
+        "demo": "https://hessikz.github.io/api-gateway-dashboard/"
+      }
+    },
+    {
+      "title": "Celery Worker Monitor",
+      "title_fa": "مانیتور worker سلری",
+      "description": "Asynchronous worker queue visualizer: queues, retries, ETA, broker stats, dead-letter inspection.",
+      "description_fa": "نمایشگر صف async: صف‌ها، retry، ETA و آمار broker.",
+      "technologies": [
+        "Celery",
+        "Redis",
+        "Python",
+        "React"
+      ],
+      "category": "Backend",
+      "links": {
+        "github": "https://github.com/HessiKz/celery-worker-monitor",
+        "demo": "https://hessikz.github.io/celery-worker-monitor/"
+      }
+    },
+    {
+      "title": "WebSocket Realtime Chat",
+      "title_fa": "چت لحظه‌ای WebSocket",
+      "description": "Realtime chat client + server with presence, typing indicators, and backpressure (broker-published).",
+      "description_fa": "کلاینت/سرور چت realtime با presence و typing (دموی مرورگر).",
+      "technologies": [
+        "NestJS",
+        "WebSocket",
+        "Redis",
+        "Vite"
+      ],
+      "category": "Backend / Frontend",
+      "links": {
+        "github": "https://github.com/HessiKz/websocket-realtime-chat",
+        "demo": "https://hessikz.github.io/websocket-realtime-chat/"
+      }
+    },
+    {
+      "title": "Next.js SSR Showcase",
+      "title_fa": "نمایش SSR نکست‌جی‌اس",
+      "description": "Side-by-side SSR vs SSG vs ISR vs Client rendering with timing bars and caching headers.",
+      "description_fa": "مقایسه SSR در برابر SSG، ISR و رندر کلاینت با زمان‌بندی و کش.",
+      "technologies": [
+        "Next.js",
+        "React",
+        "TypeScript"
+      ],
+      "category": "Frontend",
+      "links": {
+        "github": "https://github.com/HessiKz/nextjs-ssr-showcase",
+        "demo": "https://hessikz.github.io/nextjs-ssr-showcase/"
+      }
+    },
+    {
+      "title": "React Design System",
+      "title_fa": "سیستم طراحی React",
+      "description": "Tailwind + shadcn-style component library showcase with tokens, accessibility notes, and usage.",
+      "description_fa": "کتابخانه کامپوننت Tailwind/shadcn-style با توکن‌ها و نکات a11y.",
+      "technologies": [
+        "React",
+        "Tailwind",
+        "TypeScript",
+        "Vite"
+      ],
+      "category": "Frontend",
+      "links": {
+        "github": "https://github.com/HessiKz/react-design-system",
+        "demo": "https://hessikz.github.io/react-design-system/"
+      }
+    },
+    {
+      "title": "Nuxt RTL Dashboard",
+      "title_fa": "داشبورد RTL ناکست",
+      "description": "Nuxt.js bilingual (FA/EN) RTL dashboard with chart-heavy KPIs and theme switching.",
+      "description_fa": "داشبورد دوزبانه FA/EN با KPI و تعویض تم.",
+      "technologies": [
+        "Nuxt.js",
+        "Vue",
+        "Tailwind",
+        "i18n"
+      ],
+      "category": "Frontend",
+      "links": {
+        "github": "https://github.com/HessiKz/nuxt-rtl-dashboard",
+        "demo": "https://hessikz.github.io/nuxt-rtl-dashboard/"
+      }
+    },
+    {
+      "title": "Vite Portfolio Theme",
+      "title_fa": "تم پورتفولیو Vite",
+      "description": "GSAP-driven premium portfolio template with scroll triggers and a clean editorial layout.",
+      "description_fa": "قالب پورتفولیو premium با اسکرول و layout ادیتوریال.",
+      "technologies": [
+        "Vite",
+        "React",
+        "GSAP",
+        "Tailwind"
+      ],
+      "category": "Frontend",
+      "links": {
+        "github": "https://github.com/HessiKz/vite-portfolio-theme",
+        "demo": "https://hessikz.github.io/vite-portfolio-theme/"
+      }
+    },
+    {
+      "title": "TypeScript Data Table",
+      "title_fa": "جدول داده TypeScript",
+      "description": "Virtualized, sortable, filterable, keyboard-navigable data table library.",
+      "description_fa": "جدول virtualized با sort، filter و ناوبری کیبورد.",
+      "technologies": [
+        "TypeScript",
+        "React",
+        "Vite"
+      ],
+      "category": "Frontend",
+      "links": {
+        "github": "https://github.com/HessiKz/typescript-data-table",
+        "demo": "https://hessikz.github.io/typescript-data-table/"
+      }
+    },
+    {
+      "title": "Docker Compose Starter",
+      "title_fa": "استارتر Docker Compose",
+      "description": "Multi-service compose starter: API + worker + Postgres + Redis + Nginx with Make-driven dev workflow.",
+      "description_fa": "Compose چندسرویسی: API، worker، Postgres، Redis و Nginx.",
+      "technologies": [
+        "Docker",
+        "Compose",
+        "Nginx",
+        "Make"
+      ],
+      "category": "DevOps",
+      "links": {
+        "github": "https://github.com/HessiKz/docker-compose-starter",
+        "demo": "https://hessikz.github.io/docker-compose-starter/"
+      }
+    },
+    {
+      "title": "Cloudflare Worker Template",
+      "title_fa": "قالب Cloudflare Worker",
+      "description": "Workers + KV starter with route handlers, edge caching, and a deployed demo.",
+      "description_fa": "استارتر Workers + KV با handler، کش edge و دموی زنده.",
+      "technologies": [
+        "Cloudflare Workers",
+        "KV",
+        "TypeScript",
+        "wrangler"
+      ],
+      "category": "DevOps / Edge",
+      "links": {
+        "github": "https://github.com/HessiKz/cloudflare-worker-template",
+        "demo": "https://hessikz.github.io/cloudflare-worker-template/"
+      }
+    },
+    {
+      "title": "GitHub Actions Library",
+      "title_fa": "کتابخانه GitHub Actions",
+      "description": "Reusable CI/CD workflow library: build, test, scan, deploy across Node/Python/Go.",
+      "description_fa": "workflowهای قابل استفاده مجدد CI/CD برای Node، Python و Go.",
+      "technologies": [
+        "GitHub Actions",
+        "YAML",
+        "Docker",
+        "Matrix"
+      ],
+      "category": "DevOps / CI-CD",
+      "links": {
+        "github": "https://github.com/HessiKz/github-actions-showcase",
+        "demo": "https://hessikz.github.io/github-actions-showcase/"
+      }
+    },
+    {
+      "title": "Nginx Reverse Proxy Kit",
+      "title_fa": "کیت reverse proxy Nginx",
+      "description": "Visual Nginx config generator: upstreams, TLS, caching, gzip, rate-limit.",
+      "description_fa": "مولد کانفیگ Nginx: upstream، TLS، کش، gzip و rate-limit.",
+      "technologies": [
+        "Nginx",
+        "Let's Encrypt",
+        "Docker",
+        "Bash"
+      ],
+      "category": "DevOps",
+      "links": {
+        "github": "https://github.com/HessiKz/nginx-reverse-proxy-kit",
+        "demo": "https://hessikz.github.io/nginx-reverse-proxy-kit/"
+      }
+    },
+    {
+      "title": "VPS Deploy Playbook",
+      "title_fa": "پلی‌بوک استقرار VPS",
+      "description": "Interactive zero-downtime deploy playbook: provisioning, security baseline, env, secrets, rollback.",
+      "description_fa": "چک‌لیست تعاملی استقرار بدون downtime: harden، Docker، secrets و rollback.",
+      "technologies": [
+        "Linux",
+        "Bash",
+        "Docker",
+        "UFW"
+      ],
+      "category": "DevOps",
+      "links": {
+        "github": "https://github.com/HessiKz/vps-deploy-checklist",
+        "demo": "https://hessikz.github.io/vps-deploy-checklist/"
+      }
+    },
+    {
+      "title": "Xray Config Generator",
+      "title_fa": "مولد کانفیگ Xray",
+      "description": "Generates VLESS/Vmess Xray server+client configs with TLS, fallback, and reality options.",
+      "description_fa": "تولید کانفیگ سرور/کلاینت VLESS/Vmess با TLS و Reality.",
+      "technologies": [
+        "Xray",
+        "VLESS",
+        "Certbot",
+        "Go"
+      ],
+      "category": "Network / Security",
+      "links": {
+        "github": "https://github.com/HessiKz/xray-config-generator",
+        "demo": "https://hessikz.github.io/xray-config-generator/"
+      }
+    },
+    {
+      "title": "JWT Inspector",
+      "title_fa": "بازرس JWT",
+      "description": "Decode, inspect, and visualize JWT signatures; HS256/RS256 with claims timeline.",
+      "description_fa": "رمزگشایی و بررسی JWT (HS256/RS256) با تایم‌لاین claims.",
+      "technologies": [
+        "TypeScript",
+        "Crypto",
+        "Vite"
+      ],
+      "category": "Network / Security",
+      "links": {
+        "github": "https://github.com/HessiKz/jwt-inspector",
+        "demo": "https://hessikz.github.io/jwt-inspector/"
+      }
+    },
+    {
+      "title": "API Key Vault UI",
+      "title_fa": "رابط vault کلید API",
+      "description": "API key management vault: scope matrices, rotation, audit log, masking UI.",
+      "description_fa": "مدیریت کلید API: scope، چرخش، audit log و UI masked.",
+      "technologies": [
+        "NestJS",
+        "TypeORM",
+        "React",
+        "Postgres"
+      ],
+      "category": "Security / Backend",
+      "links": {
+        "github": "https://github.com/HessiKz/api-key-vault-ui",
+        "demo": "https://hessikz.github.io/api-key-vault-ui/"
+      }
+    }
   ]
 }
