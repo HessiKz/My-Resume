@@ -1,6 +1,18 @@
 {
   "featured": [
     {
+      "title": "HESSI-GPT",
+      "title_fa": "HESSI-GPT",
+      "description": "Self-branded, streaming AI chat terminal deployed to GitHub Pages. Frontend calls an OpenAI-compatible inference API directly from the browser; the real model and endpoint are encrypted as AES-GCM ciphertext and decrypted at runtime, with the model instructed to present only as HESSI-GPT by HessiKz. Vanilla HTML/CSS/JS, SSE streaming, no backend.",
+      "description_fa": "ترمینال چت هوش مصنوعی با استریمینگ، مستقر روی GitHub Pages. فرانت‌اند مستقیماً از مرورگر به یک API استنتاج سازگار با OpenAI وصل می‌شود؛ مدل و آدرس واقعی به‌صورت رمزنموده AES-GCM ذخیره و در زمان اجرا باز می‌شوند و مدل فقط با نام HESSI-GPT توسط HessiKz معرفی می‌شود. HTML/CSS/JS خالص، استریمینگ SSE، بدون بک‌اند.",
+      "technologies": ["JavaScript", "HTML5", "CSS3", "Web Crypto", "AES-GCM", "SSE", "GitHub Pages", "OpenAI-compatible API"],
+      "links": {
+        "github": "https://github.com/HessiKz/Hessi-GPT",
+        "demo": "https://hessikz.github.io/Hessi-GPT/"
+      },
+      "image": "assets/images/hessi-gpt.png"
+    },
+    {
       "title": "Daadno Legal AI Platform",
       "title_fa": "پلتفرم حقوقی هوشمند دادنو",
       "description": "Production legal-tech product at daadno.ir: led full backend migration from Go to Python (FastAPI), built centralized API management, AI workflow orchestration, and integration layers for case analysis, document flows, and agent routing.",
