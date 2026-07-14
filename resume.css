@@ -233,7 +233,57 @@ body.resume-page {
   text-decoration: none;
 }
 
-.text-center {
+/* Compact other-projects list (keeps resume short) */
+.resume-content .other-projects-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: 0.5rem;
+}
+
+.resume-content .other-project-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.16);
+}
+
+.resume-content .other-project-row:last-child {
+  border-bottom: none;
+}
+
+.resume-content .op-name {
+  font-weight: 600;
+  color: var(--resume-ink);
+}
+
+.resume-content .op-name a {
+  color: var(--resume-ink);
+  text-decoration: none;
+}
+
+.resume-content .op-tech {
+  font-size: 0.78rem;
+  color: var(--resume-muted);
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+}
+
+.resume-content .op-gh {
+  font-size: 0.78rem;
+  color: var(--resume-accent);
+  margin-inline-start: auto;
+}
+
+[dir="rtl"] .resume-content .op-gh {
+  margin-inline-start: auto;
+  margin-right: 0;
+}
+
+.resume-content .text-center {
   text-align: center;
 }
 
