@@ -550,8 +550,7 @@
     }
     container.classList.remove('hidden');
     const isFa = currentLang === 'fa';
-    const ghLabel = isFa ? 'گیت‌هاب' : 'GitHub';
-    const demoLabel = isFa ? 'دمو' : 'Demo';
+    const openLabel = isFa ? 'باز کردن' : 'Open';
     listEl.innerHTML = list.map((proj) => {
       const title = isFa && proj.title_fa ? proj.title_fa : proj.title;
       const desc = isFa && proj.description_fa ? proj.description_fa : (proj.description || '');
@@ -559,15 +558,11 @@
       const techs = Array.isArray(proj.technologies) ? proj.technologies : [];
       const github = (proj.links && proj.links.github) ? proj.links.github.trim() : '';
       const demo = (proj.links && proj.links.demo) ? proj.links.demo.trim() : '';
-      // Card opens demo first; fall back to repo when no demo exists.
+      // Prefer demo; fall back to repo. No nested <a> tags (invalid HTML / broken layout).
       const primaryUrl = demo || github;
       const techHtml = techs.length
         ? `<div class="portfolio25-tech">${techs.map((t) => `<span>${escapeHtml(t)}</span>`).join('')}</div>`
         : '';
-      const linksHtml = [
-        github ? `<a class="portfolio25-link" href="${escapeAttr(github)}" target="_blank" rel="noopener noreferrer">${escapeHtml(ghLabel)}</a>` : '',
-        demo ? `<a class="portfolio25-link" href="${escapeAttr(demo)}" target="_blank" rel="noopener noreferrer">${escapeHtml(demoLabel)}</a>` : '',
-      ].filter(Boolean).join(' · ');
       const body = `
         <div class="portfolio25-card-head">
           <h4 class="portfolio25-title">${escapeHtml(title)}</h4>
@@ -575,7 +570,7 @@
         </div>
         ${desc ? `<p class="portfolio25-desc">${escapeHtml(desc)}</p>` : ''}
         ${techHtml}
-        ${linksHtml ? `<p class="portfolio25-links">${linksHtml}</p>` : ''}`;
+        ${primaryUrl ? `<p class="portfolio25-links"><span class="portfolio25-open">${escapeHtml(openLabel)}</span></p>` : ''}`;
       if (!primaryUrl) {
         return `<article class="portfolio25-card portfolio25-card--static">${body}</article>`;
       }
