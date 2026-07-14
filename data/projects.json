@@ -154,81 +154,115 @@
       "image": "assets/images/TBART.png"
     }
   ],
-  "other": [
+  "portfolio25": [
     {
       "title": "Maznet Config Scraper",
       "title_fa": "اسکریپر کانفیگ Maznet",
       "description": "Telegram VLESS scraper to Cloudflare KV + Worker",
+      "description_fa": "Telegram VLESS scraper to Cloudflare KV + Worker",
+      "technologies": [],
+      "category": "Other",
       "links": {
-        "github": "https://github.com/HessiKz/maznet"
+        "github": "https://github.com/HessiKz/maznet",
+        "demo": ""
       }
     },
     {
       "title": "SRP-tunnel",
       "title_fa": "SRP-tunnel",
       "description": "SSH ranged port tunnel",
+      "description_fa": "SSH ranged port tunnel",
+      "technologies": [],
+      "category": "Other",
       "links": {
-        "github": "https://github.com/HessiKz/SRP-tunnel"
+        "github": "https://github.com/HessiKz/SRP-tunnel",
+        "demo": ""
       }
     },
     {
       "title": "Corius-Bot",
       "title_fa": "Corius-Bot",
       "description": "Discord.js bot",
+      "description_fa": "Discord.js bot",
+      "technologies": [],
+      "category": "Other",
       "links": {
-        "github": "https://github.com/HessiKz/Corius-Bot"
+        "github": "https://github.com/HessiKz/Corius-Bot",
+        "demo": ""
       }
     },
     {
       "title": "hessi-discord-bot",
       "title_fa": "دیسکورد بات (discord.py)",
       "description": "Discord bot with discord.py",
+      "description_fa": "Discord bot with discord.py",
+      "technologies": [],
+      "category": "Other",
       "links": {
-        "github": "https://github.com/HessiKz/hessi-discord-bot"
+        "github": "https://github.com/HessiKz/hessi-discord-bot",
+        "demo": ""
       }
     },
     {
       "title": "nitro-sniper",
       "title_fa": "nitro-sniper",
       "description": "Discord nitro/giveaway sniper",
+      "description_fa": "Discord nitro/giveaway sniper",
+      "technologies": [],
+      "category": "Other",
       "links": {
-        "github": "https://github.com/HessiKz/nitro-sniper"
+        "github": "https://github.com/HessiKz/nitro-sniper",
+        "demo": ""
       }
     },
     {
       "title": "discord-bot-advanced-warning-system",
       "title_fa": "سیستم اخطار پیشرفته بات دیسکورد",
       "description": "Warning system with JSON DB",
+      "description_fa": "Warning system with JSON DB",
+      "technologies": [],
+      "category": "Other",
       "links": {
-        "github": "https://github.com/HessiKz/discord-bot-advanced-warning-system"
+        "github": "https://github.com/HessiKz/discord-bot-advanced-warning-system",
+        "demo": ""
       }
     },
     {
       "title": "discord-token-grabber-maker",
       "title_fa": "discord-token-grabber-maker",
       "description": "Tool (educational)",
+      "description_fa": "Tool (educational)",
+      "technologies": [],
+      "category": "Other",
       "links": {
-        "github": "https://github.com/HessiKz/discord-token-grabber-maker"
+        "github": "https://github.com/HessiKz/discord-token-grabber-maker",
+        "demo": ""
       }
     },
     {
       "title": "Discord-MusicBot",
       "title_fa": "دیسکورد موزیک بات",
       "description": "Music bot, Spotify/YouTube, web dashboard",
+      "description_fa": "Music bot, Spotify/YouTube, web dashboard",
+      "technologies": [],
+      "category": "Other",
       "links": {
-        "github": "https://github.com/HessiKz/Discord-MusicBot"
+        "github": "https://github.com/HessiKz/Discord-MusicBot",
+        "demo": ""
       }
     },
     {
       "title": "BetterDiscordStuff",
       "title_fa": "BetterDiscordStuff",
       "description": "BD plugins and themes",
+      "description_fa": "BD plugins and themes",
+      "technologies": [],
+      "category": "Other",
       "links": {
-        "github": "https://github.com/HessiKz/BetterDiscordStuff"
+        "github": "https://github.com/HessiKz/BetterDiscordStuff",
+        "demo": ""
       }
-    }
-  ],
-  "portfolio25": [
+    },
     {
       "title": "AI Agent Playground",
       "title_fa": "زمین بازی ایجنت‌های AI",

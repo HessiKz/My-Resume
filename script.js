@@ -541,26 +541,6 @@
     initProjectMotion();
   }
 
-  function renderOtherProjects(other) {
-    const container = document.getElementById('projects-other-container');
-    const gridEl = document.getElementById('projects-other');
-    const scrollEl = document.getElementById('projects-other-scroll');
-    if (!container || !gridEl || !scrollEl || !Array.isArray(other) || other.length === 0) {
-      if (container) container.classList.add('hidden');
-      return;
-    }
-    container.classList.remove('hidden');
-    const isFa = currentLang === 'fa';
-    const links = other.map(proj => {
-      const title = isFa && proj.title_fa ? proj.title_fa : proj.title;
-      const github = (proj.links && proj.links.github) ? proj.links.github.trim() : '';
-      if (!github) return `<span class="text-gray-500">${escapeHtml(title)}</span>`;
-      return `<a href="${escapeAttr(github)}" target="_blank" rel="noopener noreferrer">${escapeHtml(title)}</a>`;
-    });
-    gridEl.innerHTML = links.join('');
-    scrollEl.innerHTML = links.map(html => html.replace('<a ', '<a class="text-accent" ')).join('');
-  }
-
   function renderPortfolio25(list) {
     const container = document.getElementById('projects-portfolio25-container');
     const listEl = document.getElementById('projects-portfolio25');
@@ -933,13 +913,11 @@
       renderHeroSocials(socialsData || []);
       if (projectsData) {
         const featured = Array.isArray(projectsData) ? projectsData : (projectsData.featured || []);
-        const other = Array.isArray(projectsData) ? [] : (projectsData.other || []);
         const portfolio25 = Array.isArray(projectsData) ? [] : (projectsData.portfolio25 || []);
         if (featured.length) {
           if (featuredProjectIndex >= featured.length) featuredProjectIndex = 0;
           renderProjects(featured);
         }
-        if (other.length) renderOtherProjects(other);
         if (portfolio25.length) renderPortfolio25(portfolio25);
       }
       setFooterYear();
@@ -1256,13 +1234,11 @@
     renderHeroSocials(socialsData || []);
     if (projectsData) {
       const featured = Array.isArray(projectsData) ? projectsData : (projectsData.featured || []);
-      const other = Array.isArray(projectsData) ? [] : (projectsData.other || []);
       const portfolio25 = Array.isArray(projectsData) ? [] : (projectsData.portfolio25 || []);
       if (featured.length) {
         featuredProjectIndex = getStoredFeaturedIndex(featured.length);
         renderProjects(featured);
       }
-      if (other.length) renderOtherProjects(other);
       if (portfolio25.length) renderPortfolio25(portfolio25);
     }
     setFooterYear();

@@ -17,7 +17,7 @@
     "portfolioLabel": "Portfolio",
     "portfolioLabel_fa": "نمونه‌کار"
   },
-  "contentVersion": "2026-07-13-4",
+  "contentVersion": "2026-07-14-1",
   "about": "Full Stack Developer with 2+ years shipping production systems across fintech, legal-tech, and enterprise AI. I own backend architecture (Python FastAPI, NestJS, Go), modern frontends (React, Next.js, Nuxt), AI layers (LangChain, LangSmith, workflows, API gateways), and deployment (CI/CD, Docker, Linux/VPS, Cloudflare, Railway, GitHub Pages). Currently at Ayeh Group building multi-agent platforms and API management; previously helped ArnitEx migrate from Java Spring Boot to NestJS and Go. I deliver end-to-end: schema design, APIs, workers, RTL UIs, observability, and production releases. Passionate about clean code, best practices, and modern web technologies; also experienced in network security (Xray, Starlink setup) and teaching Node.js/Express.",
   "about_fa": "توسعه‌دهنده فول‌استک با بیش از دو سال تجربه در محصولات واقعی فین‌تک، حقوقی و AI سازمانی. مالکیت بک‌اند (FastAPI، NestJS، Go)، فرانت (React، Next.js، Nuxt)، AI (LangChain، LangSmith، workflow، API gateway) و استقرار (CI/CD، Docker، Linux/VPS، Cloudflare، Railway، GitHub Pages). اکنون در گروه آیه؛ پیش‌تر مهاجرت ArnitEx از Spring Boot به NestJS و Go. تحویل end-to-end از دیتابیس و worker تا UI دوزبانه، مانیتورینگ و ریلیز production. علاقه‌مند به کد تمیز، بهترین روش‌های مهندسی و فناوری‌های وب مدرن؛ تجربه در امنیت شبکه (Xray، راه‌اندازی Starlink) و تدریس Node.js و Express.",
   "skills": {

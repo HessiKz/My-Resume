@@ -15,7 +15,6 @@
       experience: 'سوابق کاری',
       projects: 'پروژه‌ها',
       otherProjects: 'سایر پروژه‌ها',
-      portfolio25: '۲۵ پروژه نمایش مهارت‌ها',
       education: 'تحصیلات',
       certifications: 'گواهینامه‌ها',
       languages: 'زبان‌ها'
@@ -29,7 +28,6 @@
       experience: 'Experience',
       projects: 'Projects',
       otherProjects: 'Other projects',
-      portfolio25: '25 skills showcase projects',
       education: 'Education',
       certifications: 'Certifications',
       languages: 'Languages'
@@ -134,7 +132,6 @@
     }
 
     const featured = projects && projects.featured && projects.featured.length ? projects.featured : (Array.isArray(projects) ? projects : []);
-    const other = projects && projects.other && projects.other.length ? projects.other : [];
 
     if (featured.length) {
       html += '<section><h2>' + esc(L.projects) + '</h2>';
@@ -161,21 +158,9 @@
       html += '</section>';
     }
 
-    if (other.length) {
-      html += '<section><h2>' + esc(L.otherProjects) + '</h2><p class="job-meta">';
-      other.forEach((proj, i) => {
-        const title = isFa && proj.title_fa ? proj.title_fa : proj.title;
-        const github = proj.links && proj.links.github ? proj.links.github.trim() : '';
-        if (i) html += ' · ';
-        if (github) html += '<a href="' + esc(github) + '" target="_blank" rel="noopener">' + esc(title) + '</a>';
-        else html += esc(title);
-      });
-      html += '</p></section>';
-    }
-
     const portfolio25 = projects && projects.portfolio25 && projects.portfolio25.length ? projects.portfolio25 : [];
     if (portfolio25.length) {
-      html += '<section><h2>' + esc(L.portfolio25) + '</h2>';
+      html += '<section><h2>' + esc(L.otherProjects) + '</h2>';
       portfolio25.forEach(function (proj) {
         const title = isFa && proj.title_fa ? proj.title_fa : proj.title;
         const desc = isFa && proj.description_fa ? proj.description_fa : (proj.description || '');
