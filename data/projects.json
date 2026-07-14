@@ -23,19 +23,20 @@
       "image": "assets/images/digistarkala.jpg"
     },
     {
-      "title": "HESSI-GPT",
-      "title_fa": "HESSI-GPT",
-      "description": "Self-branded, streaming AI chat terminal deployed to GitHub Pages. Frontend calls an OpenAI-compatible inference API directly from the browser; the real model and endpoint are encrypted as AES-GCM ciphertext and decrypted at runtime, with the model instructed to present only as HESSI-GPT by HessiKz. Vanilla HTML/CSS/JS, SSE streaming, no backend.",
-      "description_fa": "ترمینال چت هوش مصنوعی با استریمینگ، مستقر روی GitHub Pages. فرانت‌اند مستقیماً از مرورگر به یک API استنتاج سازگار با OpenAI وصل می‌شود؛ مدل و آدرس واقعی به‌صورت رمزنموده AES-GCM ذخیره و در زمان اجرا باز می‌شوند و مدل فقط با نام HESSI-GPT توسط HessiKz معرفی می‌شود. HTML/CSS/JS خالص، استریمینگ SSE، بدون بک‌اند.",
+      "title": "HESSI-GPT (GPT-2.5)",
+      "title_fa": "HESSI-GPT (GPT-2.5)",
+      "description": "Decoder-only language model I wrote and chat-fine-tuned as HESSI-GPT (GPT-2.5): training/fine-tuning pipeline, streaming inference engine, FastAPI SSE backend, and a custom industrial terminal UI with live pipeline telemetry. Public demo on GitHub Pages.",
+      "description_fa": "مدل زبانی decoder-only که خودم به‌عنوان HESSI-GPT (GPT-2.5) نوشتم و برای چت fine-tune کردم: پایپلاین آموزش/تنظیم، موتور استنتاج استریمینگ، بک‌اند FastAPI با SSE و UI ترمینال صنعتی با تلمتری زندهٔ پایپلاین. دمو عمومی روی GitHub Pages.",
       "technologies": [
+        "Python",
+        "PyTorch",
+        "Transformers",
+        "FastAPI",
+        "SSE",
         "JavaScript",
         "HTML5",
         "CSS3",
-        "Web Crypto",
-        "AES-GCM",
-        "SSE",
-        "GitHub Pages",
-        "OpenAI-compatible API"
+        "GitHub Pages"
       ],
       "links": {
         "github": "https://github.com/HessiKz/Hessi-GPT",
