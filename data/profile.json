@@ -17,9 +17,9 @@
     "portfolioLabel": "Portfolio",
     "portfolioLabel_fa": "نمونه‌کار"
   },
-  "contentVersion": "2026-07-14-3",
-  "about": "Full Stack Developer with 2+ years shipping production systems across fintech, legal-tech, and enterprise AI. I own backend architecture (Python FastAPI, NestJS, Go), modern frontends (React, Next.js, Nuxt), AI layers (LangChain, LangSmith, workflows, API gateways), and deployment (CI/CD, Docker, Linux/VPS, Cloudflare, Railway, GitHub Pages). Currently at Ayeh Group building multi-agent platforms and API management; previously helped ArnitEx migrate from Java Spring Boot to NestJS and Go. I deliver end-to-end: schema design, APIs, workers, RTL UIs, observability, and production releases. Passionate about clean code, best practices, and modern web technologies; also experienced in network security (Xray, Starlink setup) and teaching Node.js/Express.",
-  "about_fa": "توسعه‌دهنده فول‌استک با بیش از دو سال تجربه در محصولات واقعی فین‌تک، حقوقی و AI سازمانی. مالکیت بک‌اند (FastAPI، NestJS، Go)، فرانت (React، Next.js، Nuxt)، AI (LangChain، LangSmith، workflow، API gateway) و استقرار (CI/CD، Docker، Linux/VPS، Cloudflare، Railway، GitHub Pages). اکنون در گروه آیه؛ پیش‌تر مهاجرت ArnitEx از Spring Boot به NestJS و Go. تحویل end-to-end از دیتابیس و worker تا UI دوزبانه، مانیتورینگ و ریلیز production. علاقه‌مند به کد تمیز، بهترین روش‌های مهندسی و فناوری‌های وب مدرن؛ تجربه در امنیت شبکه (Xray، راه‌اندازی Starlink) و تدریس Node.js و Express.",
+  "contentVersion": "2026-07-14-4",
+  "about": "Full Stack Developer with 2+ years shipping production systems across fintech, legal-tech, and enterprise AI. I own backend architecture (Python FastAPI, NestJS, Go), modern frontends (React, Next.js, Nuxt), AI layers (LangChain, LangSmith, workflows, API gateways), and deployment (CI/CD, Docker, Linux/VPS, Cloudflare, Railway, GitHub Pages). Comfortable shipping faster with modern AI coding tools: Cursor, Claude Code, GitHub Copilot, Aider, and similar agent/IDE assistants for multi-file refactors, reviews, and end-to-end feature work while owning architecture and code quality. Currently at Ayeh Group building multi-agent platforms and API management; previously helped ArnitEx migrate from Java Spring Boot to NestJS and Go. I deliver end-to-end: schema design, APIs, workers, RTL UIs, observability, and production releases. Passionate about clean code, best practices, and modern web technologies; also experienced in network security (Xray, Starlink setup) and teaching Node.js/Express.",
+  "about_fa": "توسعه‌دهنده فول‌استک با بیش از دو سال تجربه در محصولات واقعی فین‌تک، حقوقی و AI سازمانی. مالکیت بک‌اند (FastAPI، NestJS، Go)، فرانت (React، Next.js، Nuxt)، AI (LangChain، LangSmith، workflow، API gateway) و استقرار (CI/CD، Docker، Linux/VPS، Cloudflare، Railway، GitHub Pages). مسلط به ابزارهای مدرن کدنویسی با هوش مصنوعی مانند Cursor، Claude Code، GitHub Copilot، Aider و دستیارهای agent/IDE مشابه برای refactor چندفایلی، ریویو و تحویل فیچر end-to-end، با مالکیت معماری و کیفیت کد. اکنون در گروه آیه؛ پیش‌تر مهاجرت ArnitEx از Spring Boot به NestJS و Go. تحویل end-to-end از دیتابیس و worker تا UI دوزبانه، مانیتورینگ و ریلیز production. علاقه‌مند به کد تمیز، بهترین روش‌های مهندسی و فناوری‌های وب مدرن؛ تجربه در امنیت شبکه (Xray، راه‌اندازی Starlink) و تدریس Node.js و Express.",
   "skills": {
     "AI & LLM": [
       {"name": "LangChain", "level": "Advanced"},
@@ -27,6 +27,14 @@
       {"name": "AI workflow orchestration", "level": "Advanced"},
       {"name": "RAG / agent routing", "level": "Intermediate"},
       {"name": "OpenAI-compatible APIs", "level": "Advanced"}
+    ],
+    "AI Coding Tools": [
+      {"name": "Cursor (AI IDE)", "level": "Advanced"},
+      {"name": "Claude Code", "level": "Advanced"},
+      {"name": "GitHub Copilot", "level": "Advanced"},
+      {"name": "Aider", "level": "Intermediate"},
+      {"name": "AI-assisted multi-file refactor", "level": "Advanced"},
+      {"name": "Agent-style task automation", "level": "Intermediate"}
     ],
     "Backend": [
       {"name": "Python / FastAPI", "level": "Advanced"},
@@ -90,6 +98,14 @@
       {"name": "ارکستراسیون workflow AI", "level": "پیشرفته"},
       {"name": "RAG / مسیریابی ایجنت", "level": "متوسط"},
       {"name": "APIهای سازگار با OpenAI", "level": "پیشرفته"}
+    ],
+    "ابزارهای کدنویسی با AI": [
+      {"name": "Cursor (AI IDE)", "level": "پیشرفته"},
+      {"name": "Claude Code", "level": "پیشرفته"},
+      {"name": "GitHub Copilot", "level": "پیشرفته"},
+      {"name": "Aider", "level": "متوسط"},
+      {"name": "Refactor چندفایلی با AI", "level": "پیشرفته"},
+      {"name": "اتوماسیون task به سبک agent", "level": "متوسط"}
     ],
     "بک‌اند": [
       {"name": "Python / FastAPI", "level": "پیشرفته"},
