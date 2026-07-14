@@ -1089,16 +1089,29 @@ section {
 }
 
 .portfolio25-card {
+  display: block;
   border: 1px solid var(--border);
   background: var(--bg-card);
   border-radius: 12px;
   padding: 1rem 1.1rem;
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
   transition: border-color 0.2s ease, transform 0.2s ease;
 }
 
 .portfolio25-card:hover {
   border-color: color-mix(in srgb, var(--accent, #2dd4bf) 45%, var(--border));
   transform: translateY(-2px);
+}
+
+.portfolio25-card--static {
+  cursor: default;
+}
+
+.portfolio25-card .portfolio25-link {
+  position: relative;
+  z-index: 1;
 }
 
 .portfolio25-card-head {

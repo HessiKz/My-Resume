@@ -559,22 +559,27 @@
       const techs = Array.isArray(proj.technologies) ? proj.technologies : [];
       const github = (proj.links && proj.links.github) ? proj.links.github.trim() : '';
       const demo = (proj.links && proj.links.demo) ? proj.links.demo.trim() : '';
+      // Card opens demo first; fall back to repo when no demo exists.
+      const primaryUrl = demo || github;
       const techHtml = techs.length
         ? `<div class="portfolio25-tech">${techs.map((t) => `<span>${escapeHtml(t)}</span>`).join('')}</div>`
         : '';
       const linksHtml = [
-        github ? `<a href="${escapeAttr(github)}" target="_blank" rel="noopener noreferrer">${escapeHtml(ghLabel)}</a>` : '',
-        demo ? `<a href="${escapeAttr(demo)}" target="_blank" rel="noopener noreferrer">${escapeHtml(demoLabel)}</a>` : '',
+        github ? `<a class="portfolio25-link" href="${escapeAttr(github)}" target="_blank" rel="noopener noreferrer">${escapeHtml(ghLabel)}</a>` : '',
+        demo ? `<a class="portfolio25-link" href="${escapeAttr(demo)}" target="_blank" rel="noopener noreferrer">${escapeHtml(demoLabel)}</a>` : '',
       ].filter(Boolean).join(' · ');
-      return `<article class="portfolio25-card">
+      const body = `
         <div class="portfolio25-card-head">
           <h4 class="portfolio25-title">${escapeHtml(title)}</h4>
           ${category ? `<span class="portfolio25-cat">${escapeHtml(category)}</span>` : ''}
         </div>
         ${desc ? `<p class="portfolio25-desc">${escapeHtml(desc)}</p>` : ''}
         ${techHtml}
-        ${linksHtml ? `<p class="portfolio25-links">${linksHtml}</p>` : ''}
-      </article>`;
+        ${linksHtml ? `<p class="portfolio25-links">${linksHtml}</p>` : ''}`;
+      if (!primaryUrl) {
+        return `<article class="portfolio25-card portfolio25-card--static">${body}</article>`;
+      }
+      return `<a class="portfolio25-card" href="${escapeAttr(primaryUrl)}" target="_blank" rel="noopener noreferrer" aria-label="${escapeAttr(title)}">${body}</a>`;
     }).join('');
   }
 
