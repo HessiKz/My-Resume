@@ -1,6 +1,28 @@
 {
   "featured": [
     {
+      "title": "DigiStarKala Storefront Redesign",
+      "title_fa": "بازطراحی فروشگاه دیجی استار کالا",
+      "description": "Premium RTL e-commerce redesign of digistarkala.ir: full static catalog (228 products), real brand logos/banners, CMS pages and blog, light/dark theme with banner-driven accent colors, local cart, and GitHub Pages deploy. React, TypeScript, Tailwind v4, GSAP, Vite.",
+      "description_fa": "بازطراحی premium و RTL فروشگاه digistarkala.ir: کاتالوگ کامل استاتیک (۲۲۸ محصول)، لوگو و بنرهای اصلی، صفحات CMS و وبلاگ، تم روشن/تاریک با رنگ‌بندی وابسته به بنر، سبد محلی و استقرار روی GitHub Pages. React، TypeScript، Tailwind v4، GSAP، Vite.",
+      "technologies": [
+        "React",
+        "TypeScript",
+        "Vite",
+        "Tailwind CSS",
+        "GSAP",
+        "Zustand",
+        "TanStack Query",
+        "GitHub Pages",
+        "RTL UX"
+      ],
+      "links": {
+        "github": "https://github.com/HessiKz/digistarkala",
+        "demo": "https://hessikz.github.io/digistarkala/"
+      },
+      "image": "assets/images/digistarkala.jpg"
+    },
+    {
       "title": "HESSI-GPT",
       "title_fa": "HESSI-GPT",
       "description": "Self-branded, streaming AI chat terminal deployed to GitHub Pages. Frontend calls an OpenAI-compatible inference API directly from the browser; the real model and endpoint are encrypted as AES-GCM ciphertext and decrypted at runtime, with the model instructed to present only as HESSI-GPT by HessiKz. Vanilla HTML/CSS/JS, SSE streaming, no backend.",
