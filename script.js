@@ -579,10 +579,11 @@
         ${techHtml}
         ${primaryUrl ? `<p class="portfolio25-links"><span class="portfolio25-open">${escapeHtml(openLabel)}</span></p>` : ''}`;
       const extraClass = i >= visibleCount ? ' portfolio25-card--hidden' : '';
+      const extraAttr = i >= visibleCount ? ' data-portfolio25-extras="1"' : '';
       if (!primaryUrl) {
-        return `<article class="portfolio25-card portfolio25-card--static${extraClass}">${body}</article>`;
+        return `<article class="portfolio25-card portfolio25-card--static${extraClass}"${extraAttr}>${body}</article>`;
       }
-      return `<a class="portfolio25-card${extraClass}" href="${escapeAttr(primaryUrl)}" target="_blank" rel="noopener noreferrer" aria-label="${escapeAttr(title)}">${body}</a>`;
+      return `<a class="portfolio25-card${extraClass}" href="${escapeAttr(primaryUrl)}" target="_blank" rel="noopener noreferrer" aria-label="${escapeAttr(title)}"${extraAttr}>${body}</a>`;
     }).join('');
 
     if (toggleWrap) {
@@ -604,19 +605,20 @@
       const label = btn.querySelector('.portfolio25-toggle-label');
       if (!listEl) return;
       const isExpanded = listEl.dataset.expanded === 'true';
-      const hiddenCards = listEl.querySelectorAll('.portfolio25-card--hidden');
+      const extraCards = listEl.querySelectorAll('[data-portfolio25-extras="1"]');
 
       if (isExpanded) {
-        hiddenCards.forEach((card) => {
+        extraCards.forEach((card) => {
           card.classList.add('portfolio25-card--collapsing');
-          const onEnd = () => {
+          card.style.maxHeight = card.scrollHeight + 'px';
+          const onEnd = (e) => {
+            if (e.propertyName !== 'max-height') return;
             card.classList.remove('portfolio25-card--collapsing');
             card.classList.add('portfolio25-card--hidden');
             card.style.maxHeight = '';
             card.removeEventListener('transitionend', onEnd);
           };
           card.addEventListener('transitionend', onEnd);
-          card.style.maxHeight = card.scrollHeight + 'px';
           requestAnimationFrame(() => { card.style.maxHeight = '0px'; });
         });
         listEl.dataset.expanded = 'false';
@@ -624,14 +626,15 @@
         btn.classList.remove('is-expanded');
         if (label) label.textContent = t('sections.portfolio25More');
       } else {
-        hiddenCards.forEach((card) => {
+        extraCards.forEach((card) => {
           card.classList.remove('portfolio25-card--hidden');
           card.classList.add('portfolio25-card--expanding');
           card.style.maxHeight = '0px';
           requestAnimationFrame(() => {
             card.style.maxHeight = card.scrollHeight + 'px';
           });
-          const onEnd = () => {
+          const onEnd = (e) => {
+            if (e.propertyName !== 'max-height') return;
             card.classList.remove('portfolio25-card--expanding');
             card.style.maxHeight = '';
             card.removeEventListener('transitionend', onEnd);
