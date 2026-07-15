@@ -544,21 +544,28 @@
   function renderPortfolio25(list) {
     const container = document.getElementById('projects-portfolio25-container');
     const listEl = document.getElementById('projects-portfolio25');
+    const toggleWrap = document.getElementById('projects-portfolio25-toggle-wrap');
     if (!container || !listEl || !Array.isArray(list) || list.length === 0) {
       if (container) container.classList.add('hidden');
+      if (toggleWrap) toggleWrap.classList.add('hidden');
       return;
     }
     container.classList.remove('hidden');
+    const PORTFOLIO25_INITIAL = 6;
     const isFa = currentLang === 'fa';
     const openLabel = isFa ? 'باز کردن' : 'Open';
-    listEl.innerHTML = list.map((proj) => {
+    const hasToggle = list.length > PORTFOLIO25_INITIAL;
+    const visibleCount = hasToggle ? PORTFOLIO25_INITIAL : list.length;
+
+    listEl.dataset.expanded = 'false';
+
+    listEl.innerHTML = list.map((proj, i) => {
       const title = isFa && proj.title_fa ? proj.title_fa : proj.title;
       const desc = isFa && proj.description_fa ? proj.description_fa : (proj.description || '');
       const category = proj.category || '';
       const techs = Array.isArray(proj.technologies) ? proj.technologies : [];
       const github = (proj.links && proj.links.github) ? proj.links.github.trim() : '';
       const demo = (proj.links && proj.links.demo) ? proj.links.demo.trim() : '';
-      // Prefer demo; fall back to repo. No nested <a> tags (invalid HTML / broken layout).
       const primaryUrl = demo || github;
       const techHtml = techs.length
         ? `<div class="portfolio25-tech">${techs.map((t) => `<span>${escapeHtml(t)}</span>`).join('')}</div>`
@@ -571,11 +578,72 @@
         ${desc ? `<p class="portfolio25-desc">${escapeHtml(desc)}</p>` : ''}
         ${techHtml}
         ${primaryUrl ? `<p class="portfolio25-links"><span class="portfolio25-open">${escapeHtml(openLabel)}</span></p>` : ''}`;
+      const extraClass = i >= visibleCount ? ' portfolio25-card--hidden' : '';
       if (!primaryUrl) {
-        return `<article class="portfolio25-card portfolio25-card--static">${body}</article>`;
+        return `<article class="portfolio25-card portfolio25-card--static${extraClass}">${body}</article>`;
       }
-      return `<a class="portfolio25-card" href="${escapeAttr(primaryUrl)}" target="_blank" rel="noopener noreferrer" aria-label="${escapeAttr(title)}">${body}</a>`;
+      return `<a class="portfolio25-card${extraClass}" href="${escapeAttr(primaryUrl)}" target="_blank" rel="noopener noreferrer" aria-label="${escapeAttr(title)}">${body}</a>`;
     }).join('');
+
+    if (toggleWrap) {
+      if (hasToggle) {
+        toggleWrap.classList.remove('hidden');
+      } else {
+        toggleWrap.classList.add('hidden');
+      }
+    }
+  }
+
+  function initPortfolio25Toggle() {
+    const btn = document.getElementById('projects-portfolio25-toggle');
+    if (!btn || btn.dataset.bound === '1') return;
+    btn.dataset.bound = '1';
+
+    btn.addEventListener('click', () => {
+      const listEl = document.getElementById('projects-portfolio25');
+      const label = btn.querySelector('.portfolio25-toggle-label');
+      if (!listEl) return;
+      const isExpanded = listEl.dataset.expanded === 'true';
+      const hiddenCards = listEl.querySelectorAll('.portfolio25-card--hidden');
+
+      if (isExpanded) {
+        hiddenCards.forEach((card) => {
+          card.classList.add('portfolio25-card--collapsing');
+          const onEnd = () => {
+            card.classList.remove('portfolio25-card--collapsing');
+            card.classList.add('portfolio25-card--hidden');
+            card.style.maxHeight = '';
+            card.removeEventListener('transitionend', onEnd);
+          };
+          card.addEventListener('transitionend', onEnd);
+          card.style.maxHeight = card.scrollHeight + 'px';
+          requestAnimationFrame(() => { card.style.maxHeight = '0px'; });
+        });
+        listEl.dataset.expanded = 'false';
+        btn.setAttribute('aria-expanded', 'false');
+        btn.classList.remove('is-expanded');
+        if (label) label.textContent = t('sections.portfolio25More');
+      } else {
+        hiddenCards.forEach((card) => {
+          card.classList.remove('portfolio25-card--hidden');
+          card.classList.add('portfolio25-card--expanding');
+          card.style.maxHeight = '0px';
+          requestAnimationFrame(() => {
+            card.style.maxHeight = card.scrollHeight + 'px';
+          });
+          const onEnd = () => {
+            card.classList.remove('portfolio25-card--expanding');
+            card.style.maxHeight = '';
+            card.removeEventListener('transitionend', onEnd);
+          };
+          card.addEventListener('transitionend', onEnd);
+        });
+        listEl.dataset.expanded = 'true';
+        btn.setAttribute('aria-expanded', 'true');
+        btn.classList.add('is-expanded');
+        if (label) label.textContent = t('sections.portfolio25Less');
+      }
+    });
   }
 
   function renderEducation(profile) {
@@ -920,6 +988,7 @@
         }
         if (portfolio25.length) renderPortfolio25(portfolio25);
       }
+      initPortfolio25Toggle();
       setFooterYear();
       startTypingEffect();
       updateSwitcherActive(lang);
@@ -1241,6 +1310,7 @@
       }
       if (portfolio25.length) renderPortfolio25(portfolio25);
     }
+    initPortfolio25Toggle();
     setFooterYear();
     startTypingEffect();
   }

@@ -28,6 +28,8 @@
     "projectsLead": "Selected builds with demos and source code.",
     "otherProjects": "Other projects",
     "portfolio25Lead": "A per-project site exploring every technology on my resume, deployed live with CI to GitHub Pages.",
+    "portfolio25More": "Show more projects",
+    "portfolio25Less": "Show less",
     "education": "Education & Certifications",
     "contact": "Contact",
     "educationTitle": "Education",

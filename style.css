@@ -1188,6 +1188,120 @@ section {
   text-decoration: underline;
 }
 
+.portfolio25-card--hidden {
+  display: none;
+}
+
+.portfolio25-card--expanding,
+.portfolio25-card--collapsing {
+  display: flex;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(8px);
+  max-height: 0;
+  margin: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  border-width: 0;
+  transition: max-height 0.42s var(--ease-out-expo),
+    opacity 0.36s var(--ease-out-expo),
+    transform 0.42s var(--ease-out-expo),
+    padding 0.42s var(--ease-out-expo),
+    margin 0.42s var(--ease-out-expo),
+    border-width 0.42s var(--ease-out-expo);
+  will-change: max-height, opacity, transform;
+}
+
+.portfolio25-card--expanding {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.portfolio25-toggle-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.75rem;
+}
+
+.portfolio25-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.65rem 1.4rem;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--accent, #2dd4bf) 35%, var(--border));
+  background: color-mix(in srgb, var(--accent, #2dd4bf) 8%, transparent);
+  color: var(--accent, #2dd4bf);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.portfolio25-toggle:hover {
+  background: color-mix(in srgb, var(--accent, #2dd4bf) 16%, transparent);
+  border-color: color-mix(in srgb, var(--accent, #2dd4bf) 55%, var(--border));
+  transform: translateY(-1px);
+  box-shadow: 0 12px 30px -20px rgba(45, 212, 191, 0.8);
+}
+
+.portfolio25-toggle:focus-visible {
+  outline: 2px solid var(--accent, #2dd4bf);
+  outline-offset: 3px;
+}
+
+.portfolio25-toggle-icon {
+  width: 10px;
+  height: 10px;
+  position: relative;
+  transition: transform 0.4s var(--ease-out-expo);
+}
+
+.portfolio25-toggle-icon::before,
+.portfolio25-toggle-icon::after {
+  content: "";
+  position: absolute;
+  background: currentColor;
+  border-radius: 2px;
+}
+
+.portfolio25-toggle-icon::before {
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  transform: translateY(-50%);
+}
+
+.portfolio25-toggle-icon::after {
+  left: 50%;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  transform: translateX(-50%);
+  transition: transform 0.4s var(--ease-out-expo), opacity 0.3s ease;
+}
+
+.portfolio25-toggle.is-expanded .portfolio25-toggle-icon {
+  transform: rotate(180deg);
+}
+
+.portfolio25-toggle.is-expanded .portfolio25-toggle-icon::after {
+  transform: translateX(-50%) scaleY(0);
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portfolio25-card--expanding,
+  .portfolio25-card--collapsing {
+    transition: none;
+  }
+  .portfolio25-toggle-icon,
+  .portfolio25-toggle-icon::after {
+    transition: none;
+  }
+}
+
 /* Timeline */
 .timeline-line {
   position: absolute;
