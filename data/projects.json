@@ -160,21 +160,24 @@
       "image": "assets/images/Web-scrap.png"
     },
     {
-      "title": "The Beautiful ART",
-      "title_fa": "The Beautiful ART",
-      "description": "Interactive narrative single-page experience with scroll-driven storytelling, custom typography, and motion. Built as a creative front-end showcase.",
-      "description_fa": "تجربه تک‌صفحه‌ای روایی تعاملی با روایت وابسته به اسکرول، تایپوگرافی اختصاصی و موشن. نمونه کار خلاقانه فرانت‌اند.",
+      "title": "Non Confessors Vinyl Gallery",
+      "title_fa": "گالری وینیل Non Confessors",
+      "description": "Production bilingual (EN/FA) e-commerce gallery at nonconfessors.shop for curated vinyl and CDs: gothic brand UI, product catalog with cart and auth, artist index, journal, and RTL locale switching. Next.js App Router, Tailwind, Nginx.",
+      "description_fa": "فروشگاه دوزبانه (EN/FA) زنده در nonconfessors.shop برای وینیل و سی‌دی‌های curated: UI برند گوتیک، کاتالوگ محصول با سبد و احراز هویت، ایندکس هنرمندان، ژورنال و تعویض locale با RTL. Next.js App Router، Tailwind، Nginx.",
       "technologies": [
-        "HTML5",
-        "CSS3",
-        "JavaScript",
-        "Scroll UX"
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "RTL UX",
+        "E-commerce",
+        "Nginx"
       ],
       "links": {
-        "github": "https://github.com/HessiKz/the-beautiful-ART",
-        "demo": "https://hessi3700.github.io/the-beautiful-ART/"
+        "github": "",
+        "demo": "https://nonconfessors.shop/"
       },
-      "image": "assets/images/TBART.png"
+      "image": "assets/images/nonconfessors.jpg"
     }
   ],
   "portfolio25": [
