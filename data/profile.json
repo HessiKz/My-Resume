@@ -22,462 +22,144 @@
   "about_fa": "توسعه‌دهنده فول‌استک با بیش از چهار سال تجربه در محصولات واقعی فین‌تک، حقوقی و AI سازمانی. مالکیت بک‌اند (FastAPI، NestJS، Go)، فرانت (React، Next.js، Nuxt)، AI (LangChain، LangSmith، workflow، API gateway) و استقرار (CI/CD، Docker، Linux/VPS، Cloudflare، Railway، GitHub Pages). مسلط به ابزارهای مدرن کدنویسی با هوش مصنوعی مانند Cursor، Claude Code، GitHub Copilot، Aider و دستیارهای agent/IDE مشابه برای refactor چندفایلی، ریویو و تحویل فیچر end-to-end، با مالکیت معماری و کیفیت کد. اکنون در گروه آیه؛ پیش‌تر مهاجرت ArnitEx از Spring Boot به NestJS و Go. تحویل end-to-end از دیتابیس و worker تا UI دوزبانه، مانیتورینگ و ریلیز production. علاقه‌مند به کد تمیز، بهترین روش‌های مهندسی و فناوری‌های وب مدرن؛ تجربه در امنیت شبکه (Xray، راه‌اندازی Starlink) و تدریس Node.js و Express.",
   "skills": {
     "AI & LLM": [
-      {
-        "name": "LangChain",
-        "level": "Advanced"
-      },
-      {
-        "name": "LangSmith",
-        "level": "Advanced"
-      },
-      {
-        "name": "AI workflow orchestration",
-        "level": "Advanced"
-      },
-      {
-        "name": "RAG / agent routing",
-        "level": "Intermediate"
-      },
-      {
-        "name": "OpenAI-compatible APIs",
-        "level": "Advanced"
-      }
+      {"name": "LangChain", "level": "Advanced"},
+      {"name": "LangSmith", "level": "Advanced"},
+      {"name": "AI workflow orchestration", "level": "Advanced"},
+      {"name": "RAG / agent routing", "level": "Intermediate"},
+      {"name": "OpenAI-compatible APIs", "level": "Advanced"}
     ],
     "AI Coding Tools": [
-      {
-        "name": "Cursor (AI IDE)",
-        "level": "Advanced"
-      },
-      {
-        "name": "Claude Code",
-        "level": "Advanced"
-      },
-      {
-        "name": "GitHub Copilot",
-        "level": "Advanced"
-      },
-      {
-        "name": "Aider",
-        "level": "Intermediate"
-      },
-      {
-        "name": "AI-assisted multi-file refactor",
-        "level": "Advanced"
-      },
-      {
-        "name": "Agent-style task automation",
-        "level": "Intermediate"
-      }
+      {"name": "Cursor (AI IDE)", "level": "Advanced"},
+      {"name": "Claude Code", "level": "Advanced"},
+      {"name": "GitHub Copilot", "level": "Advanced"},
+      {"name": "Aider", "level": "Intermediate"},
+      {"name": "AI-assisted multi-file refactor", "level": "Advanced"},
+      {"name": "Agent-style task automation", "level": "Intermediate"}
     ],
     "Backend": [
-      {
-        "name": "Python / FastAPI",
-        "level": "Advanced"
-      },
-      {
-        "name": "Node.js / Express",
-        "level": "Advanced"
-      },
-      {
-        "name": "NestJS",
-        "level": "Advanced"
-      },
-      {
-        "name": "Go (Golang)",
-        "level": "Intermediate"
-      },
-      {
-        "name": "Django / Flask",
-        "level": "Advanced"
-      },
-      {
-        "name": "REST & API gateway design",
-        "level": "Advanced"
-      },
-      {
-        "name": "WebSockets / real-time APIs",
-        "level": "Intermediate"
-      },
-      {
-        "name": "Auth (JWT, sessions, API keys)",
-        "level": "Advanced"
-      },
-      {
-        "name": "Celery / async workers",
-        "level": "Intermediate"
-      },
-      {
-        "name": "TypeORM / ORM patterns",
-        "level": "Intermediate"
-      },
-      {
-        "name": "Spring Boot (migration)",
-        "level": "Intermediate"
-      }
+      {"name": "Python / FastAPI", "level": "Advanced"},
+      {"name": "Node.js / Express", "level": "Advanced"},
+      {"name": "NestJS", "level": "Advanced"},
+      {"name": "Go (Golang)", "level": "Intermediate"},
+      {"name": "Django / Flask", "level": "Advanced"},
+      {"name": "REST & API gateway design", "level": "Advanced"},
+      {"name": "WebSockets / real-time APIs", "level": "Intermediate"},
+      {"name": "Auth (JWT, sessions, API keys)", "level": "Advanced"},
+      {"name": "Celery / async workers", "level": "Intermediate"},
+      {"name": "TypeORM / ORM patterns", "level": "Intermediate"},
+      {"name": "Spring Boot (migration)", "level": "Intermediate"}
     ],
     "Frontend": [
-      {
-        "name": "React",
-        "level": "Advanced"
-      },
-      {
-        "name": "Next.js",
-        "level": "Advanced"
-      },
-      {
-        "name": "Nuxt.js",
-        "level": "Intermediate"
-      },
-      {
-        "name": "TypeScript",
-        "level": "Advanced"
-      },
-      {
-        "name": "Vue.js",
-        "level": "Intermediate"
-      },
-      {
-        "name": "Tailwind CSS",
-        "level": "Advanced"
-      },
-      {
-        "name": "Vite / modern bundlers",
-        "level": "Intermediate"
-      },
-      {
-        "name": "RTL / bilingual UI",
-        "level": "Advanced"
-      }
+      {"name": "React", "level": "Advanced"},
+      {"name": "Next.js", "level": "Advanced"},
+      {"name": "Nuxt.js", "level": "Intermediate"},
+      {"name": "TypeScript", "level": "Advanced"},
+      {"name": "Vue.js", "level": "Intermediate"},
+      {"name": "Tailwind CSS", "level": "Advanced"},
+      {"name": "Vite / modern bundlers", "level": "Intermediate"},
+      {"name": "RTL / bilingual UI", "level": "Advanced"}
     ],
     "Database & Caching": [
-      {
-        "name": "PostgreSQL",
-        "level": "Intermediate"
-      },
-      {
-        "name": "SQLite / Cloudflare D1",
-        "level": "Intermediate"
-      },
-      {
-        "name": "Redis",
-        "level": "Intermediate"
-      },
-      {
-        "name": "Schema design & migrations",
-        "level": "Intermediate"
-      }
+      {"name": "PostgreSQL", "level": "Intermediate"},
+      {"name": "SQLite / Cloudflare D1", "level": "Intermediate"},
+      {"name": "Redis", "level": "Intermediate"},
+      {"name": "Schema design & migrations", "level": "Intermediate"}
     ],
     "DevOps, CI/CD & Deployment": [
-      {
-        "name": "Git / GitHub workflows",
-        "level": "Advanced"
-      },
-      {
-        "name": "GitHub Actions (CI/CD)",
-        "level": "Intermediate"
-      },
-      {
-        "name": "Docker & containerization",
-        "level": "Intermediate"
-      },
-      {
-        "name": "Linux / VPS deployment",
-        "level": "Intermediate"
-      },
-      {
-        "name": "Nginx / reverse proxy",
-        "level": "Intermediate"
-      },
-      {
-        "name": "GitHub Pages & static hosting",
-        "level": "Advanced"
-      },
-      {
-        "name": "Cloudflare Workers / KV",
-        "level": "Intermediate"
-      },
-      {
-        "name": "Railway & PaaS deploys",
-        "level": "Intermediate"
-      },
-      {
-        "name": "Env config & secrets",
-        "level": "Intermediate"
-      },
-      {
-        "name": "Production monitoring & logging",
-        "level": "Intermediate"
-      },
-      {
-        "name": "Zero-downtime releases",
-        "level": "Intermediate"
-      }
+      {"name": "Git / GitHub workflows", "level": "Advanced"},
+      {"name": "GitHub Actions (CI/CD)", "level": "Intermediate"},
+      {"name": "Docker & containerization", "level": "Intermediate"},
+      {"name": "Linux / VPS deployment", "level": "Intermediate"},
+      {"name": "Nginx / reverse proxy", "level": "Intermediate"},
+      {"name": "GitHub Pages & static hosting", "level": "Advanced"},
+      {"name": "Cloudflare Workers / KV", "level": "Intermediate"},
+      {"name": "Railway & PaaS deploys", "level": "Intermediate"},
+      {"name": "Env config & secrets", "level": "Intermediate"},
+      {"name": "Production monitoring & logging", "level": "Intermediate"},
+      {"name": "Zero-downtime releases", "level": "Intermediate"}
     ],
     "Practices": [
-      {
-        "name": "Agile (Scrum)",
-        "level": "Intermediate"
-      },
-      {
-        "name": "Jira",
-        "level": "Intermediate"
-      },
-      {
-        "name": "Project / team coordination",
-        "level": "Advanced"
-      },
-      {
-        "name": "Technical writing",
-        "level": "Intermediate"
-      },
-      {
-        "name": "Teaching & mentoring",
-        "level": "Intermediate"
-      }
+      {"name": "Agile (Scrum)", "level": "Intermediate"},
+      {"name": "Jira", "level": "Intermediate"},
+      {"name": "Project / team coordination", "level": "Advanced"},
+      {"name": "Technical writing", "level": "Intermediate"},
+      {"name": "Teaching & mentoring", "level": "Intermediate"}
     ],
     "Network & Security": [
-      {
-        "name": "Starlink setup",
-        "level": "Advanced"
-      },
-      {
-        "name": "Xray",
-        "level": "Advanced"
-      },
-      {
-        "name": "Private networks / VPN",
-        "level": "Intermediate"
-      }
+      {"name": "Starlink setup", "level": "Advanced"},
+      {"name": "Xray", "level": "Advanced"},
+      {"name": "Private networks / VPN", "level": "Intermediate"}
     ]
   },
   "skills_fa": {
     "هوش مصنوعی و LLM": [
-      {
-        "name": "LangChain",
-        "level": "پیشرفته"
-      },
-      {
-        "name": "LangSmith",
-        "level": "پیشرفته"
-      },
-      {
-        "name": "ارکستراسیون workflow AI",
-        "level": "پیشرفته"
-      },
-      {
-        "name": "RAG / مسیریابی ایجنت",
-        "level": "متوسط"
-      },
-      {
-        "name": "APIهای سازگار با OpenAI",
-        "level": "پیشرفته"
-      }
+      {"name": "LangChain", "level": "پیشرفته"},
+      {"name": "LangSmith", "level": "پیشرفته"},
+      {"name": "ارکستراسیون workflow AI", "level": "پیشرفته"},
+      {"name": "RAG / مسیریابی ایجنت", "level": "متوسط"},
+      {"name": "APIهای سازگار با OpenAI", "level": "پیشرفته"}
     ],
     "ابزارهای کدنویسی با AI": [
-      {
-        "name": "Cursor (AI IDE)",
-        "level": "پیشرفته"
-      },
-      {
-        "name": "Claude Code",
-        "level": "پیشرفته"
-      },
-      {
-        "name": "GitHub Copilot",
-        "level": "پیشرفته"
-      },
-      {
-        "name": "Aider",
-        "level": "متوسط"
-      },
-      {
-        "name": "Refactor چندفایلی با AI",
-        "level": "پیشرفته"
-      },
-      {
-        "name": "اتوماسیون task به سبک agent",
-        "level": "متوسط"
-      }
+      {"name": "Cursor (AI IDE)", "level": "پیشرفته"},
+      {"name": "Claude Code", "level": "پیشرفته"},
+      {"name": "GitHub Copilot", "level": "پیشرفته"},
+      {"name": "Aider", "level": "متوسط"},
+      {"name": "Refactor چندفایلی با AI", "level": "پیشرفته"},
+      {"name": "اتوماسیون task به سبک agent", "level": "متوسط"}
     ],
     "بک‌اند": [
-      {
-        "name": "Python / FastAPI",
-        "level": "پیشرفته"
-      },
-      {
-        "name": "Node.js / Express",
-        "level": "پیشرفته"
-      },
-      {
-        "name": "NestJS",
-        "level": "پیشرفته"
-      },
-      {
-        "name": "Go (Golang)",
-        "level": "متوسط"
-      },
-      {
-        "name": "Django / Flask",
-        "level": "پیشرفته"
-      },
-      {
-        "name": "REST و طراحی API gateway",
-        "level": "پیشرفته"
-      },
-      {
-        "name": "WebSocket / API بلادرنگ",
-        "level": "متوسط"
-      },
-      {
-        "name": "احراز هویت (JWT، session، API key)",
-        "level": "پیشرفته"
-      },
-      {
-        "name": "Celery / workerهای ناهمزمان",
-        "level": "متوسط"
-      },
-      {
-        "name": "TypeORM / الگوهای ORM",
-        "level": "متوسط"
-      },
-      {
-        "name": "Spring Boot (مهاجرت)",
-        "level": "متوسط"
-      }
+      {"name": "Python / FastAPI", "level": "پیشرفته"},
+      {"name": "Node.js / Express", "level": "پیشرفته"},
+      {"name": "NestJS", "level": "پیشرفته"},
+      {"name": "Go (Golang)", "level": "متوسط"},
+      {"name": "Django / Flask", "level": "پیشرفته"},
+      {"name": "REST و طراحی API gateway", "level": "پیشرفته"},
+      {"name": "WebSocket / API بلادرنگ", "level": "متوسط"},
+      {"name": "احراز هویت (JWT، session، API key)", "level": "پیشرفته"},
+      {"name": "Celery / workerهای ناهمزمان", "level": "متوسط"},
+      {"name": "TypeORM / الگوهای ORM", "level": "متوسط"},
+      {"name": "Spring Boot (مهاجرت)", "level": "متوسط"}
     ],
     "فرانت‌اند": [
-      {
-        "name": "React",
-        "level": "پیشرفته"
-      },
-      {
-        "name": "Next.js",
-        "level": "پیشرفته"
-      },
-      {
-        "name": "Nuxt.js",
-        "level": "متوسط"
-      },
-      {
-        "name": "TypeScript",
-        "level": "پیشرفته"
-      },
-      {
-        "name": "Vue.js",
-        "level": "متوسط"
-      },
-      {
-        "name": "Tailwind CSS",
-        "level": "پیشرفته"
-      },
-      {
-        "name": "Vite / bundlerهای مدرن",
-        "level": "متوسط"
-      },
-      {
-        "name": "رابط RTL / دو زبانه",
-        "level": "پیشرفته"
-      }
+      {"name": "React", "level": "پیشرفته"},
+      {"name": "Next.js", "level": "پیشرفته"},
+      {"name": "Nuxt.js", "level": "متوسط"},
+      {"name": "TypeScript", "level": "پیشرفته"},
+      {"name": "Vue.js", "level": "متوسط"},
+      {"name": "Tailwind CSS", "level": "پیشرفته"},
+      {"name": "Vite / bundlerهای مدرن", "level": "متوسط"},
+      {"name": "رابط RTL / دو زبانه", "level": "پیشرفته"}
     ],
     "دیتابیس و کش": [
-      {
-        "name": "PostgreSQL",
-        "level": "متوسط"
-      },
-      {
-        "name": "SQLite / Cloudflare D1",
-        "level": "متوسط"
-      },
-      {
-        "name": "Redis",
-        "level": "متوسط"
-      },
-      {
-        "name": "طراحی schema و migration",
-        "level": "متوسط"
-      }
+      {"name": "PostgreSQL", "level": "متوسط"},
+      {"name": "SQLite / Cloudflare D1", "level": "متوسط"},
+      {"name": "Redis", "level": "متوسط"},
+      {"name": "طراحی schema و migration", "level": "متوسط"}
     ],
     "DevOps، CI/CD و استقرار": [
-      {
-        "name": "Git / گردش‌کار GitHub",
-        "level": "پیشرفته"
-      },
-      {
-        "name": "GitHub Actions (CI/CD)",
-        "level": "متوسط"
-      },
-      {
-        "name": "Docker و کانتینر",
-        "level": "متوسط"
-      },
-      {
-        "name": "استقرار Linux / VPS",
-        "level": "متوسط"
-      },
-      {
-        "name": "Nginx / reverse proxy",
-        "level": "متوسط"
-      },
-      {
-        "name": "GitHub Pages و هاست استاتیک",
-        "level": "پیشرفته"
-      },
-      {
-        "name": "Cloudflare Workers / KV",
-        "level": "متوسط"
-      },
-      {
-        "name": "Railway و PaaS",
-        "level": "متوسط"
-      },
-      {
-        "name": "متغیر محیطی و secrets",
-        "level": "متوسط"
-      },
-      {
-        "name": "مانیتورینگ و لاگ production",
-        "level": "متوسط"
-      },
-      {
-        "name": "ریلیز بدون downtime",
-        "level": "متوسط"
-      }
+      {"name": "Git / گردش‌کار GitHub", "level": "پیشرفته"},
+      {"name": "GitHub Actions (CI/CD)", "level": "متوسط"},
+      {"name": "Docker و کانتینر", "level": "متوسط"},
+      {"name": "استقرار Linux / VPS", "level": "متوسط"},
+      {"name": "Nginx / reverse proxy", "level": "متوسط"},
+      {"name": "GitHub Pages و هاست استاتیک", "level": "پیشرفته"},
+      {"name": "Cloudflare Workers / KV", "level": "متوسط"},
+      {"name": "Railway و PaaS", "level": "متوسط"},
+      {"name": "متغیر محیطی و secrets", "level": "متوسط"},
+      {"name": "مانیتورینگ و لاگ production", "level": "متوسط"},
+      {"name": "ریلیز بدون downtime", "level": "متوسط"}
     ],
     "روش‌ها": [
-      {
-        "name": "Agile (Scrum)",
-        "level": "متوسط"
-      },
-      {
-        "name": "Jira",
-        "level": "متوسط"
-      },
-      {
-        "name": "هماهنگی تیم و پروژه",
-        "level": "پیشرفته"
-      },
-      {
-        "name": "نویسندگی فنی",
-        "level": "متوسط"
-      },
-      {
-        "name": "تدریس و منتورینگ",
-        "level": "متوسط"
-      }
+      {"name": "Agile (Scrum)", "level": "متوسط"},
+      {"name": "Jira", "level": "متوسط"},
+      {"name": "هماهنگی تیم و پروژه", "level": "پیشرفته"},
+      {"name": "نویسندگی فنی", "level": "متوسط"},
+      {"name": "تدریس و منتورینگ", "level": "متوسط"}
     ],
     "شبکه و امنیت": [
-      {
-        "name": "راه‌اندازی Starlink",
-        "level": "پیشرفته"
-      },
-      {
-        "name": "Xray",
-        "level": "پیشرفته"
-      },
-      {
-        "name": "شبکه خصوصی / VPN",
-        "level": "متوسط"
-      }
+      {"name": "راه‌اندازی Starlink", "level": "پیشرفته"},
+      {"name": "Xray", "level": "پیشرفته"},
+      {"name": "شبکه خصوصی / VPN", "level": "متوسط"}
     ]
   },
   "experience": [
@@ -580,20 +262,8 @@
     }
   ],
   "languages": [
-    {
-      "name": "English",
-      "name_fa": "انگلیسی",
-      "level": "C1 (Overall)",
-      "level_fa": "C1",
-      "details": "Reading C2, Writing B2, Speaking C1, Listening C2",
-      "details_fa": "خواندن C2، نوشتن B2، صحبت C1، شنیدار C2"
-    },
-    {
-      "name": "Persian",
-      "name_fa": "فارسی",
-      "level": "Native",
-      "level_fa": "زبان مادری"
-    }
+    { "name": "English", "name_fa": "انگلیسی", "level": "C1 (Overall)", "level_fa": "C1", "details": "Reading C2, Writing B2, Speaking C1, Listening C2", "details_fa": "خواندن C2، نوشتن B2، صحبت C1، شنیدار C2" },
+    { "name": "Persian", "name_fa": "فارسی", "level": "Native", "level_fa": "زبان مادری" }
   ],
   "certifications": [
     {
