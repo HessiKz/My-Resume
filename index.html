@@ -90,7 +90,10 @@
         <div class="hero-inner">
           <div class="hero-grid">
             <div class="flex-shrink-0 mx-auto md:mx-0">
-              <img src="assets/images/image.jpeg" alt="" class="profile-avatar" width="224" height="224" fetchpriority="high" />
+              <picture>
+                <source srcset="assets/images/image.webp" type="image/webp" />
+                <img src="assets/images/image.jpeg" alt="" class="profile-avatar" width="224" height="224" fetchpriority="high" decoding="async" />
+              </picture>
             </div>
             <div class="hero-copy text-center md:text-start">
               <p id="hero-status"></p>

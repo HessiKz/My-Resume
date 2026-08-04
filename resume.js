@@ -61,7 +61,7 @@
     const location = isFa && p.location_fa ? p.location_fa : p.location;
 
     let html = '<header class="resume-header">';
-    html += '<img src="assets/images/resume-img.jpeg" alt="" class="resume-photo" width="140" height="140" />';
+    html += '<picture><source srcset="assets/images/resume-img.webp" type="image/webp" /><img src="assets/images/resume-img.jpeg" alt="" class="resume-photo" width="140" height="140" decoding="async" /></picture>';
     html += '<h1>' + esc(name) + '</h1>';
     html += '<p class="subtitle">' + esc(title) + '</p>';
     const availability = isFa && p.availability_fa ? p.availability_fa : p.availability;

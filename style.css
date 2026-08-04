@@ -636,6 +636,11 @@ section {
   object-position: center;
 }
 
+.hero-grid picture:has(.profile-avatar) {
+  display: block;
+  line-height: 0;
+}
+
 @media (min-width: 640px) {
   .profile-avatar {
     width: 14rem;
@@ -854,6 +859,12 @@ section {
   aspect-ratio: 16 / 10;
   background: var(--bg-secondary);
   overflow: hidden;
+}
+
+.project-image-wrap picture {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 .project-card-img {

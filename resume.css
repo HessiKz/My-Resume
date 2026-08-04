@@ -97,9 +97,15 @@ body.resume-page {
   object-fit: cover;
   object-position: center;
   border-radius: 50%;
-  margin: 0 auto 1rem;
   display: block;
   border: 3px solid var(--resume-accent);
+}
+
+.resume-content picture:has(.resume-photo) {
+  display: block;
+  width: 140px;
+  margin: 0 auto 1rem;
+  line-height: 0;
 }
 
 .resume-content h1 {

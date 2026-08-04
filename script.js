@@ -273,7 +273,12 @@
     const playFeaturedVideo = isFeatured && !reducedMotion;
     const mediaHtml = video
       ? `<video src="${escapeAttr(video)}" class="project-card-img" poster="${escapeAttr(img)}" muted loop playsinline${playFeaturedVideo ? ' autoplay' : ''} aria-label=""></video>`
-      : `<img src="${escapeAttr(img)}" alt="" class="project-card-img" width="640" height="400" loading="lazy" decoding="async" />`;
+      : optimizedImageHtml(img, {
+          className: 'project-card-img',
+          width: 640,
+          height: 400,
+          loading: 'lazy'
+        });
     const indexAttr = projectIndex != null ? ` data-project-index="${projectIndex}"` : '';
     const featuredAttr = isFeatured ? ' data-featured="true"' : '';
     const swapAttrs = isFeatured
@@ -904,6 +909,32 @@
     const div = document.createElement('div');
     div.textContent = s;
     return div.innerHTML;
+  }
+
+  function webpSrcFor(path) {
+    if (!path) return '';
+    return String(path).replace(/\.(png|jpe?g)$/i, '.webp');
+  }
+
+  /** Prefer WebP with same-resolution JPEG/PNG fallback; skip for SVG placeholders. */
+  function optimizedImageHtml(path, options) {
+    const opts = options || {};
+    const className = opts.className || '';
+    const width = opts.width;
+    const height = opts.height;
+    const loading = opts.loading || 'lazy';
+    const fetchpriority = opts.fetchpriority || '';
+    const alt = opts.alt != null ? opts.alt : '';
+    const dimAttrs = [
+      width != null ? ` width="${width}"` : '',
+      height != null ? ` height="${height}"` : ''
+    ].join('');
+    const prioAttr = fetchpriority ? ` fetchpriority="${escapeAttr(fetchpriority)}"` : '';
+    const imgTag = `<img src="${escapeAttr(path)}" alt="${escapeAttr(alt)}" class="${escapeAttr(className)}"${dimAttrs} loading="${escapeAttr(loading)}" decoding="async"${prioAttr} />`;
+    if (!path || /\.svg$/i.test(path)) return imgTag;
+    const webp = webpSrcFor(path);
+    if (!webp || webp === path) return imgTag;
+    return `<picture><source srcset="${escapeAttr(webp)}" type="image/webp" />${imgTag}</picture>`;
   }
 
   function escapeAttr(s) {
