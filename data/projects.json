@@ -1,6 +1,27 @@
 {
   "featured": [
     {
+      "title": "Chat JibiJ — Smart Market Chat",
+      "title_fa": "جیبی‌جی — چت هوشمند بازار",
+      "description": "Production Persian AI chat product at chatjibij.ir: real-time Iranian market search, gold/USD price lookup and analysis, product image analysis, credit-based messaging, and a bilingual-ready RTL chat UI. Built as an end-to-end Next.js app with live data tooling for shoppers.",
+      "description_fa": "محصول چت هوشمند فارسی در chatjibij.ir: جستجوی لحظه‌ای بازار ایران، قیمت و تحلیل طلا/دلار، تحلیل تصویر کالا، پیام‌رسانی مبتنی بر اعتبار و UI چت RTL. اپلیکیشن end-to-end با Next.js و ابزارهای داده زنده برای خریداران.",
+      "technologies": [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "AI Chat",
+        "RTL UX",
+        "Market Data",
+        "Image Analysis",
+        "Nginx"
+      ],
+      "links": {
+        "github": "",
+        "demo": "https://chatjibij.ir/"
+      },
+      "image": "assets/images/chatjibij.jpg"
+    },
+    {
       "title": "DigiStarKala Storefront Redesign",
       "title_fa": "بازطراحی فروشگاه دیجی استار کالا",
       "description": "Premium RTL e-commerce redesign of digistarkala.ir: full static catalog (228 products), real brand logos/banners, CMS pages and blog, light/dark theme with banner-driven accent colors, local cart, and GitHub Pages deploy. React, TypeScript, Tailwind v4, GSAP, Vite.",
