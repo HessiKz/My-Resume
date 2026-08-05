@@ -3,9 +3,10 @@
     {
       "title": "Chat JibiJ — Smart Market Chat",
       "title_fa": "جیبی‌جی — چت هوشمند بازار",
-      "description": "Production Persian AI chat product at chatjibij.ir: real-time Iranian market search, gold/USD price lookup and analysis, product image analysis, credit-based messaging, and a bilingual-ready RTL chat UI. Built as an end-to-end Next.js app with live data tooling for shoppers.",
-      "description_fa": "محصول چت هوشمند فارسی در chatjibij.ir: جستجوی لحظه‌ای بازار ایران، قیمت و تحلیل طلا/دلار، تحلیل تصویر کالا، پیام‌رسانی مبتنی بر اعتبار و UI چت RTL. اپلیکیشن end-to-end با Next.js و ابزارهای داده زنده برای خریداران.",
+      "description": "Production Persian AI chat product at chatjibij.ir: real-time Iranian market search, gold/USD price lookup and analysis, product image analysis, credit-based messaging, and a bilingual-ready RTL chat UI. Next.js frontend with a Go backend for APIs, market data, and live tooling for shoppers.",
+      "description_fa": "محصول چت هوشمند فارسی در chatjibij.ir: جستجوی لحظه‌ای بازار ایران، قیمت و تحلیل طلا/دلار، تحلیل تصویر کالا، پیام‌رسانی مبتنی بر اعتبار و UI چت RTL. فرانت Next.js با بک‌اند Go برای API، داده بازار و ابزارهای زنده برای خریداران.",
       "technologies": [
+        "Go",
         "Next.js",
         "React",
         "TypeScript",
