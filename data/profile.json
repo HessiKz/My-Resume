@@ -17,9 +17,9 @@
     "portfolioLabel": "Portfolio",
     "portfolioLabel_fa": "نمونه‌کار"
   },
-  "contentVersion": "2026-08-12-2",
-  "about": "Full Stack Developer with 4+ years shipping production systems across fintech, legal-tech, and enterprise AI. I own backend architecture (Python FastAPI, NestJS, Go), modern frontends (React, Next.js, Nuxt), AI layers (LangChain, LangSmith, workflows, API gateways), and deployment (CI/CD, Docker, Linux/VPS, Cloudflare, Railway, GitHub Pages). Comfortable shipping faster with modern AI coding tools: Cursor, Claude Code, GitHub Copilot, Aider, and similar agent/IDE assistants for multi-file refactors, reviews, and end-to-end feature work while owning architecture and code quality. Currently at Ayeh Group building multi-agent platforms and API management; previously helped ArnitEx migrate from Java Spring Boot to NestJS and Go. I deliver end-to-end: schema design, APIs, workers, RTL UIs, observability, and production releases. Passionate about clean code, best practices, and modern web technologies; also experienced in network security (Xray, Starlink setup) and teaching Node.js/Express.",
-  "about_fa": "توسعه‌دهنده فول‌استک با بیش از چهار سال تجربه در محصولات واقعی فین‌تک، حقوقی و AI سازمانی. مالکیت بک‌اند (FastAPI، NestJS، Go)، فرانت (React، Next.js، Nuxt)، AI (LangChain، LangSmith، workflow، API gateway) و استقرار (CI/CD، Docker، Linux/VPS، Cloudflare، Railway، GitHub Pages). مسلط به ابزارهای مدرن کدنویسی با هوش مصنوعی مانند Cursor، Claude Code، GitHub Copilot، Aider و دستیارهای agent/IDE مشابه برای refactor چندفایلی، ریویو و تحویل فیچر end-to-end، با مالکیت معماری و کیفیت کد. اکنون در گروه آیه؛ پیش‌تر مهاجرت ArnitEx از Spring Boot به NestJS و Go. تحویل end-to-end از دیتابیس و worker تا UI دوزبانه، مانیتورینگ و ریلیز production. علاقه‌مند به کد تمیز، بهترین روش‌های مهندسی و فناوری‌های وب مدرن؛ تجربه در امنیت شبکه (Xray، راه‌اندازی Starlink) و تدریس Node.js و Express.",
+  "contentVersion": "2026-08-12-3",
+  "about": "Full Stack Developer with 4+ years shipping production systems across fintech, legal-tech, and enterprise AI. I own backend architecture (Python FastAPI, NestJS, Go), modern frontends (React, Next.js, Nuxt), AI layers (LangChain, LangSmith, workflows, API gateways), and deployment (CI/CD, Docker, Linux/VPS, Cloudflare, Railway, GitHub Pages). Comfortable shipping faster with modern AI coding tools: Cursor, Claude Code, GitHub Copilot, Aider, and similar agent/IDE assistants for multi-file refactors, reviews, and end-to-end feature work while owning architecture and code quality. Currently teaching agentic AI at University of Tehran (Tehran Technology House); previously at Ayeh Group building multi-agent platforms and API management, and helped ArnitEx migrate from Java Spring Boot to NestJS and Go. I deliver end-to-end: schema design, APIs, workers, RTL UIs, observability, and production releases. Passionate about clean code, best practices, and modern web technologies; also experienced in network security (Xray, Starlink setup) and teaching Node.js/Express.",
+  "about_fa": "توسعه‌دهنده فول‌استک با بیش از چهار سال تجربه در محصولات واقعی فین‌تک، حقوقی و AI سازمانی. مالکیت بک‌اند (FastAPI، NestJS، Go)، فرانت (React، Next.js، Nuxt)، AI (LangChain، LangSmith، workflow، API gateway) و استقرار (CI/CD، Docker، Linux/VPS، Cloudflare، Railway، GitHub Pages). مسلط به ابزارهای مدرن کدنویسی با هوش مصنوعی مانند Cursor، Claude Code، GitHub Copilot، Aider و دستیارهای agent/IDE مشابه برای refactor چندفایلی، ریویو و تحویل فیچر end-to-end، با مالکیت معماری و کیفیت کد. اکنون مدرس کار با هوش مصنوعی به‌صورت ایجنتیک در دانشگاه تهران (خانه فناوری تهران)؛ پیش‌تر در گروه آیه روی پلتفرم‌های چندایجنت و مدیریت API، و مهاجرت ArnitEx از Spring Boot به NestJS و Go. تحویل end-to-end از دیتابیس و worker تا UI دوزبانه، مانیتورینگ و ریلیز production. علاقه‌مند به کد تمیز، بهترین روش‌های مهندسی و فناوری‌های وب مدرن؛ تجربه در امنیت شبکه (Xray، راه‌اندازی Starlink) و تدریس Node.js و Express.",
   "skills": {
     "AI & LLM": [
       {"name": "LangChain", "level": "Advanced"},
@@ -164,13 +164,29 @@
   },
   "experience": [
     {
+      "role": "Instructor – Agentic AI",
+      "role_fa": "مدرس کار با هوش مصنوعی به‌صورت ایجنتیک",
+      "company": "University of Tehran (Tehran Technology House)",
+      "company_fa": "دانشگاه تهران (خانه فناوری تهران)",
+      "period": "Mordad 1405 – Present",
+      "period_fa": "مرداد ۱۴۰۵ – اکنون",
+      "points": [
+        "Teach agentic AI workflows: multi-agent systems, tooling, orchestration patterns, and practical production-minded usage.",
+        "Mentor learners on building and operating AI agents with modern stacks (LangChain-style workflows, APIs, and evaluation habits)."
+      ],
+      "points_fa": [
+        "تدریس کار با هوش مصنوعی به‌صورت ایجنتیک: سیستم‌های چندایجنت، tooling، الگوهای ارکستراسیون و کاربرد عملی نزدیک به production.",
+        "منتورینگ ساخت و بهره‌برداری از ایجنت‌های AI با استک مدرن (workflowهای سبک LangChain، API و عادت‌های ارزیابی)."
+      ]
+    },
+    {
       "role": "Full Stack Developer & API Platform Lead",
       "role_fa": "توسعه‌دهنده فول‌استک و مسئول پلتفرم API",
       "company": "Ayeh Group (Aye)",
       "company_fa": "گروه آیه",
       "companyUrl": "https://ayehgroup.com/",
-      "period": "31 Farvardin 1405 – Present",
-      "period_fa": "۳۱ فروردین ۱۴۰۵ – اکنون",
+      "period": "31 Farvardin 1405 – 21 Mordad 1405 (Contract ended)",
+      "period_fa": "۳۱ فروردین ۱۴۰۵ – ۲۱ مرداد ۱۴۰۵ (پایان قرارداد)",
       "points": [
         "Build and maintain enterprise AI assistant platform (multi-agent workspace, admin, department routing) with React/Next and FastAPI.",
         "Own API management layer: gateway patterns, auth, rate limits, and integration with LangChain/LangSmith for tracing and workflows.",
