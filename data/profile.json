@@ -180,13 +180,13 @@
       ]
     },
     {
-      "role": "Full Stack Developer & API Platform Lead (Contract)",
-      "role_fa": "توسعه‌دهنده فول‌استک و مسئول پلتفرم API (قراردادی)",
+      "role": "Full Stack Developer & API Platform Lead (Concurrent Contract)",
+      "role_fa": "توسعه‌دهنده فول‌استک و مسئول پلتفرم API (قرارداد هم‌زمان)",
       "company": "Ayeh Group (Aye)",
       "company_fa": "گروه آیه",
       "companyUrl": "https://ayehgroup.com/",
-      "period": "31 Farvardin 1405 – 21 Mordad 1405 (Contract ended)",
-      "period_fa": "۳۱ فروردین ۱۴۰۵ – ۲۱ مرداد ۱۴۰۵ (پایان قرارداد)",
+      "period": "31 Farvardin 1405 – 21 Mordad 1405 (Contract ended; concurrent with other roles)",
+      "period_fa": "۳۱ فروردین ۱۴۰۵ – ۲۱ مرداد ۱۴۰۵ (پایان قرارداد؛ هم‌زمان با نقش‌های دیگر)",
       "points": [
         "Build and maintain enterprise AI assistant platform (multi-agent workspace, admin, department routing) with React/Next and FastAPI.",
         "Own API management layer: gateway patterns, auth, rate limits, and integration with LangChain/LangSmith for tracing and workflows.",
@@ -201,12 +201,12 @@
       ]
     },
     {
-      "role": "Backend Developer & Project Manager (Contract)",
-      "role_fa": "توسعه‌دهنده بک‌اند و مدیر پروژه (قراردادی)",
+      "role": "Backend Developer & Project Manager (Concurrent Contract)",
+      "role_fa": "توسعه‌دهنده بک‌اند و مدیر پروژه (قرارداد هم‌زمان)",
       "company": "ArnitEx (Crypto Exchange)",
       "company_fa": "ArnitEx (صرافی ارز دیجیتال)",
-      "period": "Nov 2024 – 31 Farvardin 1405 (Contract ended)",
-      "period_fa": "آبان ۱۴۰۴ – ۳۱ فروردین ۱۴۰۵ (پایان قرارداد)",
+      "period": "Nov 2024 – 31 Farvardin 1405 (Contract ended; concurrent with full-time role at Iziran)",
+      "period_fa": "آبان ۱۴۰۴ – ۳۱ فروردین ۱۴۰۵ (پایان قرارداد؛ هم‌زمان با شغل تمام‌وقت در ایزیران)",
       "points": [
         "Helped migrate legacy Java Spring Boot backend to NestJS (web APIs, trading flows) and Go (crypto wallets, chain operations).",
         "Designed REST APIs, coordinated sprints, and improved performance and security on the new exchange stack.",
@@ -219,11 +219,11 @@
       ]
     },
     {
-      "role": "Backend Developer",
-      "role_fa": "توسعه‌دهنده بک‌اند",
+      "role": "Backend Developer (Full-time)",
+      "role_fa": "توسعه‌دهنده بک‌اند (تمام‌وقت)",
       "company": "Iziran Company",
       "company_fa": "شرکت ایزیران",
-      "period": "Feb 2024 – Mar 2026",
+      "period": "Feb 2025 – Mar 2026",
       "period_fa": "بهمن ۱۴۰۳ – اسفند ۱۴۰۴",
       "points": [
         "Developed backend services with NestJS, Node.js/Express; also worked with Django and Flask.",
